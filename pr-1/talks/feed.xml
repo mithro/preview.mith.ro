@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tim 'mithro' Ansell — Talks</title>
-    <link>https://mith.ro/pr-1/talks/</link>
-    <atom:link href="https://mith.ro/pr-1/talks/feed.xml" rel="self" type="application/rss+xml" />
+    <link>https://preview.mith.ro/pr-1/talks/</link>
+    <atom:link href="https://preview.mith.ro/pr-1/talks/feed.xml" rel="self" type="application/rss+xml" />
     <description>Talks and presentations by Tim 'mithro' Ansell — open source silicon, FPGAs, EDA and more.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 25 Aug 2026 08:38:06 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 08:40:59 +0000</lastBuildDate>
     <item>
       <title>wafer.space - TSRI 2026</title>
       <link>https://wafer.space/tsri26</link>
@@ -828,7 +828,7 @@
     </item>
     <item>
       <title>Making git usable with large media repositories</title>
-      <link>https://mith.ro/pr-1/talks/</link>
+      <link>https://preview.mith.ro/pr-1/talks/</link>
       <guid isPermaLink="false">mith.ro-talk-2008-10-01-making-git-usable-with-large-media-repositories-gittogether-08-googleplex-mountain-view</guid>
       <pubDate>Wed, 01 Oct 2008 00:00:00 +0000</pubDate>
       <description>GitTogether &#39;08, Googleplex, Mountain View · Oct 2008</description>
@@ -842,7 +842,7 @@
     </item>
     <item>
       <title>The best things in life are free</title>
-      <link>https://mith.ro/pr-1/talks/</link>
+      <link>https://preview.mith.ro/pr-1/talks/</link>
       <guid isPermaLink="false">mith.ro-talk-2007-08-18-the-best-things-in-life-are-free-freeplay-independent-game-developers-conference-acmi-melbourne</guid>
       <pubDate>Sat, 18 Aug 2007 00:00:00 +0000</pubDate>
       <description>FreePlay — Independent Game Developers Conference, ACMI Melbourne · 18 Aug 2007</description>
