@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tim 'mithro' Ansell — Talks</title>
+    <link>https://preview.mith.ro/pr-2/talks/</link>
+    <atom:link href="https://preview.mith.ro/pr-2/talks/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Talks and presentations by Tim 'mithro' Ansell — open source silicon, FPGAs, EDA and more.</description>
+    <language>en</language>
+    <lastBuildDate>Sat, 05 Sep 2026 02:52:25 +0000</lastBuildDate>
+    <item>
+      <title>wafer.space at TSRI 2026</title>
+      <link>https://preview.mith.ro/pr-2/talks/tsri26/</link>
+      <guid isPermaLink="false">mith.ro-talk-2026-08-10-wafer-space-tsri-2026-taiwan-semiconductor-research-institute-tsri-tainan</guid>
+      <pubDate>Mon, 10 Aug 2026 00:00:00 +0000</pubDate>
+      <description>Taiwan Semiconductor Research Institute (TSRI), Tainan · 10 Aug 2026</description>
+    </item>
+    <item>
+      <title>wafer.space at COSCUP 2026</title>
+      <link>https://preview.mith.ro/pr-2/talks/coscup26/</link>
+      <guid isPermaLink="false">mith.ro-talk-2026-08-09-wafer-space-coscup-2026-coscup-2026</guid>
+      <pubDate>Sun, 09 Aug 2026 00:00:00 +0000</pubDate>
+      <description>COSCUP 2026 · 9 Aug 2026</description>
+    </item>
+    <item>
+      <title>wafer.space at Hackaday Europe 2026</title>
+      <link>https://preview.mith.ro/pr-2/talks/had26/</link>
+      <guid isPermaLink="false">mith.ro-talk-2026-05-16-wafer-space-hack-a-day-europe-2026-hackaday-europe-2026</guid>
+      <pubDate>Sat, 16 May 2026 00:00:00 +0000</pubDate>
+      <description>Hackaday Europe 2026 · 16 May 2026</description>
+    </item>
+    <item>
+      <title>wafer.space at Silicon Sprint AUC 2026</title>
+      <link>https://preview.mith.ro/pr-2/talks/auc26/</link>
+      <guid isPermaLink="false">mith.ro-talk-2026-04-06-wafer-space-silicon-sprint-auc-2026-silicon-sprint-auc-2026</guid>
+      <pubDate>Mon, 06 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Silicon Sprint AUC 2026 · 6 Apr 2026</description>
+    </item>
+    <item>
+      <title>wafer.space: silicon now $4 USD — get inspired by Run #1!</title>
+      <link>https://preview.mith.ro/pr-2/talks/hw26/</link>
+      <guid isPermaLink="false">mith.ro-talk-2026-04-02-wafer-space-silicon-now-4-usd-get-inspired-from-run-1-hackware-hardware-meetup-singapore</guid>
+      <pubDate>Thu, 02 Apr 2026 00:00:00 +0000</pubDate>
+      <description>Hackware hardware meetup, Singapore · 2 Apr 2026 · recording: https://www.youtube.com/watch?v=t6Z0_Krhshc</description>
+    </item>
+    <item>
+      <title>wafer.space at Down Underflow 2026</title>
+      <link>https://preview.mith.ro/pr-2/talks/du26/</link>
+      <guid isPermaLink="false">mith.ro-talk-2026-02-28-wafer-space-down-underflow-2026-down-underflow-2026</guid>
+      <pubDate>Sat, 28 Feb 2026 00:00:00 +0000</pubDate>
+      <description>Down Underflow 2026 · 28 Feb 2026</description>
+    </item>
+    <item>
+      <title>wafer.space at Hackware 2025</title>
+      <link>https://preview.mith.ro/pr-2/talks/hw25/</link>
+      <guid isPermaLink="false">mith.ro-talk-2025-10-09-wafer-space-hackware-2025-hackware-hardware-meetup-singapore</guid>
+      <pubDate>Thu, 09 Oct 2025 00:00:00 +0000</pubDate>
+      <description>Hackware hardware meetup, Singapore · 9 Oct 2025</description>
+    </item>
+    <item>
+      <title>wafer.space: budget silicon manufacturing</title>
+      <link>https://preview.mith.ro/pr-2/talks/latchup25/</link>
+      <guid isPermaLink="false">mith.ro-talk-2025-05-03-wafer-space-budget-silicon-manufacturing-lightning-talk-latch-up-2025-uc-santa-barbara</guid>
+      <pubDate>Sat, 03 May 2025 00:00:00 +0000</pubDate>
+      <description>Latch-Up 2025, UC Santa Barbara · 3 May 2025</description>
+    </item>
+    <item>
+      <title>A brain dump on open source silicon (FPGAs, ASICs and similar)</title>
+      <link>https://preview.mith.ro/pr-2/talks/mithro-lbnl25/</link>
+      <guid isPermaLink="false">mith.ro-talk-2025-05-01-a-brain-dump-on-open-source-silicon-fpgas-asics-and-similar-lawrence-berkeley-national-laboratory-lbnl-seminar</guid>
+      <pubDate>Thu, 01 May 2025 00:00:00 +0000</pubDate>
+      <description>Lawrence Berkeley National Laboratory (LBNL) seminar · May 2025</description>
+    </item>
+    <item>
+      <title>So you wanna make a chip? Open source silicon</title>
+      <link>https://preview.mith.ro/pr-2/talks/open-silicon-fbx/</link>
+      <guid isPermaLink="false">mith.ro-talk-2025-03-14-so-you-wanna-make-a-chip-open-source-silicon-flashbots-x-san-francisco</guid>
+      <pubDate>Fri, 14 Mar 2025 00:00:00 +0000</pubDate>
+      <description>Flashbots_X, San Francisco · 14 Mar 2025</description>
+    </item>
+    <item>
+      <title>So you wanna make a chip? Open source silicon</title>
+      <link>https://preview.mith.ro/pr-2/talks/open-silicon-dacc/</link>
+      <guid isPermaLink="false">mith.ro-talk-2025-03-13-so-you-wanna-make-a-chip-open-source-silicon-d-acc-day-uc-berkeley</guid>
+      <pubDate>Thu, 13 Mar 2025 00:00:00 +0000</pubDate>
+      <description>&lt;d/acc day&gt; @ UC Berkeley · 13 Mar 2025</description>
+    </item>
+    <item>
+      <title>Open-source silicon enabling HEP-IC opportunities</title>
+      <link>https://preview.mith.ro/pr-2/talks/mithro-hepic24/</link>
+      <guid isPermaLink="false">mith.ro-talk-2024-05-02-open-source-silicon-enabling-hep-ic-opportunities-high-energy-physics-ic-workshop-hep-ic-2024-brookhaven-national-laboratory</guid>
+      <pubDate>Thu, 02 May 2024 00:00:00 +0000</pubDate>
+      <description>High Energy Physics IC Workshop (HEP-IC 2024), Brookhaven National Laboratory · 2 May 2024</description>
+    </item>
+    <item>
+      <title>Will open source design be the future direction?</title>
+      <link>https://preview.mith.ro/pr-2/talks/mithro-cicc24/</link>
+      <guid isPermaLink="false">mith.ro-talk-2024-04-22-will-open-source-design-be-the-future-direction-panelist-ieee-custom-integrated-circuits-conference-cicc-2024-denver</guid>
+      <pubDate>Mon, 22 Apr 2024 00:00:00 +0000</pubDate>
+      <description>IEEE Custom Integrated Circuits Conference (CICC) 2024, Denver · 22 Apr 2024</description>
+    </item>
+    <item>
+      <title>Tim&#39;s silicon presentations</title>
+      <link>https://preview.mith.ro/pr-2/talks/tim-silicon-2024/</link>
+      <guid isPermaLink="false">mith.ro-talk-2024-04-19-tim-s-silicon-presentations-latch-up-2024-mit</guid>
+      <pubDate>Fri, 19 Apr 2024 00:00:00 +0000</pubDate>
+      <description>Latch-Up 2024, MIT · 19 Apr 2024 · recording: https://www.youtube.com/watch?v=FDYfu0Mx__0</description>
+    </item>
+    <item>
+      <title>Education and workforce development</title>
+      <link>https://preview.mith.ro/pr-2/talks/goog-ic-edu/</link>
+      <guid isPermaLink="false">mith.ro-talk-2023-06-01-education-and-workforce-development-</guid>
+      <pubDate>Thu, 01 Jun 2023 00:00:00 +0000</pubDate>
+      <description> · Jun 2023</description>
+    </item>
+    <item>
+      <title>Build custom silicon with Google!</title>
+      <link>https://preview.mith.ro/pr-2/talks/ispd23-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2023-03-29-ispd-2023-build-custom-silicon-with-google-international-symposium-on-physical-design-2023-ispd</guid>
+      <pubDate>Wed, 29 Mar 2023 00:00:00 +0000</pubDate>
+      <description>International Symposium on Physical Design 2023 (ISPD) · 29 Mar 2023</description>
+    </item>
+    <item>
+      <title>Why is Google investing in fully open source IC design and what is next?</title>
+      <link>https://preview.mith.ro/pr-2/talks/cf23-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2023-01-17-coinflips-sandia-doe-lab-why-is-google-investing-in-fully-open-source-ic-design-and-what-is-next-coinflips-seminar-series</guid>
+      <pubDate>Tue, 17 Jan 2023 00:00:00 +0000</pubDate>
+      <description>COINFLIPS Seminar Series · 17 Jan 2023</description>
+    </item>
+    <item>
+      <title>Build custom silicon with Google!</title>
+      <link>https://preview.mith.ro/pr-2/talks/vsdopen22-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-10-15-vsdopen-2022-build-custom-silicon-with-google-vsdopen-conference-2022</guid>
+      <pubDate>Sat, 15 Oct 2022 00:00:00 +0000</pubDate>
+      <description>VSDOpen Conference (2022) · 15 Oct 2022 · recording: https://youtu.be/ZeyBiUlsaCE?si=1dxo_td59_GGCdfR&amp;t=1967</description>
+    </item>
+    <item>
+      <title>SERDES, PIPE and protocols: a pathway to fully open source implementations</title>
+      <link>https://preview.mith.ro/pr-2/talks/open-pipe-talk/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-10-11-serdes-pipe-and-protocols-pathway-to-fully-open-source-implementations-</guid>
+      <pubDate>Tue, 11 Oct 2022 00:00:00 +0000</pubDate>
+      <description> · 11 Oct 2022</description>
+    </item>
+    <item>
+      <title>Open silicon science</title>
+      <link>https://preview.mith.ro/pr-2/talks/opensilicon-nist22/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-09-20-open-silicon-science-nist-integrated-circuits-for-metrology-workshop-nist-integrated-circuits-for-metrology-workshop</guid>
+      <pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate>
+      <description>NIST Integrated Circuits for Metrology Workshop · 20 Sep 2022</description>
+    </item>
+    <item>
+      <title>Google, GlobalFoundries &amp; open source! What is happening and why should I care?</title>
+      <link>https://preview.mith.ro/pr-2/talks/gfu22-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-08-31-google-globalfoundries-open-source-what-is-happening-and-why-should-i-care-globalfoundries-university-calls</guid>
+      <pubDate>Wed, 31 Aug 2022 00:00:00 +0000</pubDate>
+      <description>GlobalFoundries University Calls · 31 Aug 2022</description>
+    </item>
+    <item>
+      <title>Open source hardware IP licensing</title>
+      <link>https://preview.mith.ro/pr-2/talks/rios22-ip-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-06-30-rios-open-source-hardware-ip-licensing-2022-google-rios-open-source-hardware-ip-licensing-and-policy-workshop</guid>
+      <pubDate>Thu, 30 Jun 2022 00:00:00 +0000</pubDate>
+      <description>RIOS Open-source hardware IP licensing and policy workshop · 30 Jun 2022</description>
+    </item>
+    <item>
+      <title>Why is Google investing in fully open source IC design and what is next?</title>
+      <link>https://preview.mith.ro/pr-2/talks/vlsi22-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-06-16-vlsi-symposium-why-is-google-investing-in-fully-open-source-ic-design-and-what-is-next-2022-ieee-symposium-on-vlsi-technology-circuits</guid>
+      <pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate>
+      <description>2022 IEEE Symposium on VLSI technology &amp; circuits · 16 Jun 2022</description>
+    </item>
+    <item>
+      <title>Latest statistics from Google&#39;s no-cost shuttle program for open source designs</title>
+      <link>https://preview.mith.ro/pr-2/talks/rvd22-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-06-02-risc-v-days-japan-2022-spring-latest-statistics-from-google-s-no-cost-shuttle-program-for-open-source-designs-with-skywater-technologies-and-efabless-risc-v-days-japan-2022-spring</guid>
+      <pubDate>Thu, 02 Jun 2022 00:00:00 +0000</pubDate>
+      <description>RISC-V Days Japan (2022 Spring) · 2 Jun 2022</description>
+    </item>
+    <item>
+      <title>Google&#39;s open silicon programs</title>
+      <link>https://preview.mith.ro/pr-2/talks/usn22-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-05-03-google-s-open-silicon-programs-us-navy-summary-</guid>
+      <pubDate>Tue, 03 May 2022 00:00:00 +0000</pubDate>
+      <description> · 3 May 2022</description>
+    </item>
+    <item>
+      <title>Update on the SkyWater MPW program (and what is next?)</title>
+      <link>https://preview.mith.ro/pr-2/talks/mosak22-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-04-29-spring-mos-ak-workshop-update-on-the-skywater-mpw-program-and-what-is-next-spring-mos-ak-workshop</guid>
+      <pubDate>Fri, 29 Apr 2022 00:00:00 +0000</pubDate>
+      <description>Spring MOS-AK Workshop · 29 Apr 2022</description>
+    </item>
+    <item>
+      <title>Why is Google investing in fully open source IC design and what is next?</title>
+      <link>https://preview.mith.ro/pr-2/talks/spie22-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-04-25-spie-advanced-lithography-patterning-why-is-google-investing-in-fully-open-source-ic-design-and-what-is-next-spie-advanced-lithography-patterning</guid>
+      <pubDate>Mon, 25 Apr 2022 00:00:00 +0000</pubDate>
+      <description>SPIE: Advanced Lithography + Patterning · 25 Apr 2022</description>
+    </item>
+    <item>
+      <title>Why is Google investing in fully open source IC design and what is next?</title>
+      <link>https://preview.mith.ro/pr-2/talks/cicc22-edu-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-04-24-cicc-2022-educational-why-is-google-investing-in-fully-open-source-ic-design-and-what-is-next-cicc-2022-educational</guid>
+      <pubDate>Sun, 24 Apr 2022 00:00:00 +0000</pubDate>
+      <description>CICC 2022 Educational · 24 Apr 2022</description>
+    </item>
+    <item>
+      <title>SKY130 silicon realization program update</title>
+      <link>https://preview.mith.ro/pr-2/talks/sky130-update-apr22/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-04-19-sky130-silicon-realization-program-update-19th-april-2022-</guid>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      <description> · 19 Apr 2022</description>
+    </item>
+    <item>
+      <title>Latest statistics from Google&#39;s no-cost shuttle program for open source designs</title>
+      <link>https://preview.mith.ro/pr-2/talks/ca22-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-04-19-chips-alliance-spring-2022-update-latest-statistics-from-google-s-no-cost-shuttle-program-for-open-source-designs-with-skywater-technologies-and-efabless-chips-alliance-spring-2022-update</guid>
+      <pubDate>Tue, 19 Apr 2022 00:00:00 +0000</pubDate>
+      <description>CHIPS Alliance Spring 2022 Update · 19 Apr 2022</description>
+    </item>
+    <item>
+      <title>Investing in fully open source silicon</title>
+      <link>https://preview.mith.ro/pr-2/talks/goog-um22/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-03-14-umich-eecs-627-vlsi-design-ii-google-talk-investing-in-fully-open-source-silicon-umich-eecs-627-vlsi-design-ii</guid>
+      <pubDate>Mon, 14 Mar 2022 00:00:00 +0000</pubDate>
+      <description>UMich - EECS 627 - VLSI Design II · 14 Mar 2022</description>
+    </item>
+    <item>
+      <title>Enabling new science using Google&#39;s investment in fully open source silicon</title>
+      <link>https://preview.mith.ro/pr-2/talks/goog-nsf22/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-03-07-nsf-presentation-enabling-new-science-using-google-s-investment-in-fully-open-source-silicon-</guid>
+      <pubDate>Mon, 07 Mar 2022 00:00:00 +0000</pubDate>
+      <description> · 7 Mar 2022</description>
+    </item>
+    <item>
+      <title>Google and open source hardware toolchains &amp; ecosystem</title>
+      <link>https://preview.mith.ro/pr-2/talks/op22-gtools/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-03-04-soc-design-using-openpower-cores-4th-march-2022-google-and-open-source-hardware-toolchains-ecosystem-</guid>
+      <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
+      <description> · 4 Mar 2022 · recording: https://youtu.be/l5HcuX8MH6Y</description>
+    </item>
+    <item>
+      <title>Microelectronics workforce development workshop</title>
+      <link>https://preview.mith.ro/pr-2/talks/suny22-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2022-02-03-microelectronics-workforce-development-workshop-slides-suny-</guid>
+      <pubDate>Thu, 03 Feb 2022 00:00:00 +0000</pubDate>
+      <description> · 3 Feb 2022</description>
+    </item>
+    <item>
+      <title>Enabling new science using Google&#39;s investment in fully open source silicon</title>
+      <link>https://preview.mith.ro/pr-2/talks/goog-nist21/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-12-17-nist-presentation-enabling-new-science-using-google-s-investment-in-fully-open-source-silicon-pml-alternative-computing-group-</guid>
+      <pubDate>Fri, 17 Dec 2021 00:00:00 +0000</pubDate>
+      <description> · 17 Dec 2021</description>
+    </item>
+    <item>
+      <title>Open down to the transistor: a fully open source, manufacturable PDK for a 130nm process</title>
+      <link>https://preview.mith.ro/pr-2/talks/oto21-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-11-06-opentapeout-2021-open-down-to-the-transistor-a-fully-open-source-manufacturable-pdk-for-130nm-process-for-ic-creation-silicon-down-to-the-transistor-tim-ansell-google-opentapeout-2021</guid>
+      <pubDate>Sat, 06 Nov 2021 00:00:00 +0000</pubDate>
+      <description>OpenTapeOut 2021 · 6 Nov 2021 · recording: https://youtu.be/R00yuqMYqZQ</description>
+    </item>
+    <item>
+      <title>A fully FOSS memory controller with LPDDR4/5 support for FPGAs and ASICs</title>
+      <link>https://preview.mith.ro/pr-2/talks/ops21-litedram/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-10-28-openpower-summit-2021-a-fully-foss-memory-controller-with-lpddr4-5-support-for-fpga-and-asics-openpower-summit-2021</guid>
+      <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
+      <description>OpenPOWER Summit 2021 · 28 Oct 2021 · recording: https://youtu.be/_7jSh04LzhA</description>
+    </item>
+    <item>
+      <title>NSF IC education workshop</title>
+      <link>https://preview.mith.ro/pr-2/talks/nsf-edu-2021/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-10-15-nsf-ic-education-workshop-slides-</guid>
+      <pubDate>Fri, 15 Oct 2021 00:00:00 +0000</pubDate>
+      <description> · 15 Oct 2021</description>
+    </item>
+    <item>
+      <title>Open down to the transistor: a fully open source, manufacturable PDK for a 130nm process</title>
+      <link>https://preview.mith.ro/pr-2/talks/esscirc21-sky130-v2/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-09-21-esscirc-essderc-2021-open-down-to-the-transistor-a-fully-open-source-manufacturable-pdk-for-130nm-process-for-ic-creation-silicon-down-to-the-transistor-tim-ansell-google-</guid>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      <description> · 21 Sep 2021</description>
+    </item>
+    <item>
+      <title>Open down to the transistor (summary)</title>
+      <link>https://preview.mith.ro/pr-2/talks/esscirc21-sky130-summary/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-09-21-esscirc-essderc-2021-open-down-to-the-transistor-a-fully-open-source-manufacturable-pdk-for-130nm-process-for-ic-creation-silicon-down-to-the-transistor-tim-ansell-google-summary-</guid>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      <description> · 21 Sep 2021</description>
+    </item>
+    <item>
+      <title>Open down to the transistor: a fully open source, manufacturable PDK for a 130nm process</title>
+      <link>https://preview.mith.ro/pr-2/talks/esscxxrc21-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-09-21-esscirc-essderc-2021-open-down-to-the-transistor-a-fully-open-source-manufacturable-pdk-for-130nm-process-for-ic-creation-silicon-down-to-the-transistor-tim-ansell-google-esscirc-essderc-2021</guid>
+      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
+      <description>ESSCIRC ESSDERC 2021 · 21 Sep 2021</description>
+    </item>
+    <item>
+      <title>Open down to the transistor: a fully open source, manufacturable PDK for a 130nm process</title>
+      <link>https://preview.mith.ro/pr-2/talks/sbcci21-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-08-23-sbcci-2021-open-down-to-the-transistor-a-fully-open-source-manufacturable-pdk-for-130nm-process-for-ic-creation-silicon-down-to-the-transistor-tim-ansell-google-sbcci-2021</guid>
+      <pubDate>Mon, 23 Aug 2021 00:00:00 +0000</pubDate>
+      <description>SBCCI 2021 · 23 Aug 2021</description>
+    </item>
+    <item>
+      <title>Discussion panel: the open way for making chips and its impact!</title>
+      <link>https://preview.mith.ro/pr-2/talks/coscup21-panel/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-08-01-discussion-panel-the-open-way-for-making-chips-and-its-impact-coscup-x-rubyconftw-2021</guid>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <description>COSCUP x RubyConfTW 2021 · 1 Aug 2021 · recording: https://youtu.be/2vPqqKYUebE</description>
+    </item>
+    <item>
+      <title>Open down to the transistor: a fully open source, manufacturable PDK for a 130nm process</title>
+      <link>https://preview.mith.ro/pr-2/talks/coscup21-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-08-01-coscup-open-down-to-the-transistor-a-fully-open-source-manufacturable-pdk-for-130nm-process-for-ic-creation-silicon-down-to-the-transistor-tim-ansell-google-coscup-x-rubyconftw-2021</guid>
+      <pubDate>Sun, 01 Aug 2021 00:00:00 +0000</pubDate>
+      <description>COSCUP x RubyConfTW 2021 · 1 Aug 2021 · recording: https://youtu.be/ENi6FZsojeA</description>
+    </item>
+    <item>
+      <title>Google and open source hardware toolchains &amp; ecosystem</title>
+      <link>https://preview.mith.ro/pr-2/talks/opf21-ght/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-06-09-openpower-linkedin-live-event-9th-june-2021-google-and-open-source-hardware-toolchains-ecosystem-openpower-linkedin-live-event</guid>
+      <pubDate>Wed, 09 Jun 2021 00:00:00 +0000</pubDate>
+      <description>OpenPower LinkedIn Live Event · 9 Jun 2021 · recording: https://youtu.be/8HFhnvKmxn4</description>
+    </item>
+    <item>
+      <title>Google and open source hardware toolchains &amp; ecosystem</title>
+      <link>https://preview.mith.ro/pr-2/talks/byu21-goog/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-06-01-google-and-open-source-hardware-toolchains-ecosystem-byu-2021-presentation-</guid>
+      <pubDate>Tue, 01 Jun 2021 00:00:00 +0000</pubDate>
+      <description> · Jun 2021</description>
+    </item>
+    <item>
+      <title>Democratizing IC design: fully open silicon down to the transistor</title>
+      <link>https://preview.mith.ro/pr-2/talks/sscd21-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-04-07-solid-state-circuits-directions-workshop-democratizing-ic-design-fully-open-silicon-down-to-the-transistor-tim-ansell-google-solid-state-circuits-directions-workshop</guid>
+      <pubDate>Wed, 07 Apr 2021 00:00:00 +0000</pubDate>
+      <description>Solid-State Circuits Directions Workshop · 7 Apr 2021</description>
+    </item>
+    <item>
+      <title>Fully open silicon down to the transistor</title>
+      <link>https://preview.mith.ro/pr-2/talks/ca21-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-03-30-chips-alliance-spring-workshop-fully-open-silicon-down-to-the-transistor-tim-ansell-google-chips-alliance-spring-workshop</guid>
+      <pubDate>Tue, 30 Mar 2021 00:00:00 +0000</pubDate>
+      <description>CHIPS Alliance Spring Workshop · 30 Mar 2021</description>
+    </item>
+    <item>
+      <title>The missing pieces of open design enablement: a recent history of Google efforts</title>
+      <link>https://preview.mith.ro/pr-2/talks/cae21-goog-miss/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-03-12-argentine-conference-on-electronics-cae-summit-the-missing-pieces-of-open-design-enablement-a-recent-history-of-google-efforts-argentine-conference-on-electronics-cae-summit</guid>
+      <pubDate>Fri, 12 Mar 2021 00:00:00 +0000</pubDate>
+      <description>Argentine Conference on Electronics (CAE) Summit · 12 Mar 2021 · recording: https://youtu.be/l5-nj1_VV8Y</description>
+    </item>
+    <item>
+      <title>Open silicon summary</title>
+      <link>https://preview.mith.ro/pr-2/talks/eri21-opensilicon/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-02-01-google-eri-posh-idea-integration-exercise-2021-open-silicon-summary-darpa-eri-posh-idea-integration-exercise-2021</guid>
+      <pubDate>Mon, 01 Feb 2021 00:00:00 +0000</pubDate>
+      <description>DARPA ERI POSH + IDEA Integration Exercise 2021 · Feb 2021</description>
+    </item>
+    <item>
+      <title>The missing pieces of open design enablement: a recent history of Google efforts</title>
+      <link>https://preview.mith.ro/pr-2/talks/rios21-goog-miss/</link>
+      <guid isPermaLink="false">mith.ro-talk-2021-01-27-rios21-summit-the-missing-pieces-of-open-design-enablement-a-recent-history-of-google-efforts-rios21-summit</guid>
+      <pubDate>Wed, 27 Jan 2021 00:00:00 +0000</pubDate>
+      <description>RIOS21 Summit · 27 Jan 2021</description>
+    </item>
+    <item>
+      <title>Micro/nano circuits foundry session</title>
+      <link>https://preview.mith.ro/pr-2/talks/nsf20-foundry/</link>
+      <guid isPermaLink="false">mith.ro-talk-2020-12-16-subset-of-nsf-2020-ws-micro-nano-circuits-foundry-session-slides-</guid>
+      <pubDate>Wed, 16 Dec 2020 00:00:00 +0000</pubDate>
+      <description> · 16 Dec 2020</description>
+    </item>
+    <item>
+      <title>google/skywater-pdk: a manufacturable open source 130nm PDK</title>
+      <link>https://preview.mith.ro/pr-2/talks/rvs20-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2020-12-01-google-skywater-pdk-manufacturable-open-source-130nm-pdk-risc-v-summit-2020-risc-v-summit-2020</guid>
+      <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
+      <description>RISC-V Summit 2020 · Dec 2020 · recording: https://youtu.be/N9ovAYC5_QY</description>
+    </item>
+    <item>
+      <title>The missing pieces of open design enablement: a recent history of Google efforts</title>
+      <link>https://preview.mith.ro/pr-2/talks/iccad20-goog-miss/</link>
+      <guid isPermaLink="false">mith.ro-talk-2020-11-03-iccad20-the-missing-pieces-of-open-design-enablement-a-recent-history-of-google-efforts-iccad20</guid>
+      <pubDate>Tue, 03 Nov 2020 00:00:00 +0000</pubDate>
+      <description>ICCAD20 · 3 Nov 2020 · recording: https://bit.ly/iccad20-goog-miss-video</description>
+    </item>
+    <item>
+      <title>google/skywater-pdk: a manufacturable open source 130nm PDK</title>
+      <link>https://preview.mith.ro/pr-2/talks/du20-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2020-06-30-google-skywater-pdk-manufacturable-open-source-130nm-pdk-fossi-foundation-dialup-talk-series-fossi-foundation-dialup-talk-series</guid>
+      <pubDate>Tue, 30 Jun 2020 00:00:00 +0000</pubDate>
+      <description>FOSSi Foundation Dialup Talk Series · 30 Jun 2020 · recording: https://youtu.be/EczW2IWdnOM</description>
+    </item>
+    <item>
+      <title>3 talks for the price of 1!</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca20-3talks/</link>
+      <guid isPermaLink="false">mith.ro-talk-2020-01-13-3-talks-for-the-price-of-1-tim-ansell-lca-2020-lca-2020</guid>
+      <pubDate>Mon, 13 Jan 2020 00:00:00 +0000</pubDate>
+      <description>LCA 2020 · 13 Jan 2020 · recording: https://youtu.be/jygZtVzbcek</description>
+    </item>
+    <item>
+      <title>ERI POSH + IDEA integration exercise</title>
+      <link>https://preview.mith.ro/pr-2/talks/eri20-integration/</link>
+      <guid isPermaLink="false">mith.ro-talk-2020-01-01-2020-google-s-slides-for-eri-posh-idea-integration-exercise-</guid>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <description> · Jan 2020</description>
+    </item>
+    <item>
+      <title>Update on the open source PDK &amp; shuttle program</title>
+      <link>https://preview.mith.ro/pr-2/talks/eri20-sky130/</link>
+      <guid isPermaLink="false">mith.ro-talk-2020-01-01-update-on-open-source-pdk-shuttle-program-darpa-eri-posh-integration-exercise-jan-2020-darpa-eri-posh-integration-exercise-jan-2020</guid>
+      <pubDate>Wed, 01 Jan 2020 00:00:00 +0000</pubDate>
+      <description>DARPA ERI POSH &amp; Integration Exercise Jan 2020 · Jan 2020</description>
+    </item>
+    <item>
+      <title>Fomu: Python, RISC-V and FPGA in your USB port</title>
+      <link>https://preview.mith.ro/pr-2/talks/rvs19-fomu/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-12-12-fomu-risc-v-summit-2019-risc-v-summit-2019-with-sean-xobs-cross-michael-gielda</guid>
+      <pubDate>Thu, 12 Dec 2019 00:00:00 +0000</pubDate>
+      <description>RISC-V Summit 2019 — with Sean &#39;xobs&#39; Cross &amp; Michael Gielda · 12 Dec 2019 · recording: https://youtu.be/bNCH-AK1UPw</description>
+    </item>
+    <item>
+      <title>Xilinx Series 7 FPGAs now have a fully open source toolchain!</title>
+      <link>https://preview.mith.ro/pr-2/talks/had19-symbiflow/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-11-17-symbiflow-xilinx-series-7-fpgas-now-have-a-fully-open-source-toolchain-had2019-had2019</guid>
+      <pubDate>Sun, 17 Nov 2019 00:00:00 +0000</pubDate>
+      <description>HAD2019 · 17 Nov 2019 · recording: https://youtu.be/EHePto95qoE</description>
+    </item>
+    <item>
+      <title>Status of Artix-7 support in SymbiFlow</title>
+      <link>https://preview.mith.ro/pr-2/talks/orconf19-artix7/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-09-28-orconf19-status-of-artix-7-support-in-symbiflow-orconf19</guid>
+      <pubDate>Sat, 28 Sep 2019 00:00:00 +0000</pubDate>
+      <description>OrConf19 · 28 Sep 2019 · recording: https://youtu.be/V7jdYMOC9VM</description>
+    </item>
+    <item>
+      <title>Yosys synthesis improvements</title>
+      <link>https://preview.mith.ro/pr-2/talks/orconf19-yosys/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-09-01-orconf-yosys-synthesis-improvements-orconf-2019-bordeaux</guid>
+      <pubDate>Sun, 01 Sep 2019 00:00:00 +0000</pubDate>
+      <description>ORConf 2019 (Bordeaux) · Sep 2019</description>
+    </item>
+    <item>
+      <title>Fomu: an FPGA inside your USB port!</title>
+      <link>https://preview.mith.ro/pr-2/talks/fomu-camp19/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-08-21-fomu-cccamp19-cccamp19-with-sean-xobs-cross</guid>
+      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
+      <description>CCCamp19 — with Sean &#39;xobs&#39; Cross · 21 Aug 2019 · recording: https://youtu.be/rBfC-oxvaqM</description>
+    </item>
+    <item>
+      <title>Tim has too many projects</title>
+      <link>https://preview.mith.ro/pr-2/talks/timtoomany-pyo19/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-07-27-tim-has-too-many-projects-pyohio19-version-pyohio19</guid>
+      <pubDate>Sat, 27 Jul 2019 00:00:00 +0000</pubDate>
+      <description>PyOhio19 · 27 Jul 2019</description>
+    </item>
+    <item>
+      <title>Open source 101</title>
+      <link>https://preview.mith.ro/pr-2/talks/eri19-foss101/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-07-17-eri-summit-posh-idea-open-source-101-darpa-eri-summit</guid>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      <description>DARPA ERI Summit · 17 Jul 2019</description>
+    </item>
+    <item>
+      <title>Open source 102</title>
+      <link>https://preview.mith.ro/pr-2/talks/eri19-foss102/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-07-17-eri-summit-posh-idea-open-source-102-darpa-eri-summit</guid>
+      <pubDate>Wed, 17 Jul 2019 00:00:00 +0000</pubDate>
+      <description>DARPA ERI Summit · 17 Jul 2019</description>
+    </item>
+    <item>
+      <title>SymbiFlow + POSH/IDEA panel</title>
+      <link>https://preview.mith.ro/pr-2/talks/eri19-panel/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-07-01-eri-panel-symbiflow-posh-idea-darpa-eri-summit-2019-posh-idea-panel</guid>
+      <pubDate>Mon, 01 Jul 2019 00:00:00 +0000</pubDate>
+      <description>DARPA ERI Summit 2019 - POSH/IDEA Panel · Jul 2019</description>
+    </item>
+    <item>
+      <title>Tim has too many projects</title>
+      <link>https://preview.mith.ro/pr-2/talks/latchup19-projects/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-05-05-tim-has-too-many-projects-latchup18-version-latch-up-2019</guid>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0000</pubDate>
+      <description>Latch-Up 2019 · 5 May 2019 · recording: https://youtu.be/v7WrTmexod0</description>
+    </item>
+    <item>
+      <title>SymbiFlow – finally the GCC of FPGAs!</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca19-symbiflow/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-01-24-symbiflow-finally-the-gcc-of-fpgas-lca2019-lca2019</guid>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 +0000</pubDate>
+      <description>LCA2019 · 24 Jan 2019 · recording: https://youtu.be/-xyAauPa__s</description>
+    </item>
+    <item>
+      <title>I&#39;m Tomu: a microprocessor which fits inside your USB port</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca19-tomu/</link>
+      <guid isPermaLink="false">mith.ro-talk-2019-01-21-i-m-tomu-microprocessor-which-fits-inside-your-usb-slot-lca2019-lca2019</guid>
+      <pubDate>Mon, 21 Jan 2019 00:00:00 +0000</pubDate>
+      <description>LCA2019 · 21 Jan 2019</description>
+    </item>
+    <item>
+      <title>Snakes and rabbits: how CCC shaped an open hardware success</title>
+      <link>https://preview.mith.ro/pr-2/talks/35c3-snakes-rabbits/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-12-28-snakes-and-rabbits-how-ccc-shaped-an-open-hardware-success-35c3-with-andrew-bunnie-huang</guid>
+      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
+      <description>35C3 — with Andrew &#39;bunnie&#39; Huang · 28 Dec 2018 · recording: https://youtu.be/AlmVxR0417c</description>
+    </item>
+    <item>
+      <title>SymbiFlow – finally the GCC of FPGAs!</title>
+      <link>https://preview.mith.ro/pr-2/talks/35c3-symbiflow/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-12-28-symbiflow-finally-the-gcc-of-fpgas-35c3-35c3</guid>
+      <pubDate>Fri, 28 Dec 2018 00:00:00 +0000</pubDate>
+      <description>35C3 · 28 Dec 2018 · recording: https://youtu.be/5RryRQ1Rr0M</description>
+    </item>
+    <item>
+      <title>I&#39;m Tomu: a microprocessor which fits inside your USB port</title>
+      <link>https://preview.mith.ro/pr-2/talks/supercon18-tomu/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-11-03-i-m-tomu-microprocessor-which-fits-inside-your-usb-slot-hackaday-supercon-2018-hackaday-supercon-2018</guid>
+      <pubDate>Sat, 03 Nov 2018 00:00:00 +0000</pubDate>
+      <description>HackADay SuperCon 2018 · 3 Nov 2018 · recording: https://youtu.be/ZOMLzuNyWac</description>
+    </item>
+    <item>
+      <title>Tim has too many projects (RISC-V edition)</title>
+      <link>https://preview.mith.ro/pr-2/talks/projects-riscv18/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-11-01-tim-has-too-many-projects-risc-v-edition-</guid>
+      <pubDate>Thu, 01 Nov 2018 00:00:00 +0000</pubDate>
+      <description> · Nov 2018</description>
+    </item>
+    <item>
+      <title>FuPy: FPGAs and MicroPython!</title>
+      <link>https://preview.mith.ro/pr-2/talks/sfpython18-fupy/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-10-10-fupy-fpgas-and-micropython-sf-python-sf-python-meetup-san-francisco</guid>
+      <pubDate>Wed, 10 Oct 2018 00:00:00 +0000</pubDate>
+      <description>SF Python meetup (San Francisco) · 10 Oct 2018</description>
+    </item>
+    <item>
+      <title>An update on SymbiFlow, a multiplatform FPGA project</title>
+      <link>https://preview.mith.ro/pr-2/talks/orconf18-symbiflow/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-09-22-an-update-on-symbiflow-a-multiplatform-fpga-project-orconf-2018</guid>
+      <pubDate>Sat, 22 Sep 2018 00:00:00 +0000</pubDate>
+      <description>OrConf 2018 · 22 Sep 2018 · recording: https://youtu.be/CI1lpbt2Hz8</description>
+    </item>
+    <item>
+      <title>FuPy: FPGAs and MicroPython!</title>
+      <link>https://preview.mith.ro/pr-2/talks/fupy18/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-08-01-fupy-fpgas-and-micropython-2018-</guid>
+      <pubDate>Wed, 01 Aug 2018 00:00:00 +0000</pubDate>
+      <description> · Aug 2018</description>
+    </item>
+    <item>
+      <title>Eating rabbits: a guide to using Python to conquer FPGA video systems</title>
+      <link>https://preview.mith.ro/pr-2/talks/teardown18-rabbits/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-05-12-eating-rabbits-a-guide-to-using-python-to-conquer-fpga-video-systems-teardown</guid>
+      <pubDate>Sat, 12 May 2018 00:00:00 +0000</pubDate>
+      <description>Teardown · 12 May 2018 · recording: https://youtu.be/181-roBM0tI</description>
+    </item>
+    <item>
+      <title>Using Python to create FPGA-based hardware to record FOSS conferences!</title>
+      <link>https://preview.mith.ro/pr-2/talks/hddg28-pyhardware/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-03-22-using-python-for-creating-fpga-based-hardware-to-record-foss-conferences-hggd28-2018-hddg-28</guid>
+      <pubDate>Thu, 22 Mar 2018 00:00:00 +0000</pubDate>
+      <description>HDDG 28 · 22 Mar 2018 · recording: https://youtu.be/kESljxjnzTM</description>
+    </item>
+    <item>
+      <title>FPGA miniconf introduction</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca18-fpga-intro/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-01-23-introduction-lca2018-fpga-project-miniconf-lca2018</guid>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <description>LCA2018 · 23 Jan 2018</description>
+    </item>
+    <item>
+      <title>LED flashing</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca18-ledflash/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-01-23-led-flashing-lca2018-fpga-project-miniconf-lca2018</guid>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <description>LCA2018 · 23 Jan 2018</description>
+    </item>
+    <item>
+      <title>Being an effective FPGA developer</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca18-fpgadev/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-01-23-being-an-effective-fpga-dev-lca2018-fpga-project-miniconf-lca2018</guid>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <description>LCA2018 · 23 Jan 2018</description>
+    </item>
+    <item>
+      <title>Love Rusty 3K</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca18-loverusty3k/</link>
+      <guid isPermaLink="false">mith.ro-talk-2018-01-23-love-rusty-3k-lca2018-fpga-project-miniconf-lca2018</guid>
+      <pubDate>Tue, 23 Jan 2018 00:00:00 +0000</pubDate>
+      <description>LCA2018 · 23 Jan 2018</description>
+    </item>
+    <item>
+      <title>MicroPython on FPGAs</title>
+      <link>https://preview.mith.ro/pr-2/talks/fupy-pycon2017/</link>
+      <guid isPermaLink="false">mith.ro-talk-2017-08-05-micropython-on-fpgas-pycon-au-2017</guid>
+      <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
+      <description>PyCon AU 2017 · 5 Aug 2017</description>
+    </item>
+    <item>
+      <title>Using Python to create hardware to record FOSS conferences!</title>
+      <link>https://preview.mith.ro/pr-2/talks/pyconau17-pyhardware/</link>
+      <guid isPermaLink="false">mith.ro-talk-2017-08-04-using-python-for-creating-hardware-to-record-foss-conferences-pycon-au-2017-pycon-au-2017</guid>
+      <pubDate>Fri, 04 Aug 2017 00:00:00 +0000</pubDate>
+      <description>PyCon AU 2017 · 4 Aug 2017 · recording: https://youtu.be/zdLiI-XLTcI</description>
+    </item>
+    <item>
+      <title>Cool and awesome projects you should work on! (aka Tim has too many projects)</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca17-projects/</link>
+      <guid isPermaLink="false">mith.ro-talk-2017-01-20-cool-and-awesome-projects-you-should-work-on-aka-tim-has-too-many-projects-lca2017-version-lca2017</guid>
+      <pubDate>Fri, 20 Jan 2017 00:00:00 +0000</pubDate>
+      <description>LCA2017 · 20 Jan 2017</description>
+    </item>
+    <item>
+      <title>Using Python to create hardware to record FOSS conferences!</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca17-pyhardware/</link>
+      <guid isPermaLink="false">mith.ro-talk-2017-01-19-using-python-for-creating-hardware-to-record-foss-conferences-lca2017-lca2017</guid>
+      <pubDate>Thu, 19 Jan 2017 00:00:00 +0000</pubDate>
+      <description>LCA2017 · 19 Jan 2017 · recording: https://youtu.be/MkVX_mh5dOU</description>
+    </item>
+    <item>
+      <title>I&#39;m Tomu: a microprocessor which fits inside your USB port</title>
+      <link>https://preview.mith.ro/pr-2/talks/tomu-lca2017/</link>
+      <guid isPermaLink="false">mith.ro-talk-2017-01-17-i-m-tomu-microprocessor-which-fits-inside-your-usb-slot-lca2017-version-lca2017</guid>
+      <pubDate>Tue, 17 Jan 2017 00:00:00 +0000</pubDate>
+      <description>LCA2017 · 17 Jan 2017</description>
+    </item>
+    <item>
+      <title>I&#39;m Tomu: a microprocessor which fits inside your USB port</title>
+      <link>https://preview.mith.ro/pr-2/talks/33c3-tomu/</link>
+      <guid isPermaLink="false">mith.ro-talk-2016-12-29-i-m-tomu-microprocessor-which-fits-inside-your-usb-slot-33c3-version-33c3</guid>
+      <pubDate>Thu, 29 Dec 2016 00:00:00 +0000</pubDate>
+      <description>33C3 · 29 Dec 2016</description>
+    </item>
+    <item>
+      <title>Dissecting HDMI: developing open, FPGA-based capture hardware for conference &amp; user group recording</title>
+      <link>https://preview.mith.ro/pr-2/talks/33c3-hdmi/</link>
+      <guid isPermaLink="false">mith.ro-talk-2016-12-29-dissecting-hdmi-developing-open-fpga-based-capture-hardware-for-conference-user-group-recording-33c3-33c3</guid>
+      <pubDate>Thu, 29 Dec 2016 00:00:00 +0000</pubDate>
+      <description>33C3 · 29 Dec 2016 · recording: https://youtu.be/yqYBcZzMPGQ</description>
+    </item>
+    <item>
+      <title>I&#39;m Tomu: a microprocessor which fits inside your USB port</title>
+      <link>https://preview.mith.ro/pr-2/talks/33c3-tomu-orig/</link>
+      <guid isPermaLink="false">mith.ro-talk-2016-12-29-i-m-tomu-microprocessor-which-fits-inside-your-usb-slot-33c3-version-original-33c3</guid>
+      <pubDate>Thu, 29 Dec 2016 00:00:00 +0000</pubDate>
+      <description>33C3 · 29 Dec 2016</description>
+    </item>
+    <item>
+      <title>Cool and awesome projects you should work on! (aka Tim has too many projects)</title>
+      <link>https://preview.mith.ro/pr-2/talks/tt16-projects/</link>
+      <guid isPermaLink="false">mith.ro-talk-2016-12-01-cool-and-awesome-projects-you-should-work-on-aka-tim-has-too-many-projects-tt2016-version-tt2016</guid>
+      <pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
+      <description>TT2016 · Dec 2016</description>
+    </item>
+    <item>
+      <title>I&#39;m Tomu: a microprocessor which fits inside your USB port</title>
+      <link>https://preview.mith.ro/pr-2/talks/tt16-tomu/</link>
+      <guid isPermaLink="false">mith.ro-talk-2016-12-01-i-m-tomu-microprocessor-which-fits-inside-your-usb-slot-tt2016-version-tt2016</guid>
+      <pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
+      <description>TT2016 · Dec 2016</description>
+    </item>
+    <item>
+      <title>HDMI, Python and FPGAs</title>
+      <link>https://preview.mith.ro/pr-2/talks/tt16-hdmi/</link>
+      <guid isPermaLink="false">mith.ro-talk-2016-12-01-random-talk-about-hdmi-python-and-fpgas-tt2016-tt2016</guid>
+      <pubDate>Thu, 01 Dec 2016 00:00:00 +0000</pubDate>
+      <description>TT2016 · Dec 2016</description>
+    </item>
+    <item>
+      <title>I&#39;m Tomu: a microprocessor which fits inside your USB port</title>
+      <link>https://preview.mith.ro/pr-2/talks/cryptoparty16-tomu/</link>
+      <guid isPermaLink="false">mith.ro-talk-2016-10-01-i-m-tomu-microprocessor-which-fits-inside-your-usb-slot-cyptoparty-sydney-october-2016-cyptoparty-sydney</guid>
+      <pubDate>Sat, 01 Oct 2016 00:00:00 +0000</pubDate>
+      <description>CyptoParty, Sydney · Oct 2016</description>
+    </item>
+    <item>
+      <title>Debugging HDMI &amp; other tales from developing conference capture hardware</title>
+      <link>https://preview.mith.ro/pr-2/talks/hdmi-pyconau2016/</link>
+      <guid isPermaLink="false">mith.ro-talk-2016-08-14-debugging-hdmi-other-tales-from-developing-conference-capture-hardware-pycon-au-2016</guid>
+      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      <description>PyCon AU 2016 · 14 Aug 2016</description>
+    </item>
+    <item>
+      <title>Designing hardware with Python</title>
+      <link>https://preview.mith.ro/pr-2/talks/pyconau16-pyhardware/</link>
+      <guid isPermaLink="false">mith.ro-talk-2016-08-13-designing-hardware-with-python-pycon-au-2016-pycon-au-2016</guid>
+      <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
+      <description>PyCon AU 2016 · 13 Aug 2016 · recording: https://youtu.be/wNantzHGxIs</description>
+    </item>
+    <item>
+      <title>TimVideos, HDMI2USB and WebRTC</title>
+      <link>https://preview.mith.ro/pr-2/talks/webrtc15-hdmi2usb/</link>
+      <guid isPermaLink="false">mith.ro-talk-2015-10-19-timvideos-hdmi2usb-and-webrtc-webrtc-sydney-meetup</guid>
+      <pubDate>Mon, 19 Oct 2015 00:00:00 +0000</pubDate>
+      <description>WebRTC Sydney Meetup · 19 Oct 2015 · recording: https://youtu.be/ERQ5tElpxe0</description>
+    </item>
+    <item>
+      <title>Designing hardware with Python</title>
+      <link>https://preview.mith.ro/pr-2/talks/sypy15-pyhardware/</link>
+      <guid isPermaLink="false">mith.ro-talk-2015-10-01-designing-hardware-with-python-sypy-2015-sypy-sydney-python-user-group</guid>
+      <pubDate>Thu, 01 Oct 2015 00:00:00 +0000</pubDate>
+      <description>SyPy (Sydney Python User Group) · 1 Oct 2015 · recording: https://youtu.be/Bxkz6XSiB3Y</description>
+    </item>
+    <item>
+      <title>Tim has too many projects</title>
+      <link>https://preview.mith.ro/pr-2/talks/debconf15-projects/</link>
+      <guid isPermaLink="false">mith.ro-talk-2015-08-20-tim-has-too-many-projects-debconf15-version-debconf15</guid>
+      <pubDate>Thu, 20 Aug 2015 00:00:00 +0000</pubDate>
+      <description>DebConf15 · 20 Aug 2015</description>
+    </item>
+    <item>
+      <title>Tim has too many projects</title>
+      <link>https://preview.mith.ro/pr-2/talks/camp15-projects/</link>
+      <guid isPermaLink="false">mith.ro-talk-2015-08-14-tim-has-too-many-projects-cccamp15-version-cccamp15</guid>
+      <pubDate>Fri, 14 Aug 2015 00:00:00 +0000</pubDate>
+      <description>CCCamp15 · 14 Aug 2015 · recording: https://youtu.be/eR4i-XJDGCM</description>
+    </item>
+    <item>
+      <title>Tim has too many projects</title>
+      <link>https://preview.mith.ro/pr-2/talks/pyconau15-projects/</link>
+      <guid isPermaLink="false">mith.ro-talk-2015-08-01-tim-has-too-many-projects-pyconau15-version-pycon-au-2015</guid>
+      <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
+      <description>PyCon AU 2015 · 1 Aug 2015</description>
+    </item>
+    <item>
+      <title>Why you should use KiCad</title>
+      <link>https://preview.mith.ro/pr-2/talks/kicad15/</link>
+      <guid isPermaLink="false">mith.ro-talk-2015-01-13-why-you-should-use-kicad-</guid>
+      <pubDate>Tue, 13 Jan 2015 00:00:00 +0000</pubDate>
+      <description> · 13 Jan 2015</description>
+    </item>
+    <item>
+      <title>Tim has too many projects</title>
+      <link>https://preview.mith.ro/pr-2/talks/pyconau14-projects/</link>
+      <guid isPermaLink="false">mith.ro-talk-2014-08-03-tim-has-too-many-projects-pycon-au-2014</guid>
+      <pubDate>Sun, 03 Aug 2014 00:00:00 +0000</pubDate>
+      <description>PyCon AU 2014 · 3 Aug 2014 · recording: https://youtu.be/io9P5fZdqcE</description>
+    </item>
+    <item>
+      <title>Other things!</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca14-other/</link>
+      <guid isPermaLink="false">mith.ro-talk-2014-01-10-other-things-lca-2014-lca-2014</guid>
+      <pubDate>Fri, 10 Jan 2014 00:00:00 +0000</pubDate>
+      <description>LCA 2014 · 10 Jan 2014</description>
+    </item>
+    <item>
+      <title>slidelint: a presentation proofreader</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca14-slidelint/</link>
+      <guid isPermaLink="false">mith.ro-talk-2014-01-10-slidelint-lca-2014</guid>
+      <pubDate>Fri, 10 Jan 2014 00:00:00 +0000</pubDate>
+      <description>LCA 2014 · 10 Jan 2014 · recording: https://youtu.be/1bkbyfP--BM</description>
+    </item>
+    <item>
+      <title>linux.conf.au and TimVideos: live streaming</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca14-streaming/</link>
+      <guid isPermaLink="false">mith.ro-talk-2014-01-07-linux-conf-au-and-timvideos-live-streaming-lca-2014</guid>
+      <pubDate>Tue, 07 Jan 2014 00:00:00 +0000</pubDate>
+      <description>LCA 2014 · 7 Jan 2014 · recording: https://youtu.be/jtuzEQaG0Vc</description>
+    </item>
+    <item>
+      <title>Other things!</title>
+      <link>https://preview.mith.ro/pr-2/talks/pyconau13-other/</link>
+      <guid isPermaLink="false">mith.ro-talk-2013-07-07-other-things-pycon-au-2013-pycon-au-2013</guid>
+      <pubDate>Sun, 07 Jul 2013 00:00:00 +0000</pubDate>
+      <description>PyCon AU 2013 · 7 Jul 2013</description>
+    </item>
+    <item>
+      <title>10 projects, 5 minutes</title>
+      <link>https://preview.mith.ro/pr-2/talks/pyconau13-projects/</link>
+      <guid isPermaLink="false">mith.ro-talk-2013-07-06-pycon-au-2013-10-projects-5-minutes-pycon-au-2013</guid>
+      <pubDate>Sat, 06 Jul 2013 00:00:00 +0000</pubDate>
+      <description>PyCon AU 2013 · 6 Jul 2013</description>
+    </item>
+    <item>
+      <title>Fun with GStreamer pipelines!</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca13-gstreamer/</link>
+      <guid isPermaLink="false">mith.ro-talk-2013-01-28-fun-with-gstreamer-pipelines-python-lca2013</guid>
+      <pubDate>Mon, 28 Jan 2013 00:00:00 +0000</pubDate>
+      <description>LCA2013 · 28 Jan 2013 · recording: https://youtu.be/RDsIdXrIHVQ</description>
+    </item>
+    <item>
+      <title>Other things!</title>
+      <link>https://preview.mith.ro/pr-2/talks/pyconau12-other/</link>
+      <guid isPermaLink="false">mith.ro-talk-2012-08-19-other-things-pycon-au-2012-pycon-au-2012</guid>
+      <pubDate>Sun, 19 Aug 2012 00:00:00 +0000</pubDate>
+      <description>PyCon AU 2012 · 19 Aug 2012</description>
+    </item>
+    <item>
+      <title>python-datetime-tz</title>
+      <link>https://preview.mith.ro/pr-2/talks/pyconau12-datetime-tz/</link>
+      <guid isPermaLink="false">mith.ro-talk-2012-08-19-python-datetime-tz-pycon-au-2012-hobart-lightning-talk-inferred-not-sypy</guid>
+      <pubDate>Sun, 19 Aug 2012 00:00:00 +0000</pubDate>
+      <description>PyCon AU 2012 (Hobart) — lightning talk (inferred; not SyPy) · 19 Aug 2012</description>
+    </item>
+    <item>
+      <title>PyCon US live streaming</title>
+      <link>https://preview.mith.ro/pr-2/talks/pyconus12-streaming/</link>
+      <guid isPermaLink="false">mith.ro-talk-2012-03-11-pycon-us-live-streaming-pycon-us-2012-santa-clara</guid>
+      <pubDate>Sun, 11 Mar 2012 00:00:00 +0000</pubDate>
+      <description>PyCon US 2012 (Santa Clara) · 11 Mar 2012</description>
+    </item>
+    <item>
+      <title>Making video streaming interactive</title>
+      <link>https://preview.mith.ro/pr-2/talks/lca12-streaming/</link>
+      <guid isPermaLink="false">mith.ro-talk-2012-01-19-making-video-streaming-interactive-lca-2012</guid>
+      <pubDate>Thu, 19 Jan 2012 00:00:00 +0000</pubDate>
+      <description>LCA 2012 · 19 Jan 2012 · recording: https://youtu.be/rCoCRmcrPlM</description>
+    </item>
+    <item>
+      <title>Lightning talk</title>
+      <link>https://preview.mith.ro/pr-2/talks/pyconau11-lightning/</link>
+      <guid isPermaLink="false">mith.ro-talk-2011-08-01-lightning-talk-given-at-pycon-au-pycon-au</guid>
+      <pubDate>Mon, 01 Aug 2011 00:00:00 +0000</pubDate>
+      <description>PyCon AU · Aug 2011 · recording: https://youtu.be/XlsaALzn7No</description>
+    </item>
+    <item>
+      <title>Write a game in 5 minutes</title>
+      <link>https://preview.mith.ro/pr-2/talks/goog09-game5min/</link>
+      <guid isPermaLink="false">mith.ro-talk-2009-07-01-google-lightning-talks-2009-07-write-a-game-in-5-minutes-google-internal</guid>
+      <pubDate>Wed, 01 Jul 2009 00:00:00 +0000</pubDate>
+      <description>Google Internal · Jul 2009 · recording: https://youtu.be/QX3x92NsCTY</description>
+    </item>
+    <item>
+      <title>(Literal) World Domination</title>
+      <link>https://preview.mith.ro/pr-2/talks/osdc08-domination/</link>
+      <guid isPermaLink="false">mith.ro-talk-2008-12-01-literal-world-domination-open-source-developers-conference-2008-osdc-sydney</guid>
+      <pubDate>Mon, 01 Dec 2008 00:00:00 +0000</pubDate>
+      <description>Open Source Developers&#39; Conference 2008 (OSDC), Sydney · Dec 2008</description>
+    </item>
+    <item>
+      <title>Making git usable with large media repositories</title>
+      <link>https://preview.mith.ro/pr-2/talks/gittogether08-git-media/</link>
+      <guid isPermaLink="false">mith.ro-talk-2008-10-01-making-git-usable-with-large-media-repositories-gittogether-08-googleplex-mountain-view</guid>
+      <pubDate>Wed, 01 Oct 2008 00:00:00 +0000</pubDate>
+      <description>GitTogether &#39;08, Googleplex, Mountain View · Oct 2008</description>
+    </item>
+    <item>
+      <title>Gaming for freedom</title>
+      <link>https://preview.mith.ro/pr-2/talks/goog08-gaming-freedom/</link>
+      <guid isPermaLink="false">mith.ro-talk-2008-06-05-google-tech-talk-2008-06-gaming-for-freedom-google-tech-talk</guid>
+      <pubDate>Thu, 05 Jun 2008 00:00:00 +0000</pubDate>
+      <description>Google Tech Talk · 5 Jun 2008 · recording: https://youtu.be/ekrypMxEB44</description>
+    </item>
+    <item>
+      <title>The best things in life are free</title>
+      <link>https://preview.mith.ro/pr-2/talks/freeplay07-free/</link>
+      <guid isPermaLink="false">mith.ro-talk-2007-08-18-the-best-things-in-life-are-free-freeplay-independent-game-developers-conference-acmi-melbourne</guid>
+      <pubDate>Sat, 18 Aug 2007 00:00:00 +0000</pubDate>
+      <description>FreePlay — Independent Game Developers Conference, ACMI Melbourne · 18 Aug 2007</description>
+    </item>
+  </channel>
+</rss>

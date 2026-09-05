@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Google, GlobalFoundries & open source! What is happening and why should I care? · Tim 'mithro' Ansell</title>
+  <meta name="description" content="Talk by Tim 'mithro' Ansell — GlobalFoundries University Calls · 31 Aug 2022.">
+  <meta name="git-commit" content="1f3fad351f6b14d75e292d8bd95afb76c4066db4">
+  <link rel="canonical" href="https://preview.mith.ro/pr-2/talks/gfu22-goog/">
+  <style>:root {
+  --bg: #0e0f11;
+  --panel: #16171a;
+  --panel2: #1c1d21;
+  --line: #2c2d31;
+  --gold: #d4a72c;
+  --gold-dim: #8a6d1f;
+  --silk: #e8e6df;
+  --muted: #9a948a;
+  --blue: #5a74e8;
+  --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  --sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--silk);
+  font-family: var(--mono);
+  line-height: 1.55;
+}
+
+main { display: block; }
+
+a { color: var(--gold); }
+
+.topline {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: .5rem;
+  max-width: 1080px; margin: 0 auto;
+  padding: .9rem 1.25rem;
+  border-bottom: 1px solid var(--gold-dim);
+  font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+}
+.topline .brand {
+  color: var(--gold); font-weight: 700; text-decoration: none;
+}
+.topline .brand::before { content: "⌖ "; color: var(--silk); }
+.topline nav { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; }
+@media (max-width: 480px) {
+  .topline { padding: .9rem .8rem; }
+  .topline nav { gap: .4rem .9rem; font-size: .72rem; }
+}
+.topline nav a { color: var(--muted); text-decoration: none; }
+.topline nav a.on { color: var(--silk); border-bottom: 2px solid var(--gold); padding-bottom: .1rem; }
+.topline nav a:hover, .topline nav a:focus-visible { color: var(--gold); }
+
+.hero {
+  display: grid; grid-template-columns: 1.15fr 1fr;
+  max-width: 1080px; margin: 0 auto;
+  border-bottom: 1px solid var(--line);
+}
+.hero-text { padding: 2.4rem 1.25rem; align-self: center; }
+.hero-text h1 {
+  font-size: 2.5rem; line-height: 1.08; margin: 0 0 .9rem;
+  letter-spacing: -.01em; font-weight: 700; text-wrap: balance;
+}
+.hero-text h1 .nick { color: var(--gold); }
+.hero-text .bio {
+  margin: 0 0 1.4rem; color: #c4beb2; font-size: .95rem;
+  font-family: var(--sans);
+}
+.hero-photo { position: relative; min-height: 340px; border-left: 1px solid var(--gold-dim); }
+.hero-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.hero-photo .cap {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(14,15,17,.82);
+  border-top: 1px solid var(--gold-dim);
+  font-size: .7rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: .45rem .9rem; margin: 0;
+}
+
+.contact { list-style: none; margin: 0; padding: 0; font-size: .82rem; }
+.contact .ci-icon svg { width: .95em; height: .95em; fill: currentColor; vertical-align: -0.1em; }
+.contact .ci-emoji { font-size: .9em; }
+.flag-tel { position: relative; display: inline-block; line-height: 1; }
+.flag-tel-badge {
+  position: absolute; right: -.4em; bottom: -.25em;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: .95em; height: .95em;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 50%;
+}
+.flag-tel-badge svg { width: .6em; height: .6em; fill: currentColor; }
+/* Two independent columns read top-to-bottom: contact + professional
+   profiles down the first, social + writing down the second. A wrapped
+   entry only pushes its own column, never the neighbouring rows. */
+.hero-contact { columns: 13rem 2; column-gap: 1.2rem; }
+.hero-contact li { break-inside: avoid; margin-bottom: .3rem; }
+.hero-contact a { color: var(--silk); text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
+.hero-contact a:hover, .hero-contact a:focus-visible { color: var(--gold); }
+.contact-inline { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; }
+.contact-inline a { color: var(--muted); text-decoration: none; }
+.contact-inline a:hover, .contact-inline a:focus-visible { color: var(--gold); }
+.contact-icons { gap: .5rem 1.5rem; align-items: center; }
+.contact-icons .ci-icon svg { width: 1.25rem; height: 1.25rem; }
+.contact-icons .ci-emoji { font-size: 1.2rem; }
+
+.spec {
+  display: grid; grid-template-columns: repeat(6, 1fr);
+  max-width: 1080px; margin: 0 auto;
+  border-bottom: 1px solid var(--line);
+}
+.spec > div { padding: 1rem 1.25rem; border-right: 1px solid var(--line); }
+.spec > div:last-child { border-right: 0; }
+.spec dt { font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin: 0 0 .2rem; }
+.spec dd { margin: 0; font-size: 1.5rem; font-weight: 700; color: var(--gold); font-variant-numeric: tabular-nums; }
+
+.sect { max-width: 1080px; margin: 0 auto; padding: 1.8rem 1.25rem 0; }
+.sect h2 {
+  font-size: .8rem; letter-spacing: .16em; text-transform: uppercase;
+  color: var(--gold); margin: 0 0 .9rem;
+}
+.sect .more { font-size: .8rem; }
+
+.visually-hidden { position: absolute !important; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.nowrap { white-space: nowrap; }
+
+.talks-table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: .85rem; }
+.talks-table th { font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-align: left; font-weight: 600; padding: 0 .8rem .3rem 0; border-bottom: 1px solid var(--gold-dim); }
+.talks-table th:last-child { text-align: right; padding-right: 0; }
+.talks-table td { border-top: 1px solid var(--line); padding: .55rem .8rem .55rem 0; vertical-align: top; }
+.talks-table td.yr { color: var(--muted); white-space: nowrap; width: 4.5rem; font-variant-numeric: tabular-nums; }
+.talks-table td.ti a { color: var(--silk); text-decoration: underline; text-decoration-color: var(--gold-dim); text-underline-offset: 3px; padding: .3rem 0; }
+.talks-table td.ti a:hover, .talks-table td.ti a:focus-visible { color: var(--gold); text-decoration-color: var(--gold); }
+.talks-table td.ev { color: var(--muted); text-align: right; }
+.talks-table td.ev > span { display: block; max-width: 28rem; margin-left: auto; text-wrap: pretty; }
+.talks-table .vid, .talks-table td.ti a.vid { color: var(--blue); font-size: .78rem; text-decoration: none; white-space: nowrap; display: inline-block; padding: .4rem .3rem; }
+.embeds { display: flex; flex-wrap: wrap; gap: .6rem .8rem; margin: .15rem 0 .3rem; }
+/* Pull the embed block up under its talk: drop the title row's bottom
+   padding when an embed row follows, so caption+tile read as one group. */
+.talks-table tr:has(+ tr.embrow) td { padding-bottom: .1rem; }
+.embed-col { display: flex; flex-direction: column; gap: .3rem; flex: 1 1 300px; max-width: 420px; min-width: 0; }
+.emb-cap { font-size: .75rem; color: var(--muted); text-decoration: none; align-self: flex-start; padding: .15rem 0; }
+.emb-cap:hover, .emb-cap:focus-visible { color: var(--gold); }
+.emb-cap .ci-icon svg { width: .95em; height: .95em; fill: currentColor; vertical-align: -0.1em; }
+.embeds iframe { display: block; width: 100%; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); }
+.embeds .emb-video { aspect-ratio: 16 / 9; }
+.embeds .emb-slides { aspect-ratio: 960 / 569; }
+.embed-lite {
+  position: relative; display: block; width: 100%; padding: 0; cursor: pointer;
+  border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
+  background: var(--panel); color: var(--silk);
+}
+.embed-lite.lite-video { aspect-ratio: 16 / 9; }
+.embed-lite.lite-slides { aspect-ratio: 960 / 569; }
+.embed-lite img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
+/* Play overlays carry the embed's brand: YouTube's red button on
+   videos, a Slides-yellow slide on presentations. */
+.embed-lite .lite-play {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 3.4rem; display: block;
+  filter: drop-shadow(0 1px 6px rgba(0, 0, 0, .55));
+  transition: transform .12s ease;
+}
+.embed-lite .lite-play svg { display: block; width: 100%; height: auto; }
+.embed-lite:hover .lite-play, .embed-lite:focus-visible .lite-play {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+/* ---- Film strips ----------------------------------------------------
+   One frame per slide, scrolled sideways. The wrapper (a block inside
+   the table cell — table rows ignore content-visibility) is skipped
+   entirely until it nears the viewport. */
+.strip-wrap { flex: 1 1 320px; min-width: 0; contain: inline-size; content-visibility: auto; contain-intrinsic-size: auto 150px; }
+.strip { display: flex; gap: .35rem; overflow-x: auto; scroll-snap-type: x proximity; padding: .2rem 0 .5rem; scrollbar-width: thin; scrollbar-color: var(--gold-dim) transparent; }
+.strip:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+.strip .frame { flex: 0 0 auto; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; background: var(--panel); line-height: 0; }
+.strip .frame:hover, .strip .frame:focus-visible { border-color: var(--gold); }
+.strip img { display: block; height: 135px; width: auto; }
+.strip .frame.more { display: flex; align-items: center; justify-content: center; height: 135px; line-height: 1.3; color: var(--gold); font-size: .8rem; text-decoration: none; background: var(--panel2); }
+.strip-lg .strip img { height: 200px; }
+.strip-lg { contain-intrinsic-size: auto 220px; }
+@media (prefers-reduced-motion: no-preference) {
+  .strip .frame { transition: transform .12s ease, border-color .12s ease; }
+  .strip .frame:hover { transform: translateY(-2px); }
+}
+@media (max-width: 640px) {
+  .strip img, .strip .frame.more { height: 110px; }
+  .strip-lg .strip img { height: 150px; }
+}
+.talks-table td.ev a { color: inherit; text-decoration: underline; text-decoration-color: var(--gold-dim); text-underline-offset: 3px; padding: .3rem 0; }
+.talks-table td.ev a:hover, .talks-table td.ev a:focus-visible { color: var(--gold); text-decoration-color: var(--gold); }
+.table-scroll { overflow-x: auto; }
+
+.gallery {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: .9rem;
+  max-width: 1080px; margin: 0 auto; padding: 1.8rem 1.25rem 2.2rem;
+}
+.shot { position: relative; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; aspect-ratio: 4 / 3; }
+.shot img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.shot figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  background: rgba(14,15,17,.82);
+  font-size: .65rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: .3rem .6rem; text-wrap: pretty;
+}
+
+.footer {
+  border-top: 1px solid var(--gold-dim);
+  margin-top: 2.5rem;
+}
+.footer .contact-inline {
+  max-width: 1080px; margin: 0 auto; padding: 1rem 1.25rem 1.4rem;
+  font-size: .72rem; letter-spacing: .04em;
+}
+
+.skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 2.5rem; }
+.skills-grid li { text-wrap: pretty; }
+
+.prose { font-family: var(--sans); font-size: .95rem; color: #c4beb2; }
+.prose a { text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
+.prose a:hover, .prose a:focus-visible { border-bottom-color: var(--gold); }
+.sect .prose + .prose { border-top: 1px solid var(--line); margin-top: 1.2rem; padding-top: 1.2rem; }
+.prose h2 { font-family: var(--mono); color: var(--gold); font-size: .95rem; letter-spacing: .1em; text-transform: uppercase; margin: 2rem 0 .6rem; }
+.prose h3 { font-family: var(--mono); color: var(--silk); font-size: .9rem; margin: 1.4rem 0 .4rem; }
+.prose.meta, .prose .meta { color: var(--muted); font-family: var(--mono); font-size: .78rem; }
+
+/* Project entries: name/years/role in a left column, blurb filling the
+   rest of the row — same full-width tabular feel as the talks table. */
+.proj { display: grid; grid-template-columns: minmax(15rem, 22rem) 1fr; gap: .3rem 2rem; align-items: start; padding: 1rem 0; border-top: 1px solid var(--line); }
+.sect h2 + .proj, .sect .prose + .proj { border-top: 0; }
+.proj h3 { margin: 0; font-family: var(--mono); color: var(--silk); font-size: .9rem; }
+.proj a { color: var(--silk); text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
+.proj a:hover, .proj a:focus-visible { color: var(--gold); border-bottom-color: var(--gold); }
+.proj .meta { margin: .35rem 0 0; color: var(--muted); font-family: var(--mono); font-size: .78rem; }
+.proj-blurb { margin: 0; font-family: var(--sans); font-size: .95rem; color: #c4beb2; }
+.proj-blurb p { margin: 0 0 .6rem; }
+.proj-blurb p:last-child { margin-bottom: 0; }
+/* No bullets — the stacked degree lines already read as a list. */
+ul.deg-list { padding-left: 0; list-style: none; }
+.deg-list li + li { margin-top: .3rem; }
+
+.papers-list { list-style: none; margin: 0; padding: 0; }
+.papers-list li:first-child { border-top: 0; }
+.papers-list li { border-top: 1px solid var(--line); padding: .8rem 0; }
+.papers-list .ti a { color: var(--silk); text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
+.papers-list .ti a:hover, .papers-list .ti a:focus-visible { color: var(--gold); }
+.papers-list .au { display: block; color: var(--muted); font-size: .8rem; font-family: var(--sans); }
+.papers-list .ve { display: block; color: var(--muted); font-size: .78rem; }
+.papers-list .ci { color: var(--gold); font-size: .78rem; }
+.papers-list .pdf, .talks-table .pdf { color: var(--gold); text-decoration: underline; text-underline-offset: 2px; white-space: nowrap; font-size: .82rem; }
+.papers-list .pdf:hover, .papers-list .pdf:focus-visible,
+.talks-table .pdf:hover, .talks-table .pdf:focus-visible { color: var(--silk); }
+.talks-table .au { display: block; color: var(--muted); font-size: .8rem; font-family: var(--sans); }
+.talks-table .ci { color: var(--gold); font-size: .82rem; }
+
+.err {
+  max-width: 1080px; margin: 0 auto; padding: 4rem 1.25rem; text-align: center;
+  min-height: calc(100vh - 22rem);
+  display: flex; flex-direction: column; justify-content: center;
+}
+.err h1 { color: var(--gold); font-size: 2rem; }
+.err .prose { margin: 0 auto; }
+
+/* Below this width the two-column talk table can't fit, so instead of
+   horizontal scrolling each row stacks: title, then event · date. */
+@media (max-width: 640px) {
+  .talks-table { min-width: 0; }
+  .talks-table thead { display: none; }
+  .talks-table, .talks-table tbody, .talks-table tr, .talks-table td { display: block; }
+  .talks-table tr { border-top: 1px solid var(--line); padding: .55rem 0; }
+  .talks-table tr.embrow { border-top: 0; padding-top: 0; }
+  .talks-table td { border-top: 0; padding: 0; }
+  .talks-table tr:has(+ tr.embrow) { padding-bottom: .1rem; }
+  .talks-table tr:has(+ tr.embrow) td { padding-bottom: 0; }
+  .talks-table td.ev { text-align: left; }
+  .talks-table td.ev > span { max-width: none; margin-left: 0; font-size: .78rem; margin-top: .15rem; }
+  /* Stacked title/event links: let their tap padding take up layout
+     space so the two targets stop overlapping (WCAG 2.5.8). */
+  .talks-table td.ti > a, .talks-table td.ev a { display: inline-block; }
+  .talks-table td.ev .ev-none { display: none; }
+  .proj { display: block; }
+  .proj-blurb { margin-top: .4rem; }
+}
+
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; }
+  /* Photo first on phones: above the name, below the site header. */
+  .hero-photo { order: -1; border-left: 0; border-bottom: 1px solid var(--gold-dim); min-height: 300px; }
+  /* Stat counters: two rows of three on phones. */
+  .spec { grid-template-columns: repeat(3, 1fr); }
+  .spec > div { padding: .7rem .6rem; }
+  .spec > div:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+  .spec > div:nth-child(3) { border-right: 0; }
+  .spec dt { font-size: .58rem; letter-spacing: .1em; }
+  .spec dd { font-size: 1.15rem; }
+  .gallery { grid-template-columns: 1fr; }
+  .hero-contact { columns: 1; }
+  .skills-grid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a { transition: color .12s ease; }
+}
+
+.year-head { font-family: var(--mono); color: var(--silk); font-size: 1rem; margin: 1.6rem 0 .4rem; }
+.ev-none { opacity: .35; }
+/* The embeds sit in their own full-width row attached to the talk above. */
+.talks-table tr.embrow td { border-top: 0; padding-top: 0; }
+
+/* ---- Print ----------------------------------------------------------
+   The resume page prints like the canonical resume Google Doc: black
+   Arial on white, plain section headings, name + contact masthead.
+   The masthead exists only in resume/index.html; the rest of these
+   rules also give the other pages a sane light printout. */
+/* ---- Talks section pages -------------------------------------------- */
+.subnav { display: flex; flex-wrap: wrap; gap: .3rem 1.3rem; font-size: .8rem; margin: -.4rem 0 1.2rem; }
+.subnav a { color: var(--muted); text-decoration: none; padding: .2rem 0; }
+.subnav a.on { color: var(--silk); border-bottom: 2px solid var(--gold); }
+.subnav a:hover, .subnav a:focus-visible { color: var(--gold); }
+.talk-page h2 { margin-bottom: .3rem; }
+.talk-meta { color: var(--muted); font-size: .82rem; margin: .2rem 0 .8rem; }
+.talk-meta a { color: var(--silk); }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 1rem; }
+.chip { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--gold); border: 1px solid var(--gold-dim); border-radius: 999px; padding: .15rem .6rem; text-decoration: none; }
+.chip:hover, .chip:focus-visible { border-color: var(--gold); }
+.prevnext { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
+.year-head .count { color: var(--muted); font-weight: 400; font-size: .8rem; margin-left: .4rem; }
+.cat-blurb { margin: 0 0 .6rem; }
+.hl { border-top: 1px solid var(--line); padding: 1.2rem 0; }
+.hl h3 { margin: 0 0 .2rem; font-family: var(--mono); font-size: 1rem; }
+.hl h3 a { color: var(--silk); text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
+.hl h3 a:hover, .hl h3 a:focus-visible { color: var(--gold); }
+.hl .prose { margin: 0 0 .6rem; }
+
+/* ---- Talks hub ------------------------------------------------------ */
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: .2rem 0 1.6rem; }
+.card { display: block; border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; background: var(--panel); color: var(--silk); text-decoration: none; }
+.card strong { display: block; color: var(--gold); margin-bottom: .25rem; }
+.card span { font-family: var(--sans); font-size: .9rem; color: var(--muted); }
+.card:hover, .card:focus-visible { border-color: var(--gold); }
+.bars { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); gap: 4px; align-items: end; margin: .6rem 0 1.6rem; }
+.bar-col { display: flex; flex-direction: column; align-items: center; min-width: 0; }
+.bar-col .n { font-size: .65rem; color: var(--muted); line-height: 1; height: .8rem; }
+.bar-col .b { width: 100%; height: calc(130px * var(--h) / 100); min-height: 2px; background: var(--gold); border-radius: 2px 2px 0 0; }
+.bar-col .y { font-size: .58rem; color: var(--muted); margin-top: .35rem; writing-mode: vertical-rl; transform: rotate(180deg); }
+.stats-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 2rem; }
+.stat-list { list-style: none; margin: 0; padding: 0; font-size: .85rem; }
+.stat-list li { display: flex; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--line); padding: .35rem 0; }
+.stat-list .num { color: var(--gold); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.stat-list a { color: var(--silk); text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
+.stat-list a:hover, .stat-list a:focus-visible { color: var(--gold); }
+@media (max-width: 760px) {
+  .cards, .stats-grid { grid-template-columns: 1fr; }
+  .bar-col .b { height: calc(90px * var(--h) / 100); }
+}
+
+.print-head { display: none; }
+
+@page { margin: 1.6cm; }
+
+@media print {
+  body {
+    background: #fff; color: #000;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10.5pt; line-height: 1.35;
+  }
+  .topline, .footer, .no-print { display: none !important; }
+  a { color: #000; }
+
+  .print-head {
+    display: block; text-align: center;
+    border-bottom: 2pt solid #000;
+    margin: 0 0 10pt; padding-bottom: 6pt;
+  }
+  .print-head h1 { font-size: 20pt; margin: 0 0 3pt; }
+  .print-head .print-contact { margin: 0; font-size: 10pt; }
+
+  .sect { max-width: none; padding: 0; }
+  .sect h2 {
+    color: #000; font-size: 13pt; letter-spacing: .02em;
+    border-bottom: 1.5pt solid #000; padding-bottom: 2pt;
+    margin: 14pt 0 6pt;
+  }
+  .sect h2 [aria-hidden="true"] { display: none; } /* emoji: screen-only */
+
+  .prose { color: #000; font-family: inherit; font-size: 10.5pt; break-inside: avoid; }
+  .prose h3 { color: #000; font-family: inherit; font-size: 11pt; margin: 8pt 0 2pt; }
+  .prose.meta, .prose .meta { color: #333; font-family: inherit; font-size: 9.5pt; }
+  .sect .prose + .prose { border-top: 0; margin-top: 6pt; padding-top: 0; }
+  .prose a, .papers-list .ti a { color: #000; border-bottom: 0; text-decoration: none; }
+
+  .papers-list { max-width: none; }
+  .papers-list li { border-top: 0; padding: 3pt 0; break-inside: avoid; }
+  .papers-list .au, .papers-list .ve { color: #333; }
+  .skills-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .embeds { display: none; } /* iframes can't print */
+}
+</style>
+  <link rel="alternate" type="application/rss+xml" title="Tim 'mithro' Ansell — Talks" href="https://preview.mith.ro/pr-2/talks/feed.xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><circle cx=%228%22 cy=%228%22 r=%226%22 fill=%22none%22 stroke=%22%23d4a72c%22 stroke-width=%221.5%22/><path d=%22M8 0v5M8 11v5M0 8h5M11 8h5%22 stroke=%22%23d4a72c%22 stroke-width=%221.5%22/></svg>">
+  <meta property="og:title" content="Google, GlobalFoundries & open source! What is happening and why should I care?">
+  <meta property="og:description" content="Talk by Tim 'mithro' Ansell — GlobalFoundries University Calls · 31 Aug 2022.">
+  <meta property="og:url" content="https://preview.mith.ro/pr-2/talks/gfu22-goog/">
+  <meta property="og:image" content="https://preview.mith.ro/pr-2/assets/thumbs/slides/gfu22-goog-640.webp">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tim Ansell",
+    "alternateName": "mithro",
+    "email": "mailto:me@mith.ro",
+    "url": "https://mith.ro/",
+    "sameAs": [
+      "https://github.com/mithro",
+      "https://www.linkedin.com/in/mithro/",
+      "https://twitter.com/mithro",
+      "https://fosstodon.org/@mithro",
+      "https://bsky.app/profile/mith.ro",
+      "https://scholar.google.com/citations?user=pDTwJe4AAAAJ",
+      "https://orcid.org/0000-0002-4179-8376"
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="topline">
+    <a class="brand" href="/pr-2/">mith.ro</a>
+    <nav>
+      <a href="/pr-2/">About</a>
+      <a href="/pr-2/talks/" class="on" aria-current="page">Talks</a>
+      <a href="/pr-2/interviews/">Interviews</a>
+      <a href="/pr-2/papers/">Papers</a>
+      <a href="/pr-2/projects/">Projects</a>
+      <a href="/pr-2/resume/">Resume</a>
+    </nav>
+  </header>
+  <main>
+    <section class="sect talk-page">
+  <nav class="subnav" aria-label="Talks pages">
+  <a href="/pr-2/talks/">Overview</a>
+  <a href="/pr-2/talks/highlights/">Highlights</a>
+  <a href="/pr-2/talks/timeline/">Timeline</a>
+  <a href="/pr-2/talks/topics/">Topics</a>
+  <a href="/pr-2/talks/feed.xml">RSS</a>
+</nav>
+
+  <h2>Google, GlobalFoundries &amp; open source! What is happening and why should I care?</h2>
+  <p class="talk-meta">GlobalFoundries University Calls · <span class="nowrap">31 Aug 2022</span>
+  </p>
+  <p class="chips"><a class="chip" href="/pr-2/talks/topics/#open-silicon">Open source silicon</a></p>
+  
+  <div class="strip-wrap strip-lg">
+  <div class="strip" role="group" aria-label="Slides: Google, GlobalFoundries &amp; open source! What is happening and why should I care?" tabindex="0"><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809baf2_0_59" title="Slide 1 of 86"><img src="/pr-2/assets/strips/gfu22-goog/001-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/001-240.webp 240w, /pr-2/assets/strips/gfu22-goog/001-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 1 of 86" fetchpriority="high" loading="eager" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_1_98" title="Slide 2 of 86"><img src="/pr-2/assets/strips/gfu22-goog/002-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/002-240.webp 240w, /pr-2/assets/strips/gfu22-goog/002-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 2 of 86" loading="eager" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_1_103" title="Slide 3 of 86"><img src="/pr-2/assets/strips/gfu22-goog/003-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/003-240.webp 240w, /pr-2/assets/strips/gfu22-goog/003-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 3 of 86" loading="eager" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_306" title="Slide 4 of 86"><img src="/pr-2/assets/strips/gfu22-goog/004-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/004-240.webp 240w, /pr-2/assets/strips/gfu22-goog/004-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 4 of 86" loading="eager" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_1_156" title="Slide 5 of 86"><img src="/pr-2/assets/strips/gfu22-goog/005-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/005-240.webp 240w, /pr-2/assets/strips/gfu22-goog/005-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 5 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_607" title="Slide 6 of 86"><img src="/pr-2/assets/strips/gfu22-goog/006-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/006-240.webp 240w, /pr-2/assets/strips/gfu22-goog/006-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 6 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_614" title="Slide 7 of 86"><img src="/pr-2/assets/strips/gfu22-goog/007-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/007-240.webp 240w, /pr-2/assets/strips/gfu22-goog/007-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 7 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_621" title="Slide 8 of 86"><img src="/pr-2/assets/strips/gfu22-goog/008-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/008-240.webp 240w, /pr-2/assets/strips/gfu22-goog/008-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 8 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_1_206" title="Slide 9 of 86"><img src="/pr-2/assets/strips/gfu22-goog/009-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/009-240.webp 240w, /pr-2/assets/strips/gfu22-goog/009-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 9 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_1_211" title="Slide 10 of 86"><img src="/pr-2/assets/strips/gfu22-goog/010-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/010-240.webp 240w, /pr-2/assets/strips/gfu22-goog/010-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 10 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_734" title="Slide 11 of 86"><img src="/pr-2/assets/strips/gfu22-goog/011-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/011-240.webp 240w, /pr-2/assets/strips/gfu22-goog/011-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 11 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_310" title="Slide 12 of 86"><img src="/pr-2/assets/strips/gfu22-goog/012-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/012-240.webp 240w, /pr-2/assets/strips/gfu22-goog/012-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 12 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_1_260" title="Slide 13 of 86"><img src="/pr-2/assets/strips/gfu22-goog/013-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/013-240.webp 240w, /pr-2/assets/strips/gfu22-goog/013-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 13 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_391" title="Slide 14 of 86"><img src="/pr-2/assets/strips/gfu22-goog/014-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/014-240.webp 240w, /pr-2/assets/strips/gfu22-goog/014-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 14 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_412" title="Slide 15 of 86"><img src="/pr-2/assets/strips/gfu22-goog/015-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/015-240.webp 240w, /pr-2/assets/strips/gfu22-goog/015-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 15 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_435" title="Slide 16 of 86"><img src="/pr-2/assets/strips/gfu22-goog/016-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/016-240.webp 240w, /pr-2/assets/strips/gfu22-goog/016-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 16 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_2_372" title="Slide 17 of 86"><img src="/pr-2/assets/strips/gfu22-goog/017-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/017-240.webp 240w, /pr-2/assets/strips/gfu22-goog/017-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 17 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_144" title="Slide 18 of 86"><img src="/pr-2/assets/strips/gfu22-goog/018-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/018-240.webp 240w, /pr-2/assets/strips/gfu22-goog/018-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 18 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_156" title="Slide 19 of 86"><img src="/pr-2/assets/strips/gfu22-goog/019-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/019-240.webp 240w, /pr-2/assets/strips/gfu22-goog/019-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 19 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_3_0" title="Slide 20 of 86"><img src="/pr-2/assets/strips/gfu22-goog/020-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/020-240.webp 240w, /pr-2/assets/strips/gfu22-goog/020-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 20 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_4_5" title="Slide 21 of 86"><img src="/pr-2/assets/strips/gfu22-goog/021-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/021-240.webp 240w, /pr-2/assets/strips/gfu22-goog/021-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 21 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_4_55" title="Slide 22 of 86"><img src="/pr-2/assets/strips/gfu22-goog/022-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/022-240.webp 240w, /pr-2/assets/strips/gfu22-goog/022-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 22 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_315" title="Slide 23 of 86"><img src="/pr-2/assets/strips/gfu22-goog/023-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/023-240.webp 240w, /pr-2/assets/strips/gfu22-goog/023-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 23 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_9_67" title="Slide 24 of 86"><img src="/pr-2/assets/strips/gfu22-goog/024-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/024-240.webp 240w, /pr-2/assets/strips/gfu22-goog/024-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 24 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_9_78" title="Slide 25 of 86"><img src="/pr-2/assets/strips/gfu22-goog/025-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/025-240.webp 240w, /pr-2/assets/strips/gfu22-goog/025-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 25 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1219" title="Slide 26 of 86"><img src="/pr-2/assets/strips/gfu22-goog/026-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/026-240.webp 240w, /pr-2/assets/strips/gfu22-goog/026-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 26 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_314" title="Slide 27 of 86"><img src="/pr-2/assets/strips/gfu22-goog/027-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/027-240.webp 240w, /pr-2/assets/strips/gfu22-goog/027-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 27 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_1_505" title="Slide 28 of 86"><img src="/pr-2/assets/strips/gfu22-goog/028-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/028-240.webp 240w, /pr-2/assets/strips/gfu22-goog/028-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 28 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_673" title="Slide 29 of 86"><img src="/pr-2/assets/strips/gfu22-goog/029-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/029-240.webp 240w, /pr-2/assets/strips/gfu22-goog/029-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 29 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_2_26" title="Slide 30 of 86"><img src="/pr-2/assets/strips/gfu22-goog/030-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/030-240.webp 240w, /pr-2/assets/strips/gfu22-goog/030-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 30 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_2_163" title="Slide 31 of 86"><img src="/pr-2/assets/strips/gfu22-goog/031-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/031-240.webp 240w, /pr-2/assets/strips/gfu22-goog/031-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 31 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_2_170" title="Slide 32 of 86"><img src="/pr-2/assets/strips/gfu22-goog/032-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/032-240.webp 240w, /pr-2/assets/strips/gfu22-goog/032-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 32 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1215" title="Slide 33 of 86"><img src="/pr-2/assets/strips/gfu22-goog/033-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/033-240.webp 240w, /pr-2/assets/strips/gfu22-goog/033-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 33 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_463" title="Slide 34 of 86"><img src="/pr-2/assets/strips/gfu22-goog/034-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/034-240.webp 240w, /pr-2/assets/strips/gfu22-goog/034-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 34 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_471" title="Slide 35 of 86"><img src="/pr-2/assets/strips/gfu22-goog/035-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/035-240.webp 240w, /pr-2/assets/strips/gfu22-goog/035-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 35 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1083" title="Slide 36 of 86"><img src="/pr-2/assets/strips/gfu22-goog/036-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/036-240.webp 240w, /pr-2/assets/strips/gfu22-goog/036-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 36 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1948" title="Slide 37 of 86"><img src="/pr-2/assets/strips/gfu22-goog/037-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/037-240.webp 240w, /pr-2/assets/strips/gfu22-goog/037-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 37 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_458" title="Slide 38 of 86"><img src="/pr-2/assets/strips/gfu22-goog/038-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/038-240.webp 240w, /pr-2/assets/strips/gfu22-goog/038-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 38 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_2_177" title="Slide 39 of 86"><img src="/pr-2/assets/strips/gfu22-goog/039-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/039-240.webp 240w, /pr-2/assets/strips/gfu22-goog/039-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 39 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_2_182" title="Slide 40 of 86"><img src="/pr-2/assets/strips/gfu22-goog/040-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/040-240.webp 240w, /pr-2/assets/strips/gfu22-goog/040-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 40 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_139" title="Slide 41 of 86"><img src="/pr-2/assets/strips/gfu22-goog/041-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/041-240.webp 240w, /pr-2/assets/strips/gfu22-goog/041-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 41 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_0" title="Slide 42 of 86"><img src="/pr-2/assets/strips/gfu22-goog/042-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/042-240.webp 240w, /pr-2/assets/strips/gfu22-goog/042-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 42 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_795" title="Slide 43 of 86"><img src="/pr-2/assets/strips/gfu22-goog/043-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/043-240.webp 240w, /pr-2/assets/strips/gfu22-goog/043-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 43 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_799" title="Slide 44 of 86"><img src="/pr-2/assets/strips/gfu22-goog/044-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/044-240.webp 240w, /pr-2/assets/strips/gfu22-goog/044-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 44 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_808" title="Slide 45 of 86"><img src="/pr-2/assets/strips/gfu22-goog/045-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/045-240.webp 240w, /pr-2/assets/strips/gfu22-goog/045-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 45 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_832" title="Slide 46 of 86"><img src="/pr-2/assets/strips/gfu22-goog/046-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/046-240.webp 240w, /pr-2/assets/strips/gfu22-goog/046-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 46 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_839" title="Slide 47 of 86"><img src="/pr-2/assets/strips/gfu22-goog/047-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/047-240.webp 240w, /pr-2/assets/strips/gfu22-goog/047-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 47 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_1_108" title="Slide 48 of 86"><img src="/pr-2/assets/strips/gfu22-goog/048-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/048-240.webp 240w, /pr-2/assets/strips/gfu22-goog/048-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 48 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_2_0" title="Slide 49 of 86"><img src="/pr-2/assets/strips/gfu22-goog/049-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/049-240.webp 240w, /pr-2/assets/strips/gfu22-goog/049-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 49 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_1_534" title="Slide 50 of 86"><img src="/pr-2/assets/strips/gfu22-goog/050-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/050-240.webp 240w, /pr-2/assets/strips/gfu22-goog/050-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 50 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1815" title="Slide 51 of 86"><img src="/pr-2/assets/strips/gfu22-goog/051-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/051-240.webp 240w, /pr-2/assets/strips/gfu22-goog/051-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 51 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_466" title="Slide 52 of 86"><img src="/pr-2/assets/strips/gfu22-goog/052-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/052-240.webp 240w, /pr-2/assets/strips/gfu22-goog/052-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 52 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_4_105" title="Slide 53 of 86"><img src="/pr-2/assets/strips/gfu22-goog/053-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/053-240.webp 240w, /pr-2/assets/strips/gfu22-goog/053-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 53 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_2_313" title="Slide 54 of 86"><img src="/pr-2/assets/strips/gfu22-goog/054-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/054-240.webp 240w, /pr-2/assets/strips/gfu22-goog/054-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 54 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_2_317" title="Slide 55 of 86"><img src="/pr-2/assets/strips/gfu22-goog/055-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/055-240.webp 240w, /pr-2/assets/strips/gfu22-goog/055-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 55 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_994" title="Slide 56 of 86"><img src="/pr-2/assets/strips/gfu22-goog/056-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/056-240.webp 240w, /pr-2/assets/strips/gfu22-goog/056-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 56 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1622" title="Slide 57 of 86"><img src="/pr-2/assets/strips/gfu22-goog/057-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/057-240.webp 240w, /pr-2/assets/strips/gfu22-goog/057-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 57 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_7_0" title="Slide 58 of 86"><img src="/pr-2/assets/strips/gfu22-goog/058-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/058-240.webp 240w, /pr-2/assets/strips/gfu22-goog/058-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 58 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1272" title="Slide 59 of 86"><img src="/pr-2/assets/strips/gfu22-goog/059-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/059-240.webp 240w, /pr-2/assets/strips/gfu22-goog/059-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 59 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1278" title="Slide 60 of 86"><img src="/pr-2/assets/strips/gfu22-goog/060-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/060-240.webp 240w, /pr-2/assets/strips/gfu22-goog/060-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 60 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1284" title="Slide 61 of 86"><img src="/pr-2/assets/strips/gfu22-goog/061-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/061-240.webp 240w, /pr-2/assets/strips/gfu22-goog/061-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 61 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1289" title="Slide 62 of 86"><img src="/pr-2/assets/strips/gfu22-goog/062-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/062-240.webp 240w, /pr-2/assets/strips/gfu22-goog/062-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 62 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1295" title="Slide 63 of 86"><img src="/pr-2/assets/strips/gfu22-goog/063-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/063-240.webp 240w, /pr-2/assets/strips/gfu22-goog/063-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 63 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1303" title="Slide 64 of 86"><img src="/pr-2/assets/strips/gfu22-goog/064-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/064-240.webp 240w, /pr-2/assets/strips/gfu22-goog/064-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 64 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_495" title="Slide 65 of 86"><img src="/pr-2/assets/strips/gfu22-goog/065-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/065-240.webp 240w, /pr-2/assets/strips/gfu22-goog/065-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 65 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_206" title="Slide 66 of 86"><img src="/pr-2/assets/strips/gfu22-goog/066-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/066-240.webp 240w, /pr-2/assets/strips/gfu22-goog/066-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 66 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_7_129" title="Slide 67 of 86"><img src="/pr-2/assets/strips/gfu22-goog/067-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/067-240.webp 240w, /pr-2/assets/strips/gfu22-goog/067-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 67 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_986" title="Slide 68 of 86"><img src="/pr-2/assets/strips/gfu22-goog/068-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/068-240.webp 240w, /pr-2/assets/strips/gfu22-goog/068-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 68 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1677" title="Slide 69 of 86"><img src="/pr-2/assets/strips/gfu22-goog/069-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/069-240.webp 240w, /pr-2/assets/strips/gfu22-goog/069-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 69 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_849" title="Slide 70 of 86"><img src="/pr-2/assets/strips/gfu22-goog/070-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/070-240.webp 240w, /pr-2/assets/strips/gfu22-goog/070-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 70 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1486" title="Slide 71 of 86"><img src="/pr-2/assets/strips/gfu22-goog/071-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/071-240.webp 240w, /pr-2/assets/strips/gfu22-goog/071-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 71 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_1355" title="Slide 72 of 86"><img src="/pr-2/assets/strips/gfu22-goog/072-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/072-240.webp 240w, /pr-2/assets/strips/gfu22-goog/072-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 72 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_0" title="Slide 73 of 86"><img src="/pr-2/assets/strips/gfu22-goog/073-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/073-240.webp 240w, /pr-2/assets/strips/gfu22-goog/073-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 73 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_4" title="Slide 74 of 86"><img src="/pr-2/assets/strips/gfu22-goog/074-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/074-240.webp 240w, /pr-2/assets/strips/gfu22-goog/074-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 74 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_62" title="Slide 75 of 86"><img src="/pr-2/assets/strips/gfu22-goog/075-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/075-240.webp 240w, /pr-2/assets/strips/gfu22-goog/075-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 75 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_98" title="Slide 76 of 86"><img src="/pr-2/assets/strips/gfu22-goog/076-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/076-240.webp 240w, /pr-2/assets/strips/gfu22-goog/076-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 76 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_151" title="Slide 77 of 86"><img src="/pr-2/assets/strips/gfu22-goog/077-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/077-240.webp 240w, /pr-2/assets/strips/gfu22-goog/077-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 77 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_155" title="Slide 78 of 86"><img src="/pr-2/assets/strips/gfu22-goog/078-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/078-240.webp 240w, /pr-2/assets/strips/gfu22-goog/078-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 78 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_210" title="Slide 79 of 86"><img src="/pr-2/assets/strips/gfu22-goog/079-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/079-240.webp 240w, /pr-2/assets/strips/gfu22-goog/079-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 79 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_258" title="Slide 80 of 86"><img src="/pr-2/assets/strips/gfu22-goog/080-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/080-240.webp 240w, /pr-2/assets/strips/gfu22-goog/080-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 80 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_5_262" title="Slide 81 of 86"><img src="/pr-2/assets/strips/gfu22-goog/081-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/081-240.webp 240w, /pr-2/assets/strips/gfu22-goog/081-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 81 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_166" title="Slide 82 of 86"><img src="/pr-2/assets/strips/gfu22-goog/082-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/082-240.webp 240w, /pr-2/assets/strips/gfu22-goog/082-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 82 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_710" title="Slide 83 of 86"><img src="/pr-2/assets/strips/gfu22-goog/083-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/083-240.webp 240w, /pr-2/assets/strips/gfu22-goog/083-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 83 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_499" title="Slide 84 of 86"><img src="/pr-2/assets/strips/gfu22-goog/084-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/084-240.webp 240w, /pr-2/assets/strips/gfu22-goog/084-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 84 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_542" title="Slide 85 of 86"><img src="/pr-2/assets/strips/gfu22-goog/085-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/085-240.webp 240w, /pr-2/assets/strips/gfu22-goog/085-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 85 of 86" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/edit?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg#slide=id.gfe6809bb0c_6_714" title="Slide 86 of 86"><img src="/pr-2/assets/strips/gfu22-goog/086-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/086-240.webp 240w, /pr-2/assets/strips/gfu22-goog/086-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 86 of 86" loading="lazy" decoding="async"></a></div>
+</div>
+  <div class="embeds">
+    
+<div class="embed-col">
+  <a class="emb-cap" href="/pr-2/gfu22-goog/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Slides</title><path d="M16.09 15.273H7.91v-4.637h8.18v4.637zm1.728-8.523h2.91v15.614c0 .904-.733 1.636-1.637 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.068v6.75h3.841zm-.363 2.523H6.545v7.363h10.91V9.273zm-2.728-5.979V6h6.001l-6-6v3.294z"/></svg></span> mith.ro/gfu22-goog</a>
+  <button type="button" class="embed-lite lite-slides" data-src="https://docs.google.com/presentation/d/1NIB4-o_qRvWKUx6PqdQNIpIj1M0Mut6FE4Z8dZAjk14/embed?resourcekey=0-ZpP2U_8kvhqoyBF1eQwPWg" aria-label="Load slides: Google, GlobalFoundries &amp; open source! What is happening and why should I care?">
+    <img src="/pr-2/assets/thumbs/slides/gfu22-goog-320.webp" srcset="/pr-2/assets/thumbs/slides/gfu22-goog-320.webp 320w, /pr-2/assets/thumbs/slides/gfu22-goog-640.webp 640w" sizes="(max-width: 640px) 92vw, 420px" width="640" height="360" alt="" fetchpriority="high" decoding="async">
+    <span class="lite-play" aria-hidden="true"><svg role="img" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><title>Present slides</title><rect width="68" height="48" rx="8" fill="#fbbc04"/><rect x="7" y="7" width="54" height="34" rx="2" fill="none" stroke="#fff" stroke-width="2.5" opacity=".55"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
+</span>
+  </button>
+</div>
+
+  </div>
+  <p class="talk-meta">Short link: <a href="/pr-2/gfu22-goog/">mith.ro/gfu22-goog</a></p>
+  <p class="talk-meta prevnext">
+    <a href="/pr-2/talks/rios22-ip-goog/">← Open source hardware IP licensing</a>
+    <a href="/pr-2/talks/opensilicon-nist22/">Open silicon science →</a>
+  </p>
+</section>
+<script>
+  // Swap a preview tile for the real embed only when it is clicked.
+  document.querySelectorAll('.embed-lite').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = b.dataset.src;
+      f.title = b.getAttribute('aria-label');
+      f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+      f.referrerPolicy = 'strict-origin-when-cross-origin';
+      f.allowFullscreen = true;
+      f.className = b.classList.contains('lite-video') ? 'emb-video' : 'emb-slides';
+      b.replaceWith(f);
+      f.focus();
+    }, { once: true });
+  });
+</script>
+
+
+  </main>
+  <footer class="footer">
+    
+<ul class="contact contact-inline contact-icons">
+  
+  <li><a href="mailto:me@mith.ro" aria-label="Email: me@mith.ro" title="me@mith.ro"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Email</title><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+</span></a></li>
+  
+  <li><a href="tel:+17742648476" aria-label="Phone (US): +1 774 264 8476" title="+1 774 264 8476"><span class="ci-emoji flag-tel" aria-hidden="true">🇺🇸<span class="flag-tel-badge"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Phone</title><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+</span></span></a></li>
+  
+  <li><a href="tel:+61421968221" aria-label="Phone (AU): +61 421 968 221" title="+61 421 968 221"><span class="ci-emoji flag-tel" aria-hidden="true">🇦🇺<span class="flag-tel-badge"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Phone</title><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+</span></span></a></li>
+  
+  
+  <li><a href="https://github.com/mithro" rel="me" aria-label="GitHub: mithro" title="GitHub: mithro"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span></a></li>
+  
+  <li><a href="https://www.linkedin.com/in/mithro/" rel="me" aria-label="LinkedIn: in/mithro" title="LinkedIn: in/mithro"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></span></a></li>
+  
+  <li><a href="https://orcid.org/0000-0002-4179-8376" rel="me" aria-label="ORCID: 0000-0002-4179-8376" title="ORCID: 0000-0002-4179-8376"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>ORCID</title><path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.344 2.653 5.344 5.025 0 2.578-2.016 5.025-5.325 5.025h-3.919V7.416zm1.444 1.303v7.444h2.297c3.272 0 4.022-2.484 4.022-3.722 0-2.016-1.284-3.722-4.097-3.722h-2.222z"/></svg></span></a></li>
+  
+  <li><a href="https://twitter.com/mithro" rel="me" aria-label="Twitter: @mithro" title="Twitter: @mithro"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>X</title><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></span></a></li>
+  
+  <li><a href="https://fosstodon.org/@mithro" rel="me" aria-label="Mastodon: @mithro@fosstodon.org" title="Mastodon: @mithro@fosstodon.org"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Mastodon</title><path d="M23.268 5.313c-.35-2.578-2.617-4.61-5.304-5.004C17.51.242 15.792 0 11.813 0h-.03c-3.98 0-4.835.242-5.288.309C3.882.692 1.496 2.518.917 5.127.64 6.412.61 7.837.661 9.143c.074 1.874.088 3.745.26 5.611.118 1.24.325 2.47.62 3.68.55 2.237 2.777 4.098 4.96 4.857 2.336.792 4.849.923 7.256.38.265-.061.527-.132.786-.213.585-.184 1.27-.39 1.774-.753a.057.057 0 0 0 .023-.043v-1.809a.052.052 0 0 0-.02-.041.053.053 0 0 0-.046-.01 20.282 20.282 0 0 1-4.709.545c-2.73 0-3.463-1.284-3.674-1.818a5.593 5.593 0 0 1-.319-1.433.053.053 0 0 1 .066-.054c1.517.363 3.072.546 4.632.546.376 0 .75 0 1.125-.01 1.57-.044 3.224-.124 4.768-.422.038-.008.077-.015.11-.024 2.435-.464 4.753-1.92 4.989-5.604.008-.145.03-1.52.03-1.67.002-.512.167-3.63-.024-5.545zm-3.748 9.195h-2.561V8.29c0-1.309-.55-1.976-1.67-1.976-1.23 0-1.846.79-1.846 2.35v3.403h-2.546V8.663c0-1.56-.617-2.35-1.848-2.35-1.112 0-1.668.668-1.67 1.977v6.218H4.822V8.102c0-1.31.337-2.35 1.011-3.12.696-.77 1.608-1.164 2.74-1.164 1.311 0 2.302.5 2.962 1.498l.638 1.06.638-1.06c.66-.999 1.65-1.498 2.96-1.498 1.13 0 2.043.395 2.74 1.164.675.77 1.012 1.81 1.012 3.12z"/></svg></span></a></li>
+  
+  <li><a href="https://bsky.app/profile/mith.ro" rel="me" aria-label="Bluesky: @mith.ro" title="Bluesky: @mith.ro"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Bluesky</title><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg></span></a></li>
+  
+  <li><a href="https://blog.mithis.net/" rel="me" aria-label="Blog: blog.mithis.net" title="Blog: blog.mithis.net"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>WordPress</title><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"/></svg></span></a></li>
+  
+  
+</ul>
+
+  </footer>
+</body>
+</html>
