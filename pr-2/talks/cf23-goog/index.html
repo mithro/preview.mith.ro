@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Why is Google investing in fully open source IC design and what is next? · Tim 'mithro' Ansell</title>
   <meta name="description" content="Talk by Tim 'mithro' Ansell — COINFLIPS Seminar Series · 17 Jan 2023.">
-  <meta name="git-commit" content="c297f9ba6cf5675a6481b9847e215ad739e18aaa">
+  <meta name="git-commit" content="1024594195e6cc75e9b4ecaee24f2b205e89a470">
   <link rel="canonical" href="https://preview.mith.ro/pr-2/talks/cf23-goog/">
   <style>:root {
   --bg: #0e0f11;
@@ -177,6 +177,8 @@ a { color: var(--gold); }
 .strip-wrap { flex: 1 1 320px; min-width: 0; contain: inline-size; content-visibility: auto; contain-intrinsic-size: auto 150px; }
 .strip { display: flex; gap: .35rem; overflow-x: auto; scroll-snap-type: x proximity; padding: .2rem 0 .5rem; scrollbar-width: thin; scrollbar-color: var(--gold-dim) transparent; }
 .strip:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
+/* Hover panning (strip_script.html) turns snapping off while it runs. */
+.strip.panning { scroll-snap-type: none; }
 .strip .frame { flex: 0 0 auto; scroll-snap-align: start; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; background: var(--panel); line-height: 0; }
 .strip .frame:hover, .strip .frame:focus-visible { border-color: var(--gold); }
 .strip img { display: block; height: 135px; width: auto; }
@@ -536,6 +538,51 @@ ul.deg-list { padding-left: 0; list-style: none; }
       f.focus();
     }, { once: true });
   });
+</script>
+
+<script>
+  // Film strips pan towards later slides once a mouse has rested on them
+  // for a moment. Leaving, scrolling, clicking or a key press stops it, and
+  // it never runs for touch or when reduced motion is requested. The mouse
+  // test is per event (pointerType), not (hover: hover): that media query
+  // describes only the primary pointer, so it is false for a mouse on a
+  // touchscreen laptop.
+  (function () {
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)');
+    var DELAY = 600, SPEED = 60; // ms before panning starts; px per second
+    document.querySelectorAll('.strip').forEach(function (s) {
+      var timer = 0, raf = 0, last = 0, pos = 0;
+      function stop() {
+        clearTimeout(timer); timer = 0;
+        cancelAnimationFrame(raf); raf = 0;
+        s.classList.remove('panning');
+      }
+      function step(t) {
+        var max = s.scrollWidth - s.clientWidth;
+        // Track the position ourselves: scrollLeft may round to whole pixels,
+        // which at this speed would stall the pan.
+        pos = Math.min(max, pos + SPEED * (t - last) / 1000);
+        last = t;
+        s.scrollLeft = pos;
+        if (pos >= max) { stop(); return; }
+        raf = requestAnimationFrame(step);
+      }
+      function start() {
+        timer = 0;
+        if (reduce.matches || s.scrollWidth - s.clientWidth < 1) return;
+        s.classList.add('panning'); // snapping would fight a slow pan
+        pos = s.scrollLeft;
+        raf = requestAnimationFrame(function (t) { last = t; raf = requestAnimationFrame(step); });
+      }
+      s.addEventListener('pointerenter', function (e) {
+        if (e.pointerType === 'mouse' && !timer && !raf) timer = setTimeout(start, DELAY);
+      });
+      s.addEventListener('pointerleave', stop);
+      ['wheel', 'pointerdown', 'keydown'].forEach(function (ev) {
+        s.addEventListener(ev, stop, { passive: true });
+      });
+    });
+  })();
 </script>
 
 
