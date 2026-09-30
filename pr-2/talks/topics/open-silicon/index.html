@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Open source silicon · Tim 'mithro' Ansell</title>
   <meta name="description" content="Talks by Tim 'mithro' Ansell on Open source silicon — SkyWater and GlobalFoundries open PDKs, the Open MPW shuttles, OpenROAD and Google's open silicon programme — and now wafer.space.">
-  <meta name="git-commit" content="06d2b43244c7b68675551d5c2a37d45a6dc9485e">
+  <meta name="git-commit" content="2fd910eabdab33e6be97717dfea4ac94d7c90c1a">
   <link rel="canonical" href="https://preview.mith.ro/pr-2/talks/topics/open-silicon/">
   <style>:root {
   --bg: #0e0f11;
@@ -345,6 +345,9 @@ ul.deg-list { padding-left: 0; list-style: none; }
 .topics-table td.n { text-align: right; color: var(--gold); white-space: nowrap; font-variant-numeric: tabular-nums; width: 5rem; }
 .topics-table td.bl { color: var(--muted); text-wrap: pretty; }
 .topics-table .clab { display: none; }
+.talks-table .also { display: block; color: var(--muted); font-size: .75rem; margin-top: .1rem; }
+.talks-table td.ti .also a { color: var(--muted); padding: .2rem 0; }
+.talks-table td.ti .also a:hover, .talks-table td.ti .also a:focus-visible { color: var(--gold); }
 @media (max-width: 640px) {
   .topics-table { min-width: 0; }
   .topics-table thead { display: none; }
@@ -654,6 +657,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/mithro-lbnl25/">A brain dump on open source silicon (FPGAs, ASICs and similar)</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a></span>
   </td>
   <td class="ev"><span><a href="https://en.wikipedia.org/wiki/Lawrence_Berkeley_National_Laboratory">Lawrence Berkeley National Laboratory (LBNL) seminar</a> · <span class="nowrap">May 2025</span></span></td>
 </tr>
@@ -776,6 +780,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/goog-ic-edu/">Education and workforce development</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/education/">Education &amp; workforce</a></span>
   </td>
   <td class="ev"><span><span class="nowrap">Jun 2023</span></span></td>
 </tr>
@@ -860,6 +865,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/open-pipe-talk/">SERDES, PIPE and protocols: a pathway to fully open source implementations</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a></span>
   </td>
   <td class="ev"><span><span class="nowrap">11 Oct 2022</span></span></td>
 </tr>
@@ -1031,6 +1037,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/cicc22-edu-goog/">Why is Google investing in fully open source IC design and what is next?</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/education/">Education &amp; workforce</a></span>
   </td>
   <td class="ev"><span><a href="https://web.archive.org/web/20220419210642/https://www.ieee-cicc.org/">CICC 2022 Educational</a> · <span class="nowrap">24 Apr 2022</span></span></td>
 </tr>
@@ -1088,6 +1095,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/goog-um22/">Investing in fully open source silicon</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/education/">Education &amp; workforce</a></span>
   </td>
   <td class="ev"><span>UMich - EECS 627 - VLSI Design II · <span class="nowrap">14 Mar 2022</span></span></td>
 </tr>
@@ -1126,6 +1134,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/op22-gtools/">Google and open source hardware toolchains &amp; ecosystem</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a></span>
   </td>
   <td class="ev"><span><span class="nowrap">4 Mar 2022</span></span></td>
 </tr>
@@ -1153,6 +1162,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/suny22-goog/">Microelectronics workforce development workshop</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/education/">Education &amp; workforce</a></span>
   </td>
   <td class="ev"><span><span class="nowrap">3 Feb 2022</span></span></td>
 </tr>
@@ -1218,6 +1228,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/ops21-litedram/">A fully FOSS memory controller with LPDDR4/5 support for FPGAs and ASICs</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a></span>
   </td>
   <td class="ev"><span><a href="https://web.archive.org/web/20211027194446/https://events.linuxfoundation.org/openpower-summit-north-america/">OpenPOWER Summit 2021</a> · <span class="nowrap">28 Oct 2021</span></span></td>
 </tr>
@@ -1245,6 +1256,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/nsf-edu-2021/">NSF IC education workshop</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/education/">Education &amp; workforce</a></span>
   </td>
   <td class="ev"><span><span class="nowrap">15 Oct 2021</span></span></td>
 </tr>
@@ -1392,6 +1404,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/opf21-ght/">Google and open source hardware toolchains &amp; ecosystem</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a></span>
   </td>
   <td class="ev"><span>OpenPower LinkedIn Live Event · <span class="nowrap">9 Jun 2021</span></span></td>
 </tr>
@@ -1419,6 +1432,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/byu21-goog/">Google and open source hardware toolchains &amp; ecosystem</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a>, <a href="/pr-2/talks/topics/education/">Education &amp; workforce</a></span>
   </td>
   <td class="ev"><span><span class="nowrap">Jun 2021</span></span></td>
 </tr>
@@ -1476,6 +1490,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/cae21-goog-miss/">The missing pieces of open design enablement: a recent history of Google efforts</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a></span>
   </td>
   <td class="ev"><span>Argentine Conference on Electronics (CAE) Summit · <span class="nowrap">12 Mar 2021</span></span></td>
 </tr>
@@ -1522,6 +1537,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/rios21-goog-miss/">The missing pieces of open design enablement: a recent history of Google efforts</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a></span>
   </td>
   <td class="ev"><span>RIOS21 Summit · <span class="nowrap">27 Jan 2021</span></span></td>
 </tr>
@@ -1587,6 +1603,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/iccad20-goog-miss/">The missing pieces of open design enablement: a recent history of Google efforts</a> <a class="vid" href="https://bit.ly/iccad20-goog-miss-video"><span aria-hidden="true">▶</span> video</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a></span>
   </td>
   <td class="ev"><span><a href="https://web.archive.org/web/20201101130041/https://iccad.com/">ICCAD20</a> · <span class="nowrap">3 Nov 2020</span></span></td>
 </tr>
@@ -1671,6 +1688,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/eri19-foss101/">Open source 101</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/community/">Community &amp; projects</a></span>
   </td>
   <td class="ev"><span><a href="https://web.archive.org/web/20190717193653/http://eri-summit.com/">DARPA ERI Summit</a> · <span class="nowrap">17 Jul 2019</span></span></td>
 </tr>
@@ -1690,6 +1708,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/eri19-foss102/">Open source 102</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/community/">Community &amp; projects</a></span>
   </td>
   <td class="ev"><span><a href="https://web.archive.org/web/20190717193653/http://eri-summit.com/">DARPA ERI Summit</a> · <span class="nowrap">17 Jul 2019</span></span></td>
 </tr>
@@ -1709,6 +1728,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <tr>
   <td class="ti">
     <a href="/pr-2/talks/eri19-panel/">SymbiFlow + POSH/IDEA panel</a>
+    <span class="also">Also in <a href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a></span>
   </td>
   <td class="ev"><span>DARPA ERI Summit 2019 - POSH/IDEA Panel · <span class="nowrap">Jul 2019</span></span></td>
 </tr>
