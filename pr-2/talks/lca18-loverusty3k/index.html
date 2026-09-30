@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Love Rusty 3K · Tim 'mithro' Ansell</title>
   <meta name="description" content="Talk by Tim 'mithro' Ansell — LCA2018 · 23 Jan 2018.">
-  <meta name="git-commit" content="489d8f1330fbdb3de2131150d47f3735c3f59e78">
+  <meta name="git-commit" content="5ca12587e28023d30f783e84861cb842cb828de8">
   <link rel="canonical" href="https://preview.mith.ro/pr-2/talks/lca18-loverusty3k/">
   <style>:root {
   --bg: #0e0f11;
@@ -330,6 +330,38 @@ ul.deg-list { padding-left: 0; list-style: none; }
 .prevnext { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.5rem; }
 .year-head .count { color: var(--muted); font-weight: 400; font-size: .8rem; margin-left: .4rem; }
 .cat-blurb { margin: 0 0 .6rem; }
+
+/* The topics index is a table of topics; each row links to that topic's
+   own page. Below 640px rows stack like .talks-table rows do, and the
+   .clab labels take over from the (then hidden) column headers. */
+.topics-table { border-collapse: collapse; width: 100%; min-width: 38rem; font-size: .85rem; }
+.topics-table caption { text-align: left; }
+.topics-table th { font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); text-align: left; font-weight: 600; padding: 0 .8rem .3rem 0; border-bottom: 1px solid var(--gold-dim); }
+.topics-table th.n { text-align: right; }
+.topics-table td { border-top: 1px solid var(--line); padding: .55rem .8rem .55rem 0; vertical-align: top; }
+.topics-table td.ti { white-space: nowrap; }
+.topics-table td.ti a { color: var(--silk); text-decoration: underline; text-decoration-color: var(--gold-dim); text-underline-offset: 3px; padding: .3rem 0; display: inline-block; }
+.topics-table td.ti a:hover, .topics-table td.ti a:focus-visible { color: var(--gold); text-decoration-color: var(--gold); }
+.topics-table td.n { text-align: right; color: var(--gold); white-space: nowrap; font-variant-numeric: tabular-nums; width: 5rem; }
+.topics-table td.bl { color: var(--muted); text-wrap: pretty; }
+.topics-table .clab { display: none; }
+@media (max-width: 640px) {
+  .topics-table { min-width: 0; }
+  .topics-table thead { display: none; }
+  .topics-table, .topics-table tbody { display: block; }
+  /* Flex rows rather than blocks: a flex container drops the whitespace
+     between cells, so the count/years line starts flush with the topic
+     name instead of inheriting a leading space. */
+  .topics-table tr { display: flex; flex-wrap: wrap; align-items: baseline; border-top: 1px solid var(--line); padding: .55rem 0; }
+  .topics-table td { border-top: 0; padding: 0; text-align: left; width: auto; }
+  .topics-table td.ti, .topics-table td.bl { flex: 0 0 100%; }
+  .topics-table td.ti { white-space: normal; }
+  /* width/text-align must be re-stated at td.n specificity: the desktop
+     .topics-table td.n rule outranks the .topics-table td reset above. */
+  .topics-table td.n { width: auto; text-align: left; color: var(--muted); font-size: .78rem; margin-right: 1rem; }
+  .topics-table td.bl { margin-top: .2rem; font-size: .82rem; }
+  .topics-table .clab { display: inline; }
+}
 .hl { border-top: 1px solid var(--line); padding: 1.2rem 0; }
 .hl h3 { margin: 0 0 .2rem; font-family: var(--mono); font-size: 1rem; }
 .hl h3 a { color: var(--silk); text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
@@ -451,7 +483,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <h2>Love Rusty 3K</h2>
   <p class="talk-meta"><a href="https://web.archive.org/web/20180127143252/http://lca2018.linux.org.au/">LCA2018</a> · <span class="nowrap">23 Jan 2018</span>
   </p>
-  <p class="chips"><a class="chip" href="/pr-2/talks/topics/#fpga-tools">Open FPGA toolchains</a></p>
+  <p class="chips"><a class="chip" href="/pr-2/talks/topics/fpga-tools/">Open FPGA toolchains</a></p>
   
   <div class="strip-wrap strip-lg">
   <div class="strip" role="group" aria-label="Slides: Love Rusty 3K" tabindex="0"><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.p" title="Slide 1 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/001-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/001-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/001-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 1 of 16" fetchpriority="high" loading="eager" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_35" title="Slide 2 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/002-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/002-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/002-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 2 of 16" loading="eager" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_43" title="Slide 3 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/003-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/003-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/003-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 3 of 16" loading="eager" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2906f5d926cb8201_883" title="Slide 4 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/004-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/004-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/004-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 4 of 16" loading="eager" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_64" title="Slide 5 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/005-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/005-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/005-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 5 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_70" title="Slide 6 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/006-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/006-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/006-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 6 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_143" title="Slide 7 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/007-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/007-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/007-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 7 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_156" title="Slide 8 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/008-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/008-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/008-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 8 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_75" title="Slide 9 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/009-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/009-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/009-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 9 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_79" title="Slide 10 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/010-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/010-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/010-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 10 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_89" title="Slide 11 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/011-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/011-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/011-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 11 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_94" title="Slide 12 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/012-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/012-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/012-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 12 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_84" title="Slide 13 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/013-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/013-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/013-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 13 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_114" title="Slide 14 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/014-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/014-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/014-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 14 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_133" title="Slide 15 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/015-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/015-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/015-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 15 of 16" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1Lw4l4uZKTiymLV6uO-w0zHtxZ7iaUEH0GTLcmeFnp1w#slide=id.g2af283157c_0_31" title="Slide 16 of 16"><img src="/pr-2/assets/strips/lca18-loverusty3k/016-240.webp" srcset="/pr-2/assets/strips/lca18-loverusty3k/016-240.webp 240w, /pr-2/assets/strips/lca18-loverusty3k/016-480.webp 480w" sizes="356px" width="480" height="270" alt="Slide 16 of 16" loading="lazy" decoding="async"></a></div>
