@@ -6,7 +6,7 @@
     <atom:link href="https://preview.mith.ro/pr-2/talks/feed.xml" rel="self" type="application/rss+xml" />
     <description>Talks and presentations by Tim 'mithro' Ansell — open source silicon, FPGAs, EDA and more.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 30 Sep 2026 11:12:34 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 11:43:08 +0000</lastBuildDate>
     <item>
       <title>wafer.space at TSRI 2026</title>
       <link>https://preview.mith.ro/pr-2/talks/tsri26/</link>
@@ -234,9 +234,9 @@
     <item>
       <title>Google and open source hardware toolchains &amp; ecosystem</title>
       <link>https://preview.mith.ro/pr-2/talks/op22-gtools/</link>
-      <guid isPermaLink="false">mith.ro-talk-2022-03-04-soc-design-using-openpower-cores-4th-march-2022-google-and-open-source-hardware-toolchains-ecosystem-</guid>
+      <guid isPermaLink="false">mith.ro-talk-2022-03-04-soc-design-using-openpower-cores-4th-march-2022-google-and-open-source-hardware-toolchains-ecosystem-openpower-ai-cloud-virtual-university</guid>
       <pubDate>Fri, 04 Mar 2022 00:00:00 +0000</pubDate>
-      <description> · 4 Mar 2022 · recording: https://youtu.be/l5HcuX8MH6Y</description>
+      <description>OpenPOWER AI &amp; Cloud Virtual University · 4 Mar 2022 · recording: https://youtu.be/l5HcuX8MH6Y</description>
     </item>
     <item>
       <title>Microelectronics workforce development workshop</title>

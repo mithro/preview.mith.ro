@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Talks · Tim 'mithro' Ansell</title>
   <meta name="description" content="Tim 'mithro' Ansell has given over 120 talks since 2007 — highlights, timeline, topics and the numbers.">
-  <meta name="git-commit" content="d3477b95a20b456900014cefca22974a94d38878">
+  <meta name="git-commit" content="06e66ea9eba1eff56e4cbedf0db60beeb156c49a">
   <link rel="canonical" href="https://preview.mith.ro/pr-2/talks/">
   <style>:root {
   --bg: #0e0f11;
@@ -372,6 +372,18 @@ ul.deg-list { padding-left: 0; list-style: none; }
 .hl .prose { margin: 0 0 .6rem; }
 
 /* ---- Talks hub ------------------------------------------------------ */
+/* "Start here": the highlights as a 3-column grid of cards (2 on tablets,
+   1 on phones), each the deck's first slide, title and event · date. */
+.start-grid { list-style: none; margin: .4rem 0 1rem; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.2rem 1rem; }
+.start-grid li { display: flex; flex-direction: column; gap: .3rem; min-width: 0; }
+.sg-card { display: flex; flex-direction: column; gap: .45rem; color: var(--silk); text-decoration: none; }
+.sg-card img { display: block; width: 100%; height: auto; border: 1px solid var(--line); border-radius: 4px; background: var(--panel); }
+.sg-card strong { font-family: var(--mono); font-size: .88rem; font-weight: 600; line-height: 1.35; text-wrap: balance; text-decoration: underline; text-decoration-color: var(--gold-dim); text-underline-offset: 3px; }
+.sg-card:hover strong, .sg-card:focus-visible strong { color: var(--gold); text-decoration-color: var(--gold); }
+.sg-card:hover img, .sg-card:focus-visible img { border-color: var(--gold); }
+.start-grid .talk-meta { margin: 0; font-size: .75rem; }
+@media (max-width: 960px) { .start-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px) { .start-grid { grid-template-columns: 1fr; } }
 .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: .2rem 0 1.6rem; }
 .card { display: block; border: 1px solid var(--line); border-radius: 6px; padding: 1rem 1.1rem; background: var(--panel); color: var(--silk); text-decoration: none; }
 .card strong { display: block; color: var(--gold); margin-bottom: .25rem; }
@@ -485,7 +497,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
 </nav>
 
   <div class="cards">
-    <a class="card" href="/pr-2/talks/highlights/"><strong>Highlights</strong><span>Start with the ten that matter most.</span></a>
+    <a class="card" href="/pr-2/talks/highlights/"><strong>Highlights</strong><span>Start with the 7 that matter most.</span></a>
     <a class="card" href="/pr-2/talks/timeline/"><strong>Timeline</strong><span>All 121 talks, newest first.</span></a>
     <a class="card" href="/pr-2/talks/topics/"><strong>Topics</strong><span>One page per subject, across 8 themes.</span></a>
   </div>
@@ -497,7 +509,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <div><dt>Recordings</dt><dd>41</dd></div>
   <div><dt>Slide decks</dt><dd>113</dd></div>
   <div><dt>Slides shown</dt><dd>8340</dd></div>
-  <div><dt>Events</dt><dd>85</dd></div>
+  <div><dt>Events</dt><dd>86</dd></div>
 </dl>
 
 <section class="sect">
@@ -523,28 +535,57 @@ ul.deg-list { padding-left: 0; list-style: none; }
 
 <section class="sect">
   <h3 class="year-head">Start here</h3>
-  <article class="hl">
-    <h3><a href="/pr-2/talks/35c3-symbiflow/">SymbiFlow – finally the GCC of FPGAs!</a></h3>
-    <p class="talk-meta">35C3 · 28 Dec 2018</p>
-    <div class="strip-wrap">
-  <div class="strip" role="group" aria-label="Slides: SymbiFlow – finally the GCC of FPGAs!" tabindex="0"><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4a12ae8652_0_209" title="Slide 1 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/001-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/001-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/001-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 1 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4b602cbeae_0_12" title="Slide 2 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/002-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/002-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/002-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 2 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4b5b53c1de_1_453" title="Slide 3 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/003-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/003-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/003-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 3 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4b5b53c1de_1_457" title="Slide 4 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/004-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/004-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/004-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 4 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4b602cbeae_0_6" title="Slide 5 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/005-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/005-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/005-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 5 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4b602cbeae_0_2" title="Slide 6 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/006-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/006-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/006-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 6 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4b602cbeae_0_26" title="Slide 7 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/007-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/007-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/007-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 7 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g3f4bf579e3_1_690" title="Slide 8 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/008-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/008-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/008-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 8 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4b602cbeae_0_37" title="Slide 9 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/009-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/009-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/009-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 9 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4b602cbeae_1_4" title="Slide 10 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/010-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/010-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/010-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 10 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4b602cbeae_0_56" title="Slide 11 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/011-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/011-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/011-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 11 of 100" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/18HM63VXKigypJy6vniqfk6a7QaTu4Yj8YdmyqVBVYtY#slide=id.g4b5b53c1de_1_47" title="Slide 12 of 100"><img src="/pr-2/assets/strips/35c3-symbiflow/012-240.webp" srcset="/pr-2/assets/strips/35c3-symbiflow/012-240.webp 240w, /pr-2/assets/strips/35c3-symbiflow/012-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 12 of 100" loading="lazy" decoding="async"></a><a class="frame more" href="/pr-2/talks/35c3-symbiflow/" style="aspect-ratio: 480 / 270"><span>+88 more</span></a></div>
-</div>
-  </article>
-  <article class="hl">
-    <h3><a href="/pr-2/talks/du20-sky130/">google/skywater-pdk: a manufacturable open source 130nm PDK</a></h3>
-    <p class="talk-meta">FOSSi Foundation Dialup Talk Series · 30 Jun 2020</p>
-    <div class="strip-wrap">
-  <div class="strip" role="group" aria-label="Slides: google/skywater-pdk: a manufacturable open source 130nm PDK" tabindex="0"><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g4ac72a3b20_0_45" title="Slide 1 of 130"><img src="/pr-2/assets/strips/du20-sky130/001-240.webp" srcset="/pr-2/assets/strips/du20-sky130/001-240.webp 240w, /pr-2/assets/strips/du20-sky130/001-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 1 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a02ce4cad_0_300" title="Slide 2 of 130"><img src="/pr-2/assets/strips/du20-sky130/002-240.webp" srcset="/pr-2/assets/strips/du20-sky130/002-240.webp 240w, /pr-2/assets/strips/du20-sky130/002-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 2 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a122ff1a1_6_118" title="Slide 3 of 130"><img src="/pr-2/assets/strips/du20-sky130/003-240.webp" srcset="/pr-2/assets/strips/du20-sky130/003-240.webp 240w, /pr-2/assets/strips/du20-sky130/003-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 3 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a122ff1a1_6_122" title="Slide 4 of 130"><img src="/pr-2/assets/strips/du20-sky130/004-240.webp" srcset="/pr-2/assets/strips/du20-sky130/004-240.webp 240w, /pr-2/assets/strips/du20-sky130/004-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 4 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a122ff1a1_6_126" title="Slide 5 of 130"><img src="/pr-2/assets/strips/du20-sky130/005-240.webp" srcset="/pr-2/assets/strips/du20-sky130/005-240.webp 240w, /pr-2/assets/strips/du20-sky130/005-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 5 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a122ff1a1_6_130" title="Slide 6 of 130"><img src="/pr-2/assets/strips/du20-sky130/006-240.webp" srcset="/pr-2/assets/strips/du20-sky130/006-240.webp 240w, /pr-2/assets/strips/du20-sky130/006-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 6 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a122ff1a1_6_762" title="Slide 7 of 130"><img src="/pr-2/assets/strips/du20-sky130/007-240.webp" srcset="/pr-2/assets/strips/du20-sky130/007-240.webp 240w, /pr-2/assets/strips/du20-sky130/007-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 7 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a122ff1a1_6_618" title="Slide 8 of 130"><img src="/pr-2/assets/strips/du20-sky130/008-240.webp" srcset="/pr-2/assets/strips/du20-sky130/008-240.webp 240w, /pr-2/assets/strips/du20-sky130/008-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 8 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a122ff1a1_6_437" title="Slide 9 of 130"><img src="/pr-2/assets/strips/du20-sky130/009-240.webp" srcset="/pr-2/assets/strips/du20-sky130/009-240.webp 240w, /pr-2/assets/strips/du20-sky130/009-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 9 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a122ff1a1_6_238" title="Slide 10 of 130"><img src="/pr-2/assets/strips/du20-sky130/010-240.webp" srcset="/pr-2/assets/strips/du20-sky130/010-240.webp 240w, /pr-2/assets/strips/du20-sky130/010-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 10 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a122ff1a1_6_990" title="Slide 11 of 130"><img src="/pr-2/assets/strips/du20-sky130/011-240.webp" srcset="/pr-2/assets/strips/du20-sky130/011-240.webp 240w, /pr-2/assets/strips/du20-sky130/011-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 11 of 130" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1ixZ3lAO81btPwkd60BboUGY700gwpFONIL7A9JRuHL0#slide=id.g8a122ff1a1_6_1000" title="Slide 12 of 130"><img src="/pr-2/assets/strips/du20-sky130/012-240.webp" srcset="/pr-2/assets/strips/du20-sky130/012-240.webp 240w, /pr-2/assets/strips/du20-sky130/012-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 12 of 130" loading="lazy" decoding="async"></a><a class="frame more" href="/pr-2/talks/du20-sky130/" style="aspect-ratio: 480 / 270"><span>+118 more</span></a></div>
-</div>
-  </article>
-  <article class="hl">
-    <h3><a href="/pr-2/talks/oto21-sky130/">Open down to the transistor: a fully open source, manufacturable PDK for a 130nm process</a></h3>
-    <p class="talk-meta">OpenTapeOut 2021 · 6 Nov 2021</p>
-    <div class="strip-wrap">
-  <div class="strip" role="group" aria-label="Slides: Open down to the transistor: a fully open source, manufacturable PDK for a 130nm process" tabindex="0"><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.ga0d4ecdf0b_0_2089" title="Slide 1 of 125"><img src="/pr-2/assets/strips/oto21-sky130/001-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/001-240.webp 240w, /pr-2/assets/strips/oto21-sky130/001-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 1 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.gea0bebe602_0_9" title="Slide 2 of 125"><img src="/pr-2/assets/strips/oto21-sky130/002-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/002-240.webp 240w, /pr-2/assets/strips/oto21-sky130/002-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 2 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.gb8e29b68b6_0_1009" title="Slide 3 of 125"><img src="/pr-2/assets/strips/oto21-sky130/003-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/003-240.webp 240w, /pr-2/assets/strips/oto21-sky130/003-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 3 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.gb8e29b68b6_0_1013" title="Slide 4 of 125"><img src="/pr-2/assets/strips/oto21-sky130/004-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/004-240.webp 240w, /pr-2/assets/strips/oto21-sky130/004-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 4 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.gb8e29b68b6_0_1018" title="Slide 5 of 125"><img src="/pr-2/assets/strips/oto21-sky130/005-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/005-240.webp 240w, /pr-2/assets/strips/oto21-sky130/005-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 5 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.gb8e29b68b6_0_1023" title="Slide 6 of 125"><img src="/pr-2/assets/strips/oto21-sky130/006-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/006-240.webp 240w, /pr-2/assets/strips/oto21-sky130/006-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 6 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.gb8e29b68b6_0_1027" title="Slide 7 of 125"><img src="/pr-2/assets/strips/oto21-sky130/007-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/007-240.webp 240w, /pr-2/assets/strips/oto21-sky130/007-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 7 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.ga0d4ecdf0b_0_223" title="Slide 8 of 125"><img src="/pr-2/assets/strips/oto21-sky130/008-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/008-240.webp 240w, /pr-2/assets/strips/oto21-sky130/008-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 8 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.ga0d4ecdf0b_0_2241" title="Slide 9 of 125"><img src="/pr-2/assets/strips/oto21-sky130/009-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/009-240.webp 240w, /pr-2/assets/strips/oto21-sky130/009-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 9 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.ga0d4ecdf0b_0_236" title="Slide 10 of 125"><img src="/pr-2/assets/strips/oto21-sky130/010-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/010-240.webp 240w, /pr-2/assets/strips/oto21-sky130/010-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 10 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.ga0d4ecdf0b_0_242" title="Slide 11 of 125"><img src="/pr-2/assets/strips/oto21-sky130/011-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/011-240.webp 240w, /pr-2/assets/strips/oto21-sky130/011-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 11 of 125" loading="lazy" decoding="async"></a><a class="frame" href="https://docs.google.com/presentation/d/1U5CULE9fVopXDZ7shB0z5xxOkvVIbCknLgtIgkGyHeo#slide=id.ga0d4ecdf0b_0_246" title="Slide 12 of 125"><img src="/pr-2/assets/strips/oto21-sky130/012-240.webp" srcset="/pr-2/assets/strips/oto21-sky130/012-240.webp 240w, /pr-2/assets/strips/oto21-sky130/012-480.webp 480w" sizes="240px" width="480" height="270" alt="Slide 12 of 125" loading="lazy" decoding="async"></a><a class="frame more" href="/pr-2/talks/oto21-sky130/" style="aspect-ratio: 480 / 270"><span>+113 more</span></a></div>
-</div>
-  </article>
-  
+  <ul class="start-grid">
+    <li>
+      <a class="sg-card" href="/pr-2/talks/hw26/">
+        <img src="/pr-2/assets/strips/hw26/001-240.webp" srcset="/pr-2/assets/strips/hw26/001-240.webp 240w, /pr-2/assets/strips/hw26/001-480.webp 480w" sizes="(max-width: 640px) 92vw, (max-width: 960px) 45vw, 320px" width="480" height="270" alt="" loading="eager" fetchpriority="high" decoding="async">
+        <strong>wafer.space: silicon now $4 USD — get inspired by Run #1!</strong>
+      </a>
+      <span class="talk-meta">Hackware hardware meetup, Singapore · <span class="nowrap">2 Apr 2026</span></span>
+    </li>
+    <li>
+      <a class="sg-card" href="/pr-2/talks/vsdopen22-goog/">
+        <img src="/pr-2/assets/strips/vsdopen22-goog/001-240.webp" srcset="/pr-2/assets/strips/vsdopen22-goog/001-240.webp 240w, /pr-2/assets/strips/vsdopen22-goog/001-480.webp 480w" sizes="(max-width: 640px) 92vw, (max-width: 960px) 45vw, 320px" width="480" height="270" alt="" loading="eager" decoding="async">
+        <strong>Build custom silicon with Google!</strong>
+      </a>
+      <span class="talk-meta">VSDOpen Conference (2022) · <span class="nowrap">15 Oct 2022</span></span>
+    </li>
+    <li>
+      <a class="sg-card" href="/pr-2/talks/op22-gtools/">
+        <img src="/pr-2/assets/strips/op22-gtools/001-240.webp" srcset="/pr-2/assets/strips/op22-gtools/001-240.webp 240w, /pr-2/assets/strips/op22-gtools/001-480.webp 480w" sizes="(max-width: 640px) 92vw, (max-width: 960px) 45vw, 320px" width="480" height="270" alt="" loading="eager" decoding="async">
+        <strong>Google and open source hardware toolchains &amp; ecosystem</strong>
+      </a>
+      <span class="talk-meta">OpenPOWER AI &amp; Cloud Virtual University · <span class="nowrap">4 Mar 2022</span></span>
+    </li>
+    <li>
+      <a class="sg-card" href="/pr-2/talks/fomu-camp19/">
+        <img src="/pr-2/assets/strips/fomu-camp19/001-240.webp" srcset="/pr-2/assets/strips/fomu-camp19/001-240.webp 240w, /pr-2/assets/strips/fomu-camp19/001-480.webp 480w" sizes="(max-width: 640px) 92vw, (max-width: 960px) 45vw, 320px" width="480" height="270" alt="" loading="lazy" decoding="async">
+        <strong>Fomu: an FPGA inside your USB port!</strong>
+      </a>
+      <span class="talk-meta">CCCamp19 — with Sean &#39;xobs&#39; Cross · <span class="nowrap">21 Aug 2019</span></span>
+    </li>
+    <li>
+      <a class="sg-card" href="/pr-2/talks/latchup19-projects/">
+        <img src="/pr-2/assets/strips/latchup19-projects/001-240.webp" srcset="/pr-2/assets/strips/latchup19-projects/001-240.webp 240w, /pr-2/assets/strips/latchup19-projects/001-480.webp 480w" sizes="(max-width: 640px) 92vw, (max-width: 960px) 45vw, 320px" width="480" height="270" alt="" loading="lazy" decoding="async">
+        <strong>Tim has too many projects</strong>
+      </a>
+      <span class="talk-meta">Latch-Up 2019 · <span class="nowrap">5 May 2019</span></span>
+    </li>
+    <li>
+      <a class="sg-card" href="/pr-2/talks/33c3-hdmi/">
+        <img src="/pr-2/assets/strips/33c3-hdmi/001-240.webp" srcset="/pr-2/assets/strips/33c3-hdmi/001-240.webp 240w, /pr-2/assets/strips/33c3-hdmi/001-480.webp 480w" sizes="(max-width: 640px) 92vw, (max-width: 960px) 45vw, 320px" width="480" height="270" alt="" loading="lazy" decoding="async">
+        <strong>Dissecting HDMI: developing open, FPGA-based capture hardware for conference &amp; user group recording</strong>
+      </a>
+      <span class="talk-meta">33C3 · <span class="nowrap">29 Dec 2016</span></span>
+    </li>
+    <li>
+      <a class="sg-card" href="/pr-2/talks/gfu22-goog/">
+        <img src="/pr-2/assets/strips/gfu22-goog/001-240.webp" srcset="/pr-2/assets/strips/gfu22-goog/001-240.webp 240w, /pr-2/assets/strips/gfu22-goog/001-480.webp 480w" sizes="(max-width: 640px) 92vw, (max-width: 960px) 45vw, 320px" width="480" height="270" alt="" loading="lazy" decoding="async">
+        <strong>Google, GlobalFoundries &amp; open source! What is happening and why should I care?</strong>
+      </a>
+      <span class="talk-meta">GlobalFoundries University Calls · <span class="nowrap">31 Aug 2022</span></span>
+    </li>
+  </ul>
   <p class="more"><a href="/pr-2/talks/highlights/">All highlights →</a></p>
 </section>
 
