@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Talks · Tim 'mithro' Ansell</title>
   <meta name="description" content="All of Tim 'mithro' Ansell's talks and presentations, 2012–present.">
-  <meta name="git-commit" content="12553d980cff0bc89ef453a157d3aa97718ba7b0">
+  <meta name="git-commit" content="3849153ec5a8983579b4d2a636c1532ee7258efe">
   <link rel="canonical" href="https://preview.mith.ro/pr-5/talks/">
   <style>:root {
   --bg: #0e0f11;
@@ -324,10 +324,12 @@ ul.deg-list { padding-left: 0; list-style: none; }
    organisation buttons on GitHub's profile page. */
 .cy-orgs { list-style: none; margin: 0; padding: 16px 0 0; width: 12.5rem; font-size: .72rem; }
 .cy-orgs li + li { margin-top: 5px; }
-.cy-orgs a { display: inline-flex; align-items: center; gap: .4rem; max-width: 100%; padding: 1px .45rem 1px 2px; border: 1px solid var(--line); border-radius: 4px; color: var(--silk); text-decoration: none; white-space: nowrap; overflow: hidden; }
+/* Long logins (sydney-linux-user-group) wrap at their hyphens inside
+   the button rather than being cut off; the count never splits. */
+.cy-orgs a { display: inline-flex; align-items: center; gap: .4rem; max-width: 100%; padding: 1px .45rem 1px 2px; border: 1px solid var(--line); border-radius: 4px; color: var(--silk); text-decoration: none; line-height: 1.35; overflow-wrap: anywhere; }
 .cy-orgs a:hover, .cy-orgs a:focus-visible { color: var(--gold); border-color: var(--gold-dim); }
-.cy-orgs img { display: block; border-radius: 3px; background: #fff; }
-.cy-orgs span { color: var(--muted); font-variant-numeric: tabular-nums; }
+.cy-orgs img { display: block; flex: none; border-radius: 3px; background: #fff; }
+.cy-orgs span { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 /* ---- Print ----------------------------------------------------------
    The resume page prints like the canonical resume Google Doc: black
