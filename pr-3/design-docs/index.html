@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Design documents · Tim 'mithro' Ansell</title>
-  <meta name="description" content="Public design documents, proposals and requirements docs by Tim 'mithro' Ansell — Chrome, LiteX & FPGA tooling, open source silicon and wafer.space.">
-  <meta name="git-commit" content="c711d5019b96702f96bb8bd8bf89d731fbf15345">
+  <meta name="description" content="Public design documents, proposals and requirements docs written or reviewed by Tim 'mithro' Ansell — Chrome, LiteX & FPGA tooling, open source silicon and wafer.space.">
+  <meta name="git-commit" content="b041585c4098f4e9752ca60ac427d563d1f24b1a">
   <link rel="canonical" href="https://preview.mith.ro/pr-3/design-docs/">
   <style>:root {
   --bg: #0e0f11;
@@ -287,6 +287,64 @@ ul.deg-list { padding-left: 0; list-style: none; }
 /* The embeds sit in their own full-width row attached to the talk above. */
 .talks-table tr.embrow td { border-top: 0; padding-top: 0; }
 
+/* ---- Contribution calendar (/contributions/) ------------------------
+   One row per year, GitHub-style: 7 squares down (Sun-Sat), one column
+   per week. Levels l1-l8 are a single all-time scale that doubles each
+   step, so a colour means the same amount of activity in every year. */
+.contrib, .contrib-legend {
+  --c0: var(--panel2); --c1: #2f2710; --c2: #4b3d14; --c3: #6c571a; --c4: #8f7220;
+  --c5: #b38d26; --c6: var(--gold); --c7: #f4cd55; --c8: #fff3bf;
+}
+.contrib { padding-bottom: .4rem; }
+.contrib i, .contrib-legend i { display: block; flex: none; width: 10px; height: 10px; border-radius: 2px; background: var(--c0); }
+.contrib i.l1, .contrib-legend i.l1 { background: var(--c1); }
+.contrib i.l2, .contrib-legend i.l2 { background: var(--c2); }
+.contrib i.l3, .contrib-legend i.l3 { background: var(--c3); }
+.contrib i.l4, .contrib-legend i.l4 { background: var(--c4); }
+.contrib i.l5, .contrib-legend i.l5 { background: var(--c5); }
+.contrib i.l6, .contrib-legend i.l6 { background: var(--c6); }
+.contrib i.l7, .contrib-legend i.l7 { background: var(--c7); }
+.contrib i.l8, .contrib-legend i.l8 { background: var(--c8); }
+.contrib i.p { visibility: hidden; }
+.contrib i.f { background: transparent; box-shadow: inset 0 0 0 1px var(--panel2); }
+.contrib-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 0 0 1rem; color: var(--muted); font-size: .72rem; }
+.contrib-legend span { margin-right: .7rem; }
+/* Year rows: total | calendar | organisations. With organisation names
+   kept on one line the three columns need nearly the full 1,040px
+   content width, so below that the organisations move under the
+   calendar (see the media query below) instead of scrolling out of view. */
+.cy { display: grid; grid-template-columns: auto auto auto; column-gap: .6rem; align-items: start; width: max-content; padding: .45rem 0; }
+.cy-meta { width: 4.2rem; padding-top: 14px; text-align: right; }
+.cy-meta a { display: block; color: var(--silk); font-weight: 700; text-decoration: none; }
+.cy-meta a:hover, .cy-meta a:focus-visible { color: var(--gold); }
+.cy-meta span { display: block; color: var(--muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.cy-meta b { display: block; height: 3px; margin: 3px 0 0 auto; border-radius: 2px; background: var(--gold); }
+.cy-months { display: grid; grid-template-columns: repeat(54, 10px); gap: 3px; height: 14px; margin-left: 31px; color: var(--muted); font-size: .6rem; line-height: 12px; }
+.cy-months span { grid-row: 1; white-space: nowrap; }
+.cy-body { display: flex; gap: 3px; }
+.cy-wd { display: grid; grid-template-rows: repeat(7, 10px); gap: 3px; width: 28px; color: var(--muted); font-size: .55rem; line-height: 10px; }
+.cy-grid { display: grid; grid-template-rows: repeat(7, 10px); grid-auto-columns: 10px; grid-auto-flow: column; gap: 3px; }
+/* The year's top organisations by contribution count, styled like the
+   organisation buttons on GitHub's profile page. */
+.cy-orgs { list-style: none; margin: 0; padding: 16px 0 0; font-size: .7rem; }
+.cy-orgs li + li { margin-top: 5px; }
+/* Each button stays on one line: logins never break at their hyphens. */
+.cy-orgs a { display: inline-flex; align-items: center; gap: .4rem; padding: 1px .45rem 1px 2px; border: 1px solid var(--line); border-radius: 4px; color: var(--silk); text-decoration: none; line-height: 1.35; white-space: nowrap; }
+.cy-orgs a:hover, .cy-orgs a:focus-visible { color: var(--gold); border-color: var(--gold-dim); }
+.cy-orgs img { display: block; flex: none; border-radius: 3px; background: #fff; }
+.cy-orgs span { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* 1100px, not 1080px: a vertical scrollbar takes ~15px of the viewport. */
+@media (max-width: 1100px) {
+  .cy { grid-template-columns: auto auto; }
+  .cy-orgs { grid-column: 2; display: flex; flex-wrap: wrap; gap: 5px 6px; padding: 6px 0 0 31px; }
+  .cy-orgs li + li { margin-top: 0; }
+}
+/* Phones: the calendar itself is wider than the screen and scrolls
+   sideways, so keep the organisations within the visible width. */
+@media (max-width: 640px) {
+  .cy-orgs { grid-column: 1 / -1; max-width: calc(100vw - 2.5rem); padding-left: 0; }
+}
+
 /* ---- Print ----------------------------------------------------------
    The resume page prints like the canonical resume Google Doc: black
    Arial on white, plain section headings, name + contact masthead.
@@ -345,7 +403,8 @@ ul.deg-list { padding-left: 0; list-style: none; }
 .doc-card { display: flex; gap: 1rem; align-items: flex-start; }
 .doc-thumb { flex: 0 0 7.5rem; display: block; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; background: var(--panel); }
 .doc-thumb:hover, .doc-thumb:focus-visible { border-color: var(--gold-dim); }
-.doc-thumb img { display: block; width: 100%; height: auto; }
+/* Same card shape for A4 and US Letter first pages (Letter crops a little at the bottom). */
+.doc-thumb img { display: block; width: 100%; height: auto; aspect-ratio: 480 / 679; object-fit: cover; object-position: top; }
 .doc-blank { display: grid; place-items: center; aspect-ratio: 480 / 679; color: var(--gold-dim); }
 .doc-blank svg { width: 2.4rem; height: 2.4rem; fill: currentColor; }
 .doc-body { min-width: 0; }
@@ -367,7 +426,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <link rel="alternate" type="application/rss+xml" title="Tim 'mithro' Ansell — Talks" href="https://preview.mith.ro/pr-3/talks/feed.xml">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><circle cx=%228%22 cy=%228%22 r=%226%22 fill=%22none%22 stroke=%22%23d4a72c%22 stroke-width=%221.5%22/><path d=%22M8 0v5M8 11v5M0 8h5M11 8h5%22 stroke=%22%23d4a72c%22 stroke-width=%221.5%22/></svg>">
   <meta property="og:title" content="Design documents">
-  <meta property="og:description" content="Public design documents, proposals and requirements docs by Tim 'mithro' Ansell — Chrome, LiteX & FPGA tooling, open source silicon and wafer.space.">
+  <meta property="og:description" content="Public design documents, proposals and requirements docs written or reviewed by Tim 'mithro' Ansell — Chrome, LiteX & FPGA tooling, open source silicon and wafer.space.">
   <meta property="og:url" content="https://preview.mith.ro/pr-3/design-docs/">
   <meta property="og:image" content="https://preview.mith.ro/pr-3/assets/photos/og-image.jpg">
   <script type="application/ld+json">
@@ -407,8 +466,8 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <section class="sect">
   <h2><span aria-hidden="true">📐</span> Design documents</h2>
   <p class="prose">34 public design documents, proposals and
-  requirements docs, written as Google Docs and shared with anyone who has
-  the link. They open via their <code>mith.ro</code> short links — the same
+  requirements docs that Tim wrote, co-wrote or reviewed, all Google Docs
+  shared with anyone who has the link. They open via their <code>mith.ro</code> short links — the same
   links quoted in the documents themselves and in talks that reference
   them.</p>
   <nav class="doc-toc" aria-label="Topics">
@@ -437,7 +496,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="doc-sub">Design sketch for detecting content mixing issues</p>
         <p class="doc-desc">Proposes tagging every piece of content Chrome generates with the display properties used to create it, so the long-standing class of rendering bugs caused by mixing content with different properties (resizes, display changes, animation time) can be detected programmatically instead of by user bug reports.</p>
         <p class="meta">
-          <span class="au">T Ansell, N Gordon (tansell@, noel@)</span> ·
+          <span class="au">T Ansell, N Gordon</span> ·
           <span class="nowrap">2015</span>
           <span class="nowrap">· <a class="doc-link" href="https://docs.google.com/document/d/1UBmUgbGsalhvWoshuuPJSh7LGNqreg4kBPXK1uavMmU/edit"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> docs.google.com</a></span>
         </p>
@@ -723,7 +782,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
       <div class="doc-body">
         <h4><a href="/pr-3/ci-arty/">CI system with Arty hardware for FPGA Tooling</a></h4>
         
-        <p class="doc-desc">Connectivity diagram, parts table and set-up notes for a hardware-in-the-loop CI rack: a PoE+ switch powering Raspberry Pi runners that netboot from a server and drive Digilent Arty boards through PMOD and USB Ethernet, with the RPi netboot and WiFi-disable configuration steps. Links to Carl&#39;s photos of the build.</p>
+        <p class="doc-desc">Connectivity diagram, parts table and set-up notes for a hardware-in-the-loop CI rack: a PoE+ switch powering Raspberry Pi runners that netboot from a server and drive Digilent Arty boards through PMOD and USB Ethernet, with the RPi netboot and WiFi-disable configuration steps. Links to photos of the build.</p>
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2021–2025</span>
