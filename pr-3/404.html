@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Not found · Tim 'mithro' Ansell</title>
   <meta name="description" content="Building open source silicon ecosystems — SKY130 & GF180MCU PDKs, Open MPW, wafer.space.">
-  <meta name="git-commit" content="b041585c4098f4e9752ca60ac427d563d1f24b1a">
+  <meta name="git-commit" content="1ccecefb26bb07f27a49e6f11e4ac6b45f003ae4">
   <link rel="canonical" href="https://preview.mith.ro/pr-3/404.html">
   <style>:root {
   --bg: #0e0f11;
@@ -380,6 +380,9 @@ ul.deg-list { padding-left: 0; list-style: none; }
   .sect h2 [aria-hidden="true"] { display: none; } /* emoji: screen-only */
 
   .prose { color: #000; font-family: inherit; font-size: 10.5pt; break-inside: avoid; }
+  .doc-toc, .doc-thumb { display: none; }
+  .doc-card { break-inside: avoid; }
+  .doc-desc, .doc-sub, .doc-body .meta, .doc-body h4 a, .doc-link { color: #000; }
   .prose h3 { color: #000; font-family: inherit; font-size: 11pt; margin: 8pt 0 2pt; }
   .prose.meta, .prose .meta { color: #333; font-family: inherit; font-size: 9.5pt; }
   .sect .prose + .prose { border-top: 0; margin-top: 6pt; padding-top: 0; }
@@ -407,7 +410,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
 .doc-thumb img { display: block; width: 100%; height: auto; aspect-ratio: 480 / 679; object-fit: cover; object-position: top; }
 .doc-blank { display: grid; place-items: center; aspect-ratio: 480 / 679; color: var(--gold-dim); }
 .doc-blank svg { width: 2.4rem; height: 2.4rem; fill: currentColor; }
-.doc-body { min-width: 0; }
+.doc-body { min-width: 0; overflow-wrap: break-word; }
 .doc-body h4 { margin: 0; font-size: .95rem; line-height: 1.35; text-wrap: pretty; }
 .doc-body h4 a { color: var(--silk); text-decoration: underline; text-decoration-color: var(--gold-dim); text-underline-offset: 3px; }
 .doc-body h4 a:hover, .doc-body h4 a:focus-visible { color: var(--gold); text-decoration-color: var(--gold); }
@@ -415,7 +418,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
 .doc-desc { margin: .5rem 0 0; font-family: var(--sans); font-size: .88rem; color: #c4beb2; text-wrap: pretty; }
 .doc-body .meta { margin: .45rem 0 0; color: var(--muted); font-size: .74rem; line-height: 1.7; }
 .doc-body .au { font-family: var(--sans); }
-.doc-link { color: var(--gold); text-decoration: none; white-space: nowrap; }
+.doc-link { color: var(--gold); text-decoration: none; overflow-wrap: anywhere; }
 .doc-link:hover, .doc-link:focus-visible { text-decoration: underline; }
 .doc-link .ci-icon svg { width: .9em; height: .9em; fill: currentColor; vertical-align: -0.1em; }
 @media (max-width: 480px) {

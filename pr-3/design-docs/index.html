@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Design documents · Tim 'mithro' Ansell</title>
   <meta name="description" content="Public design documents, proposals and requirements docs written or reviewed by Tim 'mithro' Ansell — Chrome, LiteX & FPGA tooling, open source silicon and wafer.space.">
-  <meta name="git-commit" content="b041585c4098f4e9752ca60ac427d563d1f24b1a">
+  <meta name="git-commit" content="1ccecefb26bb07f27a49e6f11e4ac6b45f003ae4">
   <link rel="canonical" href="https://preview.mith.ro/pr-3/design-docs/">
   <style>:root {
   --bg: #0e0f11;
@@ -380,6 +380,9 @@ ul.deg-list { padding-left: 0; list-style: none; }
   .sect h2 [aria-hidden="true"] { display: none; } /* emoji: screen-only */
 
   .prose { color: #000; font-family: inherit; font-size: 10.5pt; break-inside: avoid; }
+  .doc-toc, .doc-thumb { display: none; }
+  .doc-card { break-inside: avoid; }
+  .doc-desc, .doc-sub, .doc-body .meta, .doc-body h4 a, .doc-link { color: #000; }
   .prose h3 { color: #000; font-family: inherit; font-size: 11pt; margin: 8pt 0 2pt; }
   .prose.meta, .prose .meta { color: #333; font-family: inherit; font-size: 9.5pt; }
   .sect .prose + .prose { border-top: 0; margin-top: 6pt; padding-top: 0; }
@@ -407,7 +410,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
 .doc-thumb img { display: block; width: 100%; height: auto; aspect-ratio: 480 / 679; object-fit: cover; object-position: top; }
 .doc-blank { display: grid; place-items: center; aspect-ratio: 480 / 679; color: var(--gold-dim); }
 .doc-blank svg { width: 2.4rem; height: 2.4rem; fill: currentColor; }
-.doc-body { min-width: 0; }
+.doc-body { min-width: 0; overflow-wrap: break-word; }
 .doc-body h4 { margin: 0; font-size: .95rem; line-height: 1.35; text-wrap: pretty; }
 .doc-body h4 a { color: var(--silk); text-decoration: underline; text-decoration-color: var(--gold-dim); text-underline-offset: 3px; }
 .doc-body h4 a:hover, .doc-body h4 a:focus-visible { color: var(--gold); text-decoration-color: var(--gold); }
@@ -415,7 +418,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
 .doc-desc { margin: .5rem 0 0; font-family: var(--sans); font-size: .88rem; color: #c4beb2; text-wrap: pretty; }
 .doc-body .meta { margin: .45rem 0 0; color: var(--muted); font-size: .74rem; line-height: 1.7; }
 .doc-body .au { font-family: var(--sans); }
-.doc-link { color: var(--gold); text-decoration: none; white-space: nowrap; }
+.doc-link { color: var(--gold); text-decoration: none; overflow-wrap: anywhere; }
 .doc-link:hover, .doc-link:focus-visible { text-decoration: underline; }
 .doc-link .ci-icon svg { width: .9em; height: .9em; fill: currentColor; vertical-align: -0.1em; }
 @media (max-width: 480px) {
@@ -467,7 +470,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <h2><span aria-hidden="true">📐</span> Design documents</h2>
   <p class="prose">34 public design documents, proposals and
   requirements docs that Tim wrote, co-wrote or reviewed, all Google Docs
-  shared with anyone who has the link. They open via their <code>mith.ro</code> short links — the same
+  shared with anyone who has the link. Most open via their <code>mith.ro</code> short links — the same
   links quoted in the documents themselves and in talks that reference
   them.</p>
   <nav class="doc-toc" aria-label="Topics">
@@ -489,7 +492,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="https://docs.google.com/document/d/1UBmUgbGsalhvWoshuuPJSh7LGNqreg4kBPXK1uavMmU/edit" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/chrome-tagging-240.webp"
              srcset="/pr-3/assets/thumbs/docs/chrome-tagging-240.webp 240w, /pr-3/assets/thumbs/docs/chrome-tagging-480.webp 480w"
-             sizes="7.5rem" width="480" height="622" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="622" alt=""
              fetchpriority="high" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="https://docs.google.com/document/d/1UBmUgbGsalhvWoshuuPJSh7LGNqreg4kBPXK1uavMmU/edit">Content Tagging in Chromium</a></h4>
@@ -498,7 +501,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell, N Gordon</span> ·
           <span class="nowrap">2015</span>
-          <span class="nowrap">· <a class="doc-link" href="https://docs.google.com/document/d/1UBmUgbGsalhvWoshuuPJSh7LGNqreg4kBPXK1uavMmU/edit"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> docs.google.com</a></span>
+          <span>·&nbsp;<a class="doc-link" href="https://docs.google.com/document/d/1UBmUgbGsalhvWoshuuPJSh7LGNqreg4kBPXK1uavMmU/edit"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> docs.google.com</a></span>
         </p>
       </div>
     </article>
@@ -506,7 +509,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/chrome-repro-build-2015/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/chrome-repro-build-2015-240.webp"
              srcset="/pr-3/assets/thumbs/docs/chrome-repro-build-2015-240.webp 240w, /pr-3/assets/thumbs/docs/chrome-repro-build-2015-480.webp 480w"
-             sizes="7.5rem" width="480" height="622" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="622" alt=""
              fetchpriority="high" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/chrome-repro-build-2015/">State of Reproducible Builds in Chromium</a></h4>
@@ -515,7 +518,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2015–2016</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/chrome-repro-build-2015/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/chrome-repro-build-2015</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/chrome-repro-build-2015/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/chrome-repro-build-2015</a></span>
         </p>
       </div>
     </article>
@@ -523,7 +526,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/chrome-build-output/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/chrome-build-output-240.webp"
              srcset="/pr-3/assets/thumbs/docs/chrome-build-output-240.webp 240w, /pr-3/assets/thumbs/docs/chrome-build-output-480.webp 480w"
-             sizes="7.5rem" width="480" height="622" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="622" alt=""
              fetchpriority="high" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/chrome-build-output/">Build Output Change Impact Tool</a></h4>
@@ -532,7 +535,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">Z Forman · reviewed by T Ansell</span> ·
           <span class="nowrap">2015–2016</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/chrome-build-output/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/chrome-build-output</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/chrome-build-output/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/chrome-build-output</a></span>
         </p>
       </div>
     </article>
@@ -540,7 +543,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/chrome-binary-change/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/chrome-binary-change-240.webp"
              srcset="/pr-3/assets/thumbs/docs/chrome-binary-change-240.webp 240w, /pr-3/assets/thumbs/docs/chrome-binary-change-480.webp 480w"
-             sizes="7.5rem" width="480" height="622" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="622" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/chrome-binary-change/">Binary Change Impact Tool</a></h4>
@@ -549,7 +552,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">Z Forman · reviewed by T Ansell</span> ·
           <span class="nowrap">2015</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/chrome-binary-change/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/chrome-binary-change</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/chrome-binary-change/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/chrome-binary-change</a></span>
         </p>
       </div>
     </article>
@@ -557,7 +560,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/blink-layout-tests-swarming/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/blink-layout-tests-swarming-240.webp"
              srcset="/pr-3/assets/thumbs/docs/blink-layout-tests-swarming-240.webp 240w, /pr-3/assets/thumbs/docs/blink-layout-tests-swarming-480.webp 480w"
-             sizes="7.5rem" width="480" height="622" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="622" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/blink-layout-tests-swarming/">Blink LayoutTests on Swarming</a></h4>
@@ -566,7 +569,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2016</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/blink-layout-tests-swarming/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/blink-layout-tests-swarming</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/blink-layout-tests-swarming/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/blink-layout-tests-swarming</a></span>
         </p>
       </div>
     </article>
@@ -582,7 +585,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/pixelbone/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/pixelbone-240.webp"
              srcset="/pr-3/assets/thumbs/docs/pixelbone-240.webp 240w, /pr-3/assets/thumbs/docs/pixelbone-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/pixelbone/">PixelBone</a></h4>
@@ -591,7 +594,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2015–2023</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/pixelbone/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/pixelbone</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/pixelbone/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/pixelbone</a></span>
         </p>
       </div>
     </article>
@@ -599,7 +602,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/mpy-fpga/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/mpy-fpga-240.webp"
              srcset="/pr-3/assets/thumbs/docs/mpy-fpga-240.webp 240w, /pr-3/assets/thumbs/docs/mpy-fpga-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/mpy-fpga/">MicroPython on FPGAs</a></h4>
@@ -608,7 +611,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2016–2018</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/mpy-fpga/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/mpy-fpga</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/mpy-fpga/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/mpy-fpga</a></span>
         </p>
       </div>
     </article>
@@ -616,7 +619,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/litex-tests-doc/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/litex-tests-doc-240.webp"
              srcset="/pr-3/assets/thumbs/docs/litex-tests-doc-240.webp 240w, /pr-3/assets/thumbs/docs/litex-tests-doc-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/litex-tests-doc/">Types of &quot;testing&quot; in LiteX (and Migen/MiSoC)</a></h4>
@@ -625,7 +628,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2016</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/litex-tests-doc/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/litex-tests-doc</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/litex-tests-doc/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/litex-tests-doc</a></span>
         </p>
       </div>
     </article>
@@ -633,7 +636,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/linux-litex-notes/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/linux-litex-notes-240.webp"
              srcset="/pr-3/assets/thumbs/docs/linux-litex-notes-240.webp 240w, /pr-3/assets/thumbs/docs/linux-litex-notes-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/linux-litex-notes/">LiteX Linux Support Random Notes</a></h4>
@@ -642,7 +645,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2017</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/linux-litex-notes/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/linux-litex-notes</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/linux-litex-notes/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/linux-litex-notes</a></span>
         </p>
       </div>
     </article>
@@ -650,7 +653,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/litex-bridge-proto/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/litex-bridge-proto-240.webp"
              srcset="/pr-3/assets/thumbs/docs/litex-bridge-proto-240.webp 240w, /pr-3/assets/thumbs/docs/litex-bridge-proto-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/litex-bridge-proto/">LiteX Bridge Protocol</a></h4>
@@ -659,7 +662,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2018</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/litex-bridge-proto/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/litex-bridge-proto</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/litex-bridge-proto/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/litex-bridge-proto</a></span>
         </p>
       </div>
     </article>
@@ -667,7 +670,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/softcpu-on-fpgas/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/softcpu-on-fpgas-240.webp"
              srcset="/pr-3/assets/thumbs/docs/softcpu-on-fpgas-240.webp 240w, /pr-3/assets/thumbs/docs/softcpu-on-fpgas-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/softcpu-on-fpgas/">Soft Processor (RISC-V) Performance on modern FPGAs</a></h4>
@@ -676,7 +679,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2019–2022</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/softcpu-on-fpgas/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/softcpu-on-fpgas</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/softcpu-on-fpgas/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/softcpu-on-fpgas</a></span>
         </p>
       </div>
     </article>
@@ -684,7 +687,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/litex-ha-dd/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/litex-ha-dd-240.webp"
              srcset="/pr-3/assets/thumbs/docs/litex-ha-dd-240.webp 240w, /pr-3/assets/thumbs/docs/litex-ha-dd-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/litex-ha-dd/">LiteX based interface for Hardware Accelerators</a></h4>
@@ -693,7 +696,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2020–2024</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/litex-ha-dd/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/litex-ha-dd</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/litex-ha-dd/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/litex-ha-dd</a></span>
         </p>
       </div>
     </article>
@@ -701,7 +704,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/fpgabmc-bench/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/fpgabmc-bench-240.webp"
              srcset="/pr-3/assets/thumbs/docs/fpgabmc-bench-240.webp 240w, /pr-3/assets/thumbs/docs/fpgabmc-bench-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/fpgabmc-bench/">Benchmarking FPGA CPU Designs</a></h4>
@@ -710,7 +713,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2021</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/fpgabmc-bench/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/fpgabmc-bench</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/fpgabmc-bench/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/fpgabmc-bench</a></span>
         </p>
       </div>
     </article>
@@ -726,7 +729,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/symbiflow-testing/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/symbiflow-testing-240.webp"
              srcset="/pr-3/assets/thumbs/docs/symbiflow-testing-240.webp 240w, /pr-3/assets/thumbs/docs/symbiflow-testing-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/symbiflow-testing/">F4PGA (SymbiFlow) Checking / Testing Approach</a></h4>
@@ -735,7 +738,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2019–2024</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/symbiflow-testing/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/symbiflow-testing</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/symbiflow-testing/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/symbiflow-testing</a></span>
         </p>
       </div>
     </article>
@@ -743,7 +746,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/symbiflow-targets/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/symbiflow-targets-240.webp"
              srcset="/pr-3/assets/thumbs/docs/symbiflow-targets-240.webp 240w, /pr-3/assets/thumbs/docs/symbiflow-targets-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/symbiflow-targets/">SymbiFlow Target Designs</a></h4>
@@ -752,7 +755,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2019–2024</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/symbiflow-targets/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/symbiflow-targets</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/symbiflow-targets/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/symbiflow-targets</a></span>
         </p>
       </div>
     </article>
@@ -760,7 +763,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/edalize-autosetup/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/edalize-autosetup-240.webp"
              srcset="/pr-3/assets/thumbs/docs/edalize-autosetup-240.webp 240w, /pr-3/assets/thumbs/docs/edalize-autosetup-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/edalize-autosetup/">edalize.autosetup</a></h4>
@@ -769,7 +772,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2019–2024</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/edalize-autosetup/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/edalize-autosetup</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/edalize-autosetup/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/edalize-autosetup</a></span>
         </p>
       </div>
     </article>
@@ -777,7 +780,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/ci-arty/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/ci-arty-240.webp"
              srcset="/pr-3/assets/thumbs/docs/ci-arty-240.webp 240w, /pr-3/assets/thumbs/docs/ci-arty-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/ci-arty/">CI system with Arty hardware for FPGA Tooling</a></h4>
@@ -786,7 +789,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2021–2025</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/ci-arty/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/ci-arty</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/ci-arty/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/ci-arty</a></span>
         </p>
       </div>
     </article>
@@ -802,7 +805,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/open-source-pdks-naming/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/open-source-pdks-naming-240.webp"
              srcset="/pr-3/assets/thumbs/docs/open-source-pdks-naming-240.webp 240w, /pr-3/assets/thumbs/docs/open-source-pdks-naming-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/open-source-pdks-naming/">File naming in open source PDKs</a></h4>
@@ -811,7 +814,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2022–2025</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/open-source-pdks-naming/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/open-source-pdks-naming</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/open-source-pdks-naming/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/open-source-pdks-naming</a></span>
         </p>
       </div>
     </article>
@@ -819,7 +822,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/sky130-user-max/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/sky130-user-max-240.webp"
              srcset="/pr-3/assets/thumbs/docs/sky130-user-max-240.webp 240w, /pr-3/assets/thumbs/docs/sky130-user-max-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/sky130-user-max/">Theoretical maximums of 10mm² silicon user space</a></h4>
@@ -828,7 +831,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2022</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/sky130-user-max/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/sky130-user-max</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/sky130-user-max/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/sky130-user-max</a></span>
         </p>
       </div>
     </article>
@@ -836,7 +839,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/drc-testing/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/drc-testing-240.webp"
              srcset="/pr-3/assets/thumbs/docs/drc-testing-240.webp 240w, /pr-3/assets/thumbs/docs/drc-testing-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/drc-testing/">Design Rule Check (DRC) Testing</a></h4>
@@ -845,7 +848,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2022–2025</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/drc-testing/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/drc-testing</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/drc-testing/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/drc-testing</a></span>
         </p>
       </div>
     </article>
@@ -853,7 +856,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/build-pdk/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/build-pdk-240.webp"
              srcset="/pr-3/assets/thumbs/docs/build-pdk-240.webp 240w, /pr-3/assets/thumbs/docs/build-pdk-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/build-pdk/">Building a (future) open source PDK</a></h4>
@@ -862,7 +865,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2022–2025</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/build-pdk/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/build-pdk</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/build-pdk/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/build-pdk</a></span>
         </p>
       </div>
     </article>
@@ -870,7 +873,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/python-pdk/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/python-pdk-240.webp"
              srcset="/pr-3/assets/thumbs/docs/python-pdk-240.webp 240w, /pr-3/assets/thumbs/docs/python-pdk-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/python-pdk/">(Open Source) PDK Python Tooling</a></h4>
@@ -879,7 +882,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2022–2025</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/python-pdk/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/python-pdk</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/python-pdk/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/python-pdk</a></span>
         </p>
       </div>
     </article>
@@ -887,7 +890,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/test-open-pdk/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/test-open-pdk-240.webp"
              srcset="/pr-3/assets/thumbs/docs/test-open-pdk-240.webp 240w, /pr-3/assets/thumbs/docs/test-open-pdk-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/test-open-pdk/">Test structure generation and measurement</a></h4>
@@ -896,7 +899,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2022–2025</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/test-open-pdk/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/test-open-pdk</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/test-open-pdk/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/test-open-pdk</a></span>
         </p>
       </div>
     </article>
@@ -904,7 +907,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/test-asics/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/test-asics-240.webp"
              srcset="/pr-3/assets/thumbs/docs/test-asics-240.webp 240w, /pr-3/assets/thumbs/docs/test-asics-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/test-asics/">Test and verification for ASIC design</a></h4>
@@ -913,7 +916,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2023–2024</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/test-asics/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/test-asics</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/test-asics/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/test-asics</a></span>
         </p>
       </div>
     </article>
@@ -921,7 +924,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/test-env-asics/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/test-env-asics-240.webp"
              srcset="/pr-3/assets/thumbs/docs/test-env-asics-240.webp 240w, /pr-3/assets/thumbs/docs/test-env-asics-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/test-env-asics/">Testing environments (and CI) for open hardware projects</a></h4>
@@ -930,7 +933,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2023–2025</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/test-env-asics/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/test-env-asics</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/test-env-asics/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/test-env-asics</a></span>
         </p>
       </div>
     </article>
@@ -938,7 +941,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/caravel-renode/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/caravel-renode-240.webp"
              srcset="/pr-3/assets/thumbs/docs/caravel-renode-240.webp 240w, /pr-3/assets/thumbs/docs/caravel-renode-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/caravel-renode/">Renode for simulation of the Caravel testing system</a></h4>
@@ -947,7 +950,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2023–2024</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/caravel-renode/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/caravel-renode</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/caravel-renode/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/caravel-renode</a></span>
         </p>
       </div>
     </article>
@@ -955,7 +958,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/trillian-ic/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/trillian-ic-240.webp"
              srcset="/pr-3/assets/thumbs/docs/trillian-ic-240.webp 240w, /pr-3/assets/thumbs/docs/trillian-ic-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/trillian-ic/">Trillian applied to Integrated Circuits</a></h4>
@@ -964,7 +967,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2023</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/trillian-ic/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/trillian-ic</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/trillian-ic/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/trillian-ic</a></span>
         </p>
       </div>
     </article>
@@ -972,7 +975,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/openmpw-viewer-req/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/openmpw-viewer-req-240.webp"
              srcset="/pr-3/assets/thumbs/docs/openmpw-viewer-req-240.webp 240w, /pr-3/assets/thumbs/docs/openmpw-viewer-req-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/openmpw-viewer-req/">Open MPW viewer website</a></h4>
@@ -981,7 +984,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell · with Antmicro (K Gugala, P Katarzynski, P Zierhoffer)</span> ·
           <span class="nowrap">2023–2024</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/openmpw-viewer-req/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/openmpw-viewer-req</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/openmpw-viewer-req/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/openmpw-viewer-req</a></span>
         </p>
       </div>
     </article>
@@ -989,7 +992,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/yosys-asics-ops/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/yosys-asics-ops-240.webp"
              srcset="/pr-3/assets/thumbs/docs/yosys-asics-ops-240.webp 240w, /pr-3/assets/thumbs/docs/yosys-asics-ops-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/yosys-asics-ops/">Improving operator mapping in Yosys for ASICs</a></h4>
@@ -998,7 +1001,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2023–2024</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/yosys-asics-ops/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/yosys-asics-ops</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/yosys-asics-ops/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/yosys-asics-ops</a></span>
         </p>
       </div>
     </article>
@@ -1006,7 +1009,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/tim-asap7/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/tim-asap7-240.webp"
              srcset="/pr-3/assets/thumbs/docs/tim-asap7-240.webp 240w, /pr-3/assets/thumbs/docs/tim-asap7-480.webp 480w"
-             sizes="7.5rem" width="480" height="679" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="679" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/tim-asap7/">Tim&#39;s understanding of ASAP7</a></h4>
@@ -1015,7 +1018,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2023–2024</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/tim-asap7/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/tim-asap7</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/tim-asap7/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/tim-asap7</a></span>
         </p>
       </div>
     </article>
@@ -1031,7 +1034,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/ws-gf180/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/ws-gf180-240.webp"
              srcset="/pr-3/assets/thumbs/docs/ws-gf180-240.webp 240w, /pr-3/assets/thumbs/docs/ws-gf180-480.webp 480w"
-             sizes="7.5rem" width="480" height="622" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="622" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/ws-gf180/">GlobalFoundries 180nm Technologies</a></h4>
@@ -1040,7 +1043,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2025</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/ws-gf180/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/ws-gf180</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/ws-gf180/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/ws-gf180</a></span>
         </p>
       </div>
     </article>
@@ -1048,7 +1051,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/ws-gatearray-v1/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/ws-gatearray-v1-240.webp"
              srcset="/pr-3/assets/thumbs/docs/ws-gatearray-v1-240.webp 240w, /pr-3/assets/thumbs/docs/ws-gatearray-v1-480.webp 480w"
-             sizes="7.5rem" width="480" height="622" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="622" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/ws-gatearray-v1/">GF180MCU Gate Array</a></h4>
@@ -1057,7 +1060,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2025–2026</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/ws-gatearray-v1/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/ws-gatearray-v1</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/ws-gatearray-v1/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/ws-gatearray-v1</a></span>
         </p>
       </div>
     </article>
@@ -1065,7 +1068,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/ws-gf180mcu-stdcells/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/ws-gf180mcu-stdcells-240.webp"
              srcset="/pr-3/assets/thumbs/docs/ws-gf180mcu-stdcells-240.webp 240w, /pr-3/assets/thumbs/docs/ws-gf180mcu-stdcells-480.webp 480w"
-             sizes="7.5rem" width="480" height="622" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="622" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/ws-gf180mcu-stdcells/">Voltages and options for I/O and standard cells</a></h4>
@@ -1074,7 +1077,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2025</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/ws-gf180mcu-stdcells/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/ws-gf180mcu-stdcells</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/ws-gf180mcu-stdcells/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/ws-gf180mcu-stdcells</a></span>
         </p>
       </div>
     </article>
@@ -1082,7 +1085,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     <article class="doc-card">
       <a class="doc-thumb" href="/pr-3/ws-tiny-riscv-proof/" tabindex="-1" aria-hidden="true"><img src="/pr-3/assets/thumbs/docs/ws-tiny-riscv-proof-240.webp"
              srcset="/pr-3/assets/thumbs/docs/ws-tiny-riscv-proof-240.webp 240w, /pr-3/assets/thumbs/docs/ws-tiny-riscv-proof-480.webp 480w"
-             sizes="7.5rem" width="480" height="622" alt=""
+             sizes="(max-width: 480px) 5.5rem, 7.5rem" width="480" height="622" alt=""
              loading="lazy" decoding="async"></a>
       <div class="doc-body">
         <h4><a href="/pr-3/ws-tiny-riscv-proof/">GF180MCU Bit Serial RISC-V Implementation</a></h4>
@@ -1091,7 +1094,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <p class="meta">
           <span class="au">T Ansell</span> ·
           <span class="nowrap">2025</span>
-          <span class="nowrap">· <a class="doc-link" href="/pr-3/ws-tiny-riscv-proof/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/ws-tiny-riscv-proof</a></span>
+          <span>·&nbsp;<a class="doc-link" href="/pr-3/ws-tiny-riscv-proof/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Docs</title><path d="M14.727 6.727H14.727V0H4.909C4.005 0 3.273.732 3.273 1.636v20.728c0 .904.732 1.636 1.636 1.636h14.182c.904 0 1.636-.732 1.636-1.636V6.727h-6zm-.545 10.455H7.091v-1.364h7.091v1.364zm2.727-3.273H7.091v-1.364h9.818v1.364zm0-3.273H7.091V9.273h9.818v1.363zM14.727 6h6l-6-6v6z"/></svg></span> mith.ro/ws-tiny-riscv-proof</a></span>
         </p>
       </div>
     </article>
