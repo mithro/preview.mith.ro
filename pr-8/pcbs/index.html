@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PCBs · Tim 'mithro' Ansell</title>
   <meta name="description" content="Printed circuit board projects worked on this year: repository state, board statistics and 3D renders.">
-  <meta name="git-commit" content="6b316000af852b7fd8d5cde9de7afcc25afb92f1">
+  <meta name="git-commit" content="49b9911a88b5a8dbac10e640fb54e2dedfe2cf9d">
   <link rel="canonical" href="https://preview.mith.ro/pr-8/pcbs/">
   <meta name="robots" content="noindex">
   <style>:root {
@@ -434,14 +434,14 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <main>
     <style>
 .pcb-intro { max-width: 46rem; }
-.pcb-repo { border-top: 1px solid var(--line); padding: 1.6rem 0 1.4rem; }
-.pcb-repo:first-of-type { border-top: 0; padding-top: .4rem; }
-.pcb-repo h3 { margin: 0; font-size: 1rem; color: var(--silk); }
-.pcb-repo h3 a { color: var(--silk); text-decoration: none; border-bottom: 1px solid var(--gold-dim); }
-.pcb-repo h3 a:hover, .pcb-repo h3 a:focus-visible { color: var(--gold); border-bottom-color: var(--gold); }
-.pcb-blurb { margin: .45rem 0 .8rem; font-family: var(--sans); font-size: .95rem; color: #c4beb2; max-width: 46rem; }
-.pcb-blurb a { color: var(--gold); }
-.pcb-state { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 .7rem; padding: 0; list-style: none; font-size: .74rem; }
+/* Each repository reuses the /projects/ entry layout (.proj, .proj-head,
+   .proj-blurb in main.css); the board cards span both columns below it. */
+.pcb-repo .pcb-boards { grid-column: 1 / -1; margin-top: .9rem; }
+.pcb-repo .proj-blurb a { color: var(--gold); border-bottom: 0; }
+.pcb-repo .pcb-state a, .pcb-repo .pcb-commit a, .pcb-repo .pcb-board a { border-bottom: 0; }
+.pcb-repo .proj-blurb .pcb-state a { color: inherit; }
+.pcb-repo .proj-blurb .pcb-commit a { color: var(--muted); }
+.pcb-state { display: flex; flex-wrap: wrap; gap: .4rem; margin: .7rem 0 .5rem; padding: 0; list-style: none; font-size: .74rem; font-family: var(--mono); }
 .pcb-state li { border: 1px solid var(--line); background: var(--panel); border-radius: 3px; padding: .12rem .5rem; color: var(--muted); }
 .pcb-state b { color: var(--silk); font-weight: 600; }
 .pcb-state a { color: inherit; text-decoration: none; }
@@ -477,22 +477,24 @@ ul.deg-list { padding-left: 0; list-style: none; }
   the <code>.kicad_pcb</code> files.</p>
 
   
-  <article class="pcb-repo" id="minidc-temp-monitor">
-    <h3><a href="https://github.com/mithro/minidc-temp-monitor">minidc-temp-monitor</a></h3>
-    <p class="pcb-blurb">Daisy-chained 42 x 13 mm temperature sensor strips for a miniature datacenter&#39;s hot and cold aisles: a CH32V003 or CH32V005 RISC-V MCU plus an NTC thermistor, with a JST SH (Qwiic-style) connector at each end. A board&#39;s I2C address is its position in the chain.</p>
+  <article class="proj pcb-repo" id="minidc-temp-monitor">
+    <div class="proj-head">
+      <h3><a href="https://github.com/mithro/minidc-temp-monitor">minidc-temp-monitor</a> · <span class="nowrap">Nov 2026 - Present</span></h3>
+      <p class="meta">2 boards · 58 commits · last change 2026-11-18</p>
+    </div>
+    <div class="proj-blurb">
+    <p>Daisy-chained 42 x 13 mm temperature sensor strips for a miniature datacenter&#39;s hot and cold aisles: a CH32V003 or CH32V005 RISC-V MCU plus an NTC thermistor, with a JST SH (Qwiic-style) connector at each end. A board&#39;s I2C address is its position in the chain.</p>
 
     <ul class="pcb-state" role="list">
-      <li>last change <b>2026-11-18</b></li>
-      <li><b>58</b> commits this year</li>
       <li><a href="https://github.com/mithro/minidc-temp-monitor/issues"><b>0</b> open issues</a></li>
       <li><a href="https://github.com/mithro/minidc-temp-monitor/pulls"><b>0</b> open PRs</a></li>
       <li>no release yet</li>
       <li class="ok"><a href="https://github.com/mithro/minidc-temp-monitor/actions/runs/44336104456">CI firmware: <b>success</b></a></li>
       <li>Apache-2.0</li>
-      <li>created 2026-11-16</li>
     </ul>
     <p class="pcb-commit">latest: <a href="https://github.com/mithro/minidc-temp-monitor/commit/ab2ef685bd02d7905c616a5da10bba0600d94450"><code>ab2ef68</code></a>
       Fix the pull request review findings in the README</p>
+    </div>
 
     <div class="pcb-boards">
       
@@ -539,23 +541,25 @@ ul.deg-list { padding-left: 0; list-style: none; }
     </div>
   </article>
   
-  <article class="pcb-repo" id="wu-kou-qian-zhao-jiao-huan-ji-yt9215s-v2-0">
-    <h3><a href="https://github.com/mithro/wu-kou-qian-zhao-jiao-huan-ji-_yt9215s_v2_0">YT9215S 5-port gigabit switch (mirror)</a></h3>
-    <p class="pcb-blurb">Mirror of pankanwen&#39;s open hardware 5-port gigabit Ethernet switch built on the Motorcomm YT9215S, originally published on OSHWHub, with KiCad sources and renders.
+  <article class="proj pcb-repo" id="wu-kou-qian-zhao-jiao-huan-ji-yt9215s-v2-0">
+    <div class="proj-head">
+      <h3><a href="https://github.com/mithro/wu-kou-qian-zhao-jiao-huan-ji-_yt9215s_v2_0">YT9215S 5-port gigabit switch (mirror)</a> · <span class="nowrap">Oct 2026 - Present</span></h3>
+      <p class="meta">1 board · 10 commits · last change 2026-11-17</p>
+    </div>
+    <div class="proj-blurb">
+    <p>Mirror of pankanwen&#39;s open hardware 5-port gigabit Ethernet switch built on the Motorcomm YT9215S, originally published on OSHWHub, with KiCad sources and renders.
       Original design by <a href="https://oshwhub.com/pankanwen/wu-kou-qian-zhao-jiao-huan-ji-_yt9215s_v2_0">pankanwen</a>.</p>
 
     <ul class="pcb-state" role="list">
-      <li>last change <b>2026-11-17</b></li>
-      <li><b>10</b> commits this year</li>
       <li><a href="https://github.com/mithro/wu-kou-qian-zhao-jiao-huan-ji-_yt9215s_v2_0/issues"><b>0</b> open issues</a></li>
       <li><a href="https://github.com/mithro/wu-kou-qian-zhao-jiao-huan-ji-_yt9215s_v2_0/pulls"><b>0</b> open PRs</a></li>
       <li>no release yet</li>
       
       
-      <li>created 2026-10-22</li>
     </ul>
     <p class="pcb-commit">latest: <a href="https://github.com/mithro/wu-kou-qian-zhao-jiao-huan-ji-_yt9215s_v2_0/commit/73d423e3ff15bb3ec900ffc6825e66f6ec3dc1f3"><code>73d423e</code></a>
       Docs: link every file reference in the KiCad README</p>
+    </div>
 
     <div class="pcb-boards">
       
@@ -586,22 +590,24 @@ ul.deg-list { padding-left: 0; list-style: none; }
     </div>
   </article>
   
-  <article class="pcb-repo" id="budget-poe-adapter">
-    <h3><a href="https://github.com/mithro/budget-poe-adapter">budget-poe-adapter</a></h3>
-    <p class="pcb-blurb">Research and design notes for a very cheap, non-isolated PoE to USB-C adapter that passes Ethernet through at gigabit speed. Research stage: no schematic or PCB yet, so the picture is the block diagram.</p>
+  <article class="proj pcb-repo" id="budget-poe-adapter">
+    <div class="proj-head">
+      <h3><a href="https://github.com/mithro/budget-poe-adapter">budget-poe-adapter</a> · <span class="nowrap">Nov 2026 - Present</span></h3>
+      <p class="meta">Research · 3 commits · last change 2026-11-17</p>
+    </div>
+    <div class="proj-blurb">
+    <p>Research and design notes for a very cheap, non-isolated PoE to USB-C adapter that passes Ethernet through at gigabit speed. Research stage: no schematic or PCB yet, so the picture is the block diagram.</p>
 
     <ul class="pcb-state" role="list">
-      <li>last change <b>2026-11-17</b></li>
-      <li><b>3</b> commits this year</li>
       <li><a href="https://github.com/mithro/budget-poe-adapter/issues"><b>0</b> open issues</a></li>
       <li><a href="https://github.com/mithro/budget-poe-adapter/pulls"><b>5</b> open PRs</a></li>
       <li>no release yet</li>
       
       <li>Apache-2.0</li>
-      <li>created 2026-11-17</li>
     </ul>
     <p class="pcb-commit">latest: <a href="https://github.com/mithro/budget-poe-adapter/commit/375ceec89dc96dcce4a58b44d5b60305ab36f0ba"><code>375ceec</code></a>
       Add project research, design notes and switch IC documentation</p>
+    </div>
 
     <div class="pcb-boards">
       
@@ -622,23 +628,25 @@ ul.deg-list { padding-left: 0; list-style: none; }
     </div>
   </article>
   
-  <article class="pcb-repo" id="esp32-to-433mhz">
-    <h3><a href="https://github.com/mithro/esp32-to-433mhz">esp32-to-433mhz</a></h3>
-    <p class="pcb-blurb">Carrier boards that join an ESP32-C3 SuperMini and a cheap 433 MHz radio module (Ebyte E07 / D-Sun CC1101, or an SX1278 LoRa Ra-02) into one small unit, with a 3D-printed case.</p>
+  <article class="proj pcb-repo" id="esp32-to-433mhz">
+    <div class="proj-head">
+      <h3><a href="https://github.com/mithro/esp32-to-433mhz">esp32-to-433mhz</a> · <span class="nowrap">Sep 2026 - Present</span></h3>
+      <p class="meta">2 boards · 220 commits · last change 2026-10-02</p>
+    </div>
+    <div class="proj-blurb">
+    <p>Carrier boards that join an ESP32-C3 SuperMini and a cheap 433 MHz radio module (Ebyte E07 / D-Sun CC1101, or an SX1278 LoRa Ra-02) into one small unit, with a 3D-printed case.</p>
 
     <ul class="pcb-state" role="list">
-      <li>last change <b>2026-10-02</b></li>
-      <li><b>220</b> commits this year</li>
       <li><a href="https://github.com/mithro/esp32-to-433mhz/issues"><b>0</b> open issues</a></li>
       <li><a href="https://github.com/mithro/esp32-to-433mhz/pulls"><b>0</b> open PRs</a></li>
       <li><a href="https://github.com/mithro/esp32-to-433mhz/releases/tag/v0.1">release <b>v0.1</b> · 2026-09-03</a></li>
       
       <li class="ok"><a href="https://github.com/mithro/esp32-to-433mhz/actions/runs/37720117386">CI Firmware: <b>success</b></a></li>
       <li>Apache-2.0</li>
-      <li>created 2026-09-03</li>
     </ul>
     <p class="pcb-commit">latest: <a href="https://github.com/mithro/esp32-to-433mhz/commit/5be882933884da98d9194edee2d7f6e0be02c7e3"><code>5be8829</code></a>
       Point the DIO2 references at the guide again</p>
+    </div>
 
     <div class="pcb-boards">
       
@@ -693,22 +701,24 @@ ul.deg-list { padding-left: 0; list-style: none; }
     </div>
   </article>
   
-  <article class="pcb-repo" id="rpi-camera-led">
-    <h3><a href="https://github.com/mithro/rpi-camera-led">rpi-camera-led</a></h3>
-    <p class="pcb-blurb">Interposer for the Raspberry Pi camera flex cable: passes the 15-way CSI bus straight through and adds I2C-controlled camera GPIO, PWM illumination LEDs and an ambient light sensor, driven by a CH32V003.</p>
+  <article class="proj pcb-repo" id="rpi-camera-led">
+    <div class="proj-head">
+      <h3><a href="https://github.com/mithro/rpi-camera-led">rpi-camera-led</a> · <span class="nowrap">Sep 2026 - Present</span></h3>
+      <p class="meta">1 board · 71 commits · last change 2026-09-05</p>
+    </div>
+    <div class="proj-blurb">
+    <p>Interposer for the Raspberry Pi camera flex cable: passes the 15-way CSI bus straight through and adds I2C-controlled camera GPIO, PWM illumination LEDs and an ambient light sensor, driven by a CH32V003.</p>
 
     <ul class="pcb-state" role="list">
-      <li>last change <b>2026-09-05</b></li>
-      <li><b>71</b> commits this year</li>
       <li><a href="https://github.com/mithro/rpi-camera-led/issues"><b>1</b> open issue</a></li>
       <li><a href="https://github.com/mithro/rpi-camera-led/pulls"><b>1</b> open PR</a></li>
       <li>no release yet</li>
       
       <li>Apache-2.0</li>
-      <li>created 2026-09-03</li>
     </ul>
     <p class="pcb-commit">latest: <a href="https://github.com/mithro/rpi-camera-led/commit/6a00fb732f9e9c72309e9a7f588be71e8a03c96f"><code>6a00fb7</code></a>
       Add back the Raspberry Pi camera board&#39;s mounting holes</p>
+    </div>
 
     <div class="pcb-boards">
       
