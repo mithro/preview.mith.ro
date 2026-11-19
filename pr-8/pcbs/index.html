@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PCBs · Tim 'mithro' Ansell</title>
   <meta name="description" content="Printed circuit board projects worked on this year: repository state, board statistics and 3D renders.">
-  <meta name="git-commit" content="f7f2bbddc938d62e62ea2e5b105448eb06ee8d9d">
+  <meta name="git-commit" content="df92d4094c276c77ee54d39af69b06274a2da837">
   <link rel="canonical" href="https://preview.mith.ro/pr-8/pcbs/">
   <meta name="robots" content="noindex">
   <style>:root {
@@ -434,9 +434,11 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <main>
     <style>
 .pcb-intro { max-width: 46rem; }
-/* Each repository reuses the /projects/ entry layout (.proj, .proj-head,
-   .proj-blurb in main.css); the board cards span both columns below it. */
-.pcb-repo .pcb-boards { grid-column: 1 / -1; margin-top: .9rem; }
+/* One .sect per repository, headed like the /projects/ sections, with a
+   rule above each so the projects read as separate blocks. */
+.pcb-repo { margin-top: 2.2rem; }
+.pcb-repo > h2 { border-top: 1px solid var(--line); padding-top: 1.6rem; }
+.pcb-repo .proj { border-top: 0; padding-top: 0; }
 .pcb-repo .proj-blurb a { color: var(--gold); border-bottom: 0; }
 .pcb-repo .pcb-state a, .pcb-repo .pcb-commit a, .pcb-repo .pcb-board a { border-bottom: 0; }
 .pcb-repo .proj-blurb .pcb-state a { color: inherit; }
@@ -448,259 +450,272 @@ ul.deg-list { padding-left: 0; list-style: none; }
 .pcb-state a:hover, .pcb-state a:focus-visible { color: var(--gold); }
 .pcb-state .ok b { color: #6cc070; }
 .pcb-state .bad b { color: #e06c5a; }
-.pcb-commit { margin: 0 0 1rem; font-size: .78rem; color: var(--muted); overflow-wrap: anywhere; }
-.pcb-commit a { color: var(--muted); }
+.pcb-commit { margin: 0; font-size: .78rem; color: var(--muted); overflow-wrap: anywhere; }
 .pcb-commit code { color: var(--silk); }
-.pcb-boards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); gap: 1rem; }
-.pcb-board { margin: 0; border: 1px solid var(--line); border-radius: 6px; background: var(--panel); overflow: hidden; display: flex; flex-direction: column; }
-.pcb-hero { display: block; background: #f4f3ef; aspect-ratio: 4 / 3; }
+/* Every render gets the same fixed-size tile so the page scans as a grid. */
+.pcb-boards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 15rem)); gap: .9rem; margin-top: .4rem; }
+.pcb-board { margin: 0; border: 1px solid var(--line); border-radius: 5px; background: var(--panel); overflow: hidden; }
+.pcb-board:hover, .pcb-board:focus-within { border-color: var(--gold-dim); }
+.pcb-hero { display: block; aspect-ratio: 3 / 2; background: #f4f3ef; padding: .4rem; }
 .pcb-hero img { width: 100%; height: 100%; object-fit: contain; display: block; }
-.pcb-thumbs { display: flex; gap: .4rem; padding: .5rem .75rem 0; }
-.pcb-thumbs a { display: block; width: 3.2rem; height: 3.2rem; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; background: #f4f3ef; }
-.pcb-thumbs a:hover, .pcb-thumbs a:focus-visible { border-color: var(--gold); }
-.pcb-thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.pcb-board figcaption { padding: .6rem .75rem .75rem; font-size: .78rem; }
-.pcb-board figcaption .nm { color: var(--silk); font-weight: 600; }
-.pcb-board dl { display: grid; grid-template-columns: auto 1fr; gap: .1rem .8rem; margin: .45rem 0 0; }
-.pcb-board dt { color: var(--muted); }
-.pcb-board dd { margin: 0; color: var(--silk); font-variant-numeric: tabular-nums; }
-.pcb-board dd a { color: var(--gold); }
-.pcb-note { color: var(--muted); margin: .45rem 0 0; }
+.pcb-board figcaption { padding: .5rem .65rem .6rem; font-family: var(--mono); font-size: .72rem; line-height: 1.45; color: var(--muted); }
+.pcb-board .nm { display: block; color: var(--silk); font-size: .8rem; font-weight: 600; overflow-wrap: anywhere; }
+.pcb-board figcaption a { color: var(--gold); }
+@media (max-width: 34rem) { .pcb-boards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; } }
 </style>
 
 <section class="sect">
   <h2><span aria-hidden="true">🟩</span> PCBs</h2>
-  <p class="prose pcb-intro">Circuit board repositories with commits in
-  2026, most recently active first.
+  <p class="prose pcb-intro">Circuit board projects with commits in
+  2026, most recently active first:
+  <a href="#minidc-temp-monitor">minidc-temp-monitor</a>, <a href="#budget-poe-adapter">budget-poe-adapter</a>, <a href="#esp32-to-gps">esp32-to-gps</a>, <a href="#esp32-to-433mhz">esp32-to-433mhz</a>, <a href="#rpi-camera-led">rpi-camera-led</a>.
   Renders are the KiCad 3D views each repository keeps alongside its
   design files; board size, layer and footprint counts are read straight from
   the <code>.kicad_pcb</code> files.</p>
+</section>
 
-  
-  <article class="proj pcb-repo" id="minidc-temp-monitor">
+
+<section class="sect pcb-repo" id="minidc-temp-monitor">
+  <h2><span aria-hidden="true">🌡️</span> minidc-temp-monitor</h2>
+  <div class="proj">
     <div class="proj-head">
-      <h3><a href="https://github.com/mithro/minidc-temp-monitor">minidc-temp-monitor</a> · <span class="nowrap">Nov 2026 - Present</span></h3>
+      <h3><a href="https://github.com/mithro/minidc-temp-monitor">github.com/mithro/minidc-temp-monitor</a> · <span class="nowrap">Nov 2026 - Present</span></h3>
       <p class="meta">2 boards · 58 commits · last change 2026-11-18</p>
     </div>
     <div class="proj-blurb">
-    <p>Daisy-chained 42 x 13 mm temperature sensor strips for a miniature datacenter&#39;s hot and cold aisles: a CH32V003 or CH32V005 RISC-V MCU plus an NTC thermistor, with a JST SH (Qwiic-style) connector at each end. A board&#39;s I2C address is its position in the chain.</p>
-
-    <ul class="pcb-state" role="list">
-      <li><a href="https://github.com/mithro/minidc-temp-monitor/issues"><b>0</b> open issues</a></li>
-      <li><a href="https://github.com/mithro/minidc-temp-monitor/pulls"><b>0</b> open PRs</a></li>
-      <li>no release yet</li>
-      <li class="ok"><a href="https://github.com/mithro/minidc-temp-monitor/actions/runs/44336104456">CI firmware: <b>success</b></a></li>
-      <li>Apache-2.0</li>
-    </ul>
-    <p class="pcb-commit">latest: <a href="https://github.com/mithro/minidc-temp-monitor/commit/ab2ef685bd02d7905c616a5da10bba0600d94450"><code>ab2ef68</code></a>
-      Fix the pull request review findings in the README</p>
+      <p>Daisy-chained 42 x 13 mm temperature sensor strips for a miniature datacenter&#39;s hot and cold aisles: a CH32V003 or CH32V005 RISC-V MCU plus an NTC thermistor, with a JST SH (Qwiic-style) connector at each end. A board&#39;s I2C address is its position in the chain.</p>
+      <ul class="pcb-state" role="list">
+        <li><a href="https://github.com/mithro/minidc-temp-monitor/issues"><b>0</b> open issues</a></li>
+        <li><a href="https://github.com/mithro/minidc-temp-monitor/pulls"><b>0</b> open PRs</a></li>
+        <li>no release yet</li>
+        <li class="ok"><a href="https://github.com/mithro/minidc-temp-monitor/actions/runs/44336104456">CI firmware: <b>success</b></a></li>
+        <li>Apache-2.0</li>
+      </ul>
+      <p class="pcb-commit">latest: <a href="https://github.com/mithro/minidc-temp-monitor/commit/ab2ef685bd02d7905c616a5da10bba0600d94450"><code>ab2ef68</code></a>
+        Fix the pull request review findings in the README</p>
     </div>
+  </div>
 
-    <div class="pcb-boards">
-      
-      <figure class="pcb-board">
-        <a class="pcb-hero" href="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v003-0.webp">
-          <img src="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v003-0.webp" width="960" height="506"
-               alt="3D render of the sensor-ch32v003 board" loading="lazy">
-        </a>
+  <div class="pcb-boards">
+    
+    <figure class="pcb-board">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v003-0.webp">
+        <img src="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v003-0.webp" width="960" height="506"
+             alt="3D render of the sensor-ch32v003 board" loading="lazy">
+      </a>
+      <figcaption>
+        <span class="nm">sensor-ch32v003</span>
         
-        <figcaption>
-          <span class="nm">sensor-ch32v003</span>
-          
-          <dl>
-            <dt>size</dt><dd>42.0 × 13.0 mm</dd>
-            <dt>copper</dt><dd>2 layers</dd>
-            <dt>footprints</dt><dd>18</dd>
-            <dt>KiCad</dt><dd>9.0</dd>
-            <dt>board file</dt><dd><a href="https://github.com/mithro/minidc-temp-monitor/blob/main/hardware/sensor-ch32v003/sensor-ch32v003.kicad_pcb">changed 2026-11-18</a></dd>
-          </dl>
-          
-        </figcaption>
-      </figure>
-      
-      <figure class="pcb-board">
-        <a class="pcb-hero" href="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v005-0.webp">
-          <img src="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v005-0.webp" width="960" height="506"
-               alt="3D render of the sensor-ch32v005 board" loading="lazy">
-        </a>
+        <span class="nowrap">42 × 13 mm</span><br>
+        <span class="nowrap">2 layers · 18 parts</span><br>
+        <span class="nowrap">KiCad 9.0 · <a href="https://github.com/mithro/minidc-temp-monitor/blob/main/hardware/sensor-ch32v003/sensor-ch32v003.kicad_pcb">2026-11-18</a></span>
         
-        <figcaption>
-          <span class="nm">sensor-ch32v005</span>
-          
-          <dl>
-            <dt>size</dt><dd>42.0 × 13.0 mm</dd>
-            <dt>copper</dt><dd>2 layers</dd>
-            <dt>footprints</dt><dd>21</dd>
-            <dt>KiCad</dt><dd>9.0</dd>
-            <dt>board file</dt><dd><a href="https://github.com/mithro/minidc-temp-monitor/blob/main/hardware/sensor-ch32v005/sensor-ch32v005.kicad_pcb">changed 2026-11-18</a></dd>
-          </dl>
-          
-        </figcaption>
-      </figure>
-      
-    </div>
-  </article>
-  
-  <article class="proj pcb-repo" id="budget-poe-adapter">
+        
+      </figcaption>
+    </figure>
+    
+    <figure class="pcb-board">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v005-0.webp">
+        <img src="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v005-0.webp" width="960" height="506"
+             alt="3D render of the sensor-ch32v005 board" loading="lazy">
+      </a>
+      <figcaption>
+        <span class="nm">sensor-ch32v005</span>
+        
+        <span class="nowrap">42 × 13 mm</span><br>
+        <span class="nowrap">2 layers · 21 parts</span><br>
+        <span class="nowrap">KiCad 9.0 · <a href="https://github.com/mithro/minidc-temp-monitor/blob/main/hardware/sensor-ch32v005/sensor-ch32v005.kicad_pcb">2026-11-18</a></span>
+        
+        
+      </figcaption>
+    </figure>
+    
+  </div>
+</section>
+
+<section class="sect pcb-repo" id="budget-poe-adapter">
+  <h2><span aria-hidden="true">🔌</span> budget-poe-adapter</h2>
+  <div class="proj">
     <div class="proj-head">
-      <h3><a href="https://github.com/mithro/budget-poe-adapter">budget-poe-adapter</a> · <span class="nowrap">Nov 2026 - Present</span></h3>
-      <p class="meta">Research · 3 commits · last change 2026-11-17</p>
+      <h3><a href="https://github.com/mithro/budget-poe-adapter">github.com/mithro/budget-poe-adapter</a> · <span class="nowrap">Nov 2026 - Present</span></h3>
+      <p class="meta">No board layout yet · 3 commits · last change 2026-11-17</p>
     </div>
     <div class="proj-blurb">
-    <p>Research and design notes for a very cheap, non-isolated PoE to USB-C adapter that passes Ethernet through at gigabit speed. Research stage: no schematic or PCB yet, so the picture is the block diagram.</p>
-
-    <ul class="pcb-state" role="list">
-      <li><a href="https://github.com/mithro/budget-poe-adapter/issues"><b>0</b> open issues</a></li>
-      <li><a href="https://github.com/mithro/budget-poe-adapter/pulls"><b>5</b> open PRs</a></li>
-      <li>no release yet</li>
-      
-      <li>Apache-2.0</li>
-    </ul>
-    <p class="pcb-commit">latest: <a href="https://github.com/mithro/budget-poe-adapter/commit/375ceec89dc96dcce4a58b44d5b60305ab36f0ba"><code>375ceec</code></a>
-      Add project research, design notes and switch IC documentation</p>
-    </div>
-
-    <div class="pcb-boards">
-      
-      <figure class="pcb-board">
-        <a class="pcb-hero" href="/pr-8/assets/pcbs/budget-poe-adapter--block-diagram-0.webp">
-          <img src="/pr-8/assets/pcbs/budget-poe-adapter--block-diagram-0.webp" width="960" height="476"
-               alt="budget-poe-adapter block diagram" loading="lazy">
-        </a>
+      <p>Research and design notes for a very cheap, non-isolated PoE to USB-C adapter that passes Ethernet through at gigabit speed. Research stage: no schematic or PCB yet, so the picture is the block diagram.</p>
+      <ul class="pcb-state" role="list">
+        <li><a href="https://github.com/mithro/budget-poe-adapter/issues"><b>0</b> open issues</a></li>
+        <li><a href="https://github.com/mithro/budget-poe-adapter/pulls"><b>5</b> open PRs</a></li>
+        <li>no release yet</li>
         
-        <figcaption>
-          <span class="nm">block diagram</span>
-          
-          <p class="pcb-note">No board layout yet — research and block diagram stage.</p>
-          
-        </figcaption>
-      </figure>
-      
+        <li>Apache-2.0</li>
+      </ul>
+      <p class="pcb-commit">latest: <a href="https://github.com/mithro/budget-poe-adapter/commit/375ceec89dc96dcce4a58b44d5b60305ab36f0ba"><code>375ceec</code></a>
+        Add project research, design notes and switch IC documentation</p>
     </div>
-  </article>
-  
-  <article class="proj pcb-repo" id="esp32-to-433mhz">
+  </div>
+
+  <div class="pcb-boards">
+    
+    <figure class="pcb-board">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/budget-poe-adapter--block-diagram-0.webp">
+        <img src="/pr-8/assets/pcbs/budget-poe-adapter--block-diagram-0.webp" width="960" height="476"
+             alt="budget-poe-adapter block diagram" loading="lazy">
+      </a>
+      <figcaption>
+        <span class="nm">block diagram</span>
+        
+        No board layout yet
+        
+        
+      </figcaption>
+    </figure>
+    
+  </div>
+</section>
+
+<section class="sect pcb-repo" id="esp32-to-gps">
+  <h2><span aria-hidden="true">🛰️</span> esp32-to-gps</h2>
+  <div class="proj">
     <div class="proj-head">
-      <h3><a href="https://github.com/mithro/esp32-to-433mhz">esp32-to-433mhz</a> · <span class="nowrap">Sep 2026 - Present</span></h3>
+      <h3><a href="https://github.com/mithro/esp32-to-gps">github.com/mithro/esp32-to-gps</a> · <span class="nowrap">Oct 2026 - Present</span></h3>
+      <p class="meta">No board layout yet · 63 commits · last change 2026-10-17</p>
+    </div>
+    <div class="proj-blurb">
+      <p>An ESP32-C3 SuperMini running Tasmota, wired to a GPS receiver (u-blox 7, MAX-M10S, Quectel LC29H or LEA-M8T), publishing position, satellites and time to Home Assistant and feeding the receiver NTRIP corrections. The carrier board waits on bench testing, so the picture is the wiring pinout.</p>
+      <ul class="pcb-state" role="list">
+        <li><a href="https://github.com/mithro/esp32-to-gps/issues"><b>1</b> open issue</a></li>
+        <li><a href="https://github.com/mithro/esp32-to-gps/pulls"><b>0</b> open PRs</a></li>
+        <li>no release yet</li>
+        <li class="ok"><a href="https://github.com/mithro/esp32-to-gps/actions/runs/39023262141">CI Firmware: <b>success</b></a></li>
+        <li>Apache-2.0</li>
+      </ul>
+      <p class="pcb-commit">latest: <a href="https://github.com/mithro/esp32-to-gps/commit/37124b627fb3c6b47014807304024ca49f617769"><code>37124b6</code></a>
+        Firmware: pin the fork at esp32-to-gps now the bench fixes are merged</p>
+    </div>
+  </div>
+
+  <div class="pcb-boards">
+    
+    <figure class="pcb-board">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-gps--pinout-0.webp">
+        <img src="/pr-8/assets/pcbs/esp32-to-gps--pinout-0.webp" width="960" height="415"
+             alt="esp32-to-gps pinout" loading="lazy">
+      </a>
+      <figcaption>
+        <span class="nm">pinout</span>
+        
+        No board layout yet
+        
+        
+      </figcaption>
+    </figure>
+    
+  </div>
+</section>
+
+<section class="sect pcb-repo" id="esp32-to-433mhz">
+  <h2><span aria-hidden="true">📡</span> esp32-to-433mhz</h2>
+  <div class="proj">
+    <div class="proj-head">
+      <h3><a href="https://github.com/mithro/esp32-to-433mhz">github.com/mithro/esp32-to-433mhz</a> · <span class="nowrap">Sep 2026 - Present</span></h3>
       <p class="meta">2 boards · 220 commits · last change 2026-10-02</p>
     </div>
     <div class="proj-blurb">
-    <p>Carrier boards that join an ESP32-C3 SuperMini and a cheap 433 MHz radio module (Ebyte E07 / D-Sun CC1101, or an SX1278 LoRa Ra-02) into one small unit, with a 3D-printed case.</p>
-
-    <ul class="pcb-state" role="list">
-      <li><a href="https://github.com/mithro/esp32-to-433mhz/issues"><b>0</b> open issues</a></li>
-      <li><a href="https://github.com/mithro/esp32-to-433mhz/pulls"><b>0</b> open PRs</a></li>
-      <li><a href="https://github.com/mithro/esp32-to-433mhz/releases/tag/v0.1">release <b>v0.1</b> · 2026-09-03</a></li>
-      
-      <li class="ok"><a href="https://github.com/mithro/esp32-to-433mhz/actions/runs/37720117386">CI Firmware: <b>success</b></a></li>
-      <li>Apache-2.0</li>
-    </ul>
-    <p class="pcb-commit">latest: <a href="https://github.com/mithro/esp32-to-433mhz/commit/5be882933884da98d9194edee2d7f6e0be02c7e3"><code>5be8829</code></a>
-      Point the DIO2 references at the guide again</p>
+      <p>Carrier boards that join an ESP32-C3 SuperMini and a cheap 433 MHz radio module (Ebyte E07 / D-Sun CC1101, or an SX1278 LoRa Ra-02) into one small unit, with a 3D-printed case.</p>
+      <ul class="pcb-state" role="list">
+        <li><a href="https://github.com/mithro/esp32-to-433mhz/issues"><b>0</b> open issues</a></li>
+        <li><a href="https://github.com/mithro/esp32-to-433mhz/pulls"><b>0</b> open PRs</a></li>
+        <li><a href="https://github.com/mithro/esp32-to-433mhz/releases/tag/v0.1">release <b>v0.1</b> · 2026-09-03</a></li>
+        
+        <li class="ok"><a href="https://github.com/mithro/esp32-to-433mhz/actions/runs/37720117386">CI Firmware: <b>success</b></a></li>
+        <li>Apache-2.0</li>
+      </ul>
+      <p class="pcb-commit">latest: <a href="https://github.com/mithro/esp32-to-433mhz/commit/5be882933884da98d9194edee2d7f6e0be02c7e3"><code>5be8829</code></a>
+        Point the DIO2 references at the guide again</p>
     </div>
+  </div>
 
-    <div class="pcb-boards">
-      
-      <figure class="pcb-board">
-        <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-0.webp">
-          <img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-0.webp" width="849" height="889"
-               alt="3D render of the esp32c3-radio-adapter board" loading="lazy">
-        </a>
+  <div class="pcb-boards">
+    
+    <figure class="pcb-board">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-0.webp">
+        <img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-0.webp" width="849" height="889"
+             alt="3D render of the esp32c3-radio-adapter board" loading="lazy">
+      </a>
+      <figcaption>
+        <span class="nm">esp32c3-radio-adapter</span>
         
-        <div class="pcb-thumbs">
-          <a href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-0.webp" aria-label="View esp32c3-radio-adapter image 1"><img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-0.webp" alt="" loading="lazy"></a><a href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-1.webp" aria-label="View esp32c3-radio-adapter image 2"><img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-1.webp" alt="" loading="lazy"></a>
-        </div>
+        <span class="nowrap">29 × 38 mm</span><br>
+        <span class="nowrap">2 layers · 14 parts</span><br>
+        <span class="nowrap">KiCad 9.0 · <a href="https://github.com/mithro/esp32-to-433mhz/blob/main/hardware/esp32c3-radio-adapter/esp32c3-radio-adapter.kicad_pcb">2026-09-09</a></span>
         
-        <figcaption>
-          <span class="nm">esp32c3-radio-adapter</span>
-          
-          <dl>
-            <dt>size</dt><dd>29.0 × 38.0 mm</dd>
-            <dt>copper</dt><dd>2 layers</dd>
-            <dt>footprints</dt><dd>14</dd>
-            <dt>KiCad</dt><dd>9.0</dd>
-            <dt>board file</dt><dd><a href="https://github.com/mithro/esp32-to-433mhz/blob/main/hardware/esp32c3-radio-adapter/esp32c3-radio-adapter.kicad_pcb">changed 2026-09-09</a></dd>
-          </dl>
-          
-        </figcaption>
-      </figure>
-      
-      <figure class="pcb-board">
-        <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-0.webp">
-          <img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-0.webp" width="545" height="471"
-               alt="3D render of the esp32c3-sx1278-adapter board" loading="lazy">
-        </a>
+        <br><a href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-1.webp" aria-label="esp32c3-radio-adapter view 2">view 2</a>
+      </figcaption>
+    </figure>
+    
+    <figure class="pcb-board">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-0.webp">
+        <img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-0.webp" width="545" height="471"
+             alt="3D render of the esp32c3-sx1278-adapter board" loading="lazy">
+      </a>
+      <figcaption>
+        <span class="nm">esp32c3-sx1278-adapter</span>
         
-        <div class="pcb-thumbs">
-          <a href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-0.webp" aria-label="View esp32c3-sx1278-adapter image 1"><img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-0.webp" alt="" loading="lazy"></a><a href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-1.webp" aria-label="View esp32c3-sx1278-adapter image 2"><img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-1.webp" alt="" loading="lazy"></a>
-        </div>
+        <span class="nowrap">24 × 58 mm</span><br>
+        <span class="nowrap">2 layers · 5 parts</span><br>
+        <span class="nowrap">KiCad 9.0 · <a href="https://github.com/mithro/esp32-to-433mhz/blob/main/hardware/esp32c3-sx1278-adapter/esp32c3-sx1278-adapter.kicad_pcb">2026-09-06</a></span>
         
-        <figcaption>
-          <span class="nm">esp32c3-sx1278-adapter</span>
-          
-          <dl>
-            <dt>size</dt><dd>24.0 × 58.0 mm</dd>
-            <dt>copper</dt><dd>2 layers</dd>
-            <dt>footprints</dt><dd>5</dd>
-            <dt>KiCad</dt><dd>9.0</dd>
-            <dt>board file</dt><dd><a href="https://github.com/mithro/esp32-to-433mhz/blob/main/hardware/esp32c3-sx1278-adapter/esp32c3-sx1278-adapter.kicad_pcb">changed 2026-09-06</a></dd>
-          </dl>
-          
-        </figcaption>
-      </figure>
-      
-    </div>
-  </article>
-  
-  <article class="proj pcb-repo" id="rpi-camera-led">
+        <br><a href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-1.webp" aria-label="esp32c3-sx1278-adapter view 2">view 2</a>
+      </figcaption>
+    </figure>
+    
+  </div>
+</section>
+
+<section class="sect pcb-repo" id="rpi-camera-led">
+  <h2><span aria-hidden="true">💡</span> rpi-camera-led</h2>
+  <div class="proj">
     <div class="proj-head">
-      <h3><a href="https://github.com/mithro/rpi-camera-led">rpi-camera-led</a> · <span class="nowrap">Sep 2026 - Present</span></h3>
+      <h3><a href="https://github.com/mithro/rpi-camera-led">github.com/mithro/rpi-camera-led</a> · <span class="nowrap">Sep 2026 - Present</span></h3>
       <p class="meta">1 board · 71 commits · last change 2026-09-05</p>
     </div>
     <div class="proj-blurb">
-    <p>Interposer for the Raspberry Pi camera flex cable: passes the 15-way CSI bus straight through and adds I2C-controlled camera GPIO, PWM illumination LEDs and an ambient light sensor, driven by a CH32V003.</p>
-
-    <ul class="pcb-state" role="list">
-      <li><a href="https://github.com/mithro/rpi-camera-led/issues"><b>1</b> open issue</a></li>
-      <li><a href="https://github.com/mithro/rpi-camera-led/pulls"><b>1</b> open PR</a></li>
-      <li>no release yet</li>
-      
-      <li>Apache-2.0</li>
-    </ul>
-    <p class="pcb-commit">latest: <a href="https://github.com/mithro/rpi-camera-led/commit/6a00fb732f9e9c72309e9a7f588be71e8a03c96f"><code>6a00fb7</code></a>
-      Add back the Raspberry Pi camera board&#39;s mounting holes</p>
-    </div>
-
-    <div class="pcb-boards">
-      
-      <figure class="pcb-board">
-        <a class="pcb-hero" href="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-0.webp">
-          <img src="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-0.webp" width="960" height="648"
-               alt="3D render of the rpi-camera-led board" loading="lazy">
-        </a>
+      <p>Interposer for the Raspberry Pi camera flex cable: passes the 15-way CSI bus straight through and adds I2C-controlled camera GPIO, PWM illumination LEDs and an ambient light sensor, driven by a CH32V003.</p>
+      <ul class="pcb-state" role="list">
+        <li><a href="https://github.com/mithro/rpi-camera-led/issues"><b>1</b> open issue</a></li>
+        <li><a href="https://github.com/mithro/rpi-camera-led/pulls"><b>1</b> open PR</a></li>
+        <li>no release yet</li>
         
-        <div class="pcb-thumbs">
-          <a href="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-0.webp" aria-label="View rpi-camera-led image 1"><img src="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-0.webp" alt="" loading="lazy"></a><a href="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-1.webp" aria-label="View rpi-camera-led image 2"><img src="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-1.webp" alt="" loading="lazy"></a>
-        </div>
-        
-        <figcaption>
-          <span class="nm">rpi-camera-led</span>
-          
-          <dl>
-            <dt>size</dt><dd>25.0 × 23.9 mm</dd>
-            <dt>copper</dt><dd>2 layers</dd>
-            <dt>footprints</dt><dd>24</dd>
-            <dt>KiCad</dt><dd>9.0</dd>
-            <dt>board file</dt><dd><a href="https://github.com/mithro/rpi-camera-led/blob/main/hardware/rpi-camera-led.kicad_pcb">changed 2026-09-05</a></dd>
-          </dl>
-          
-        </figcaption>
-      </figure>
-      
+        <li>Apache-2.0</li>
+      </ul>
+      <p class="pcb-commit">latest: <a href="https://github.com/mithro/rpi-camera-led/commit/6a00fb732f9e9c72309e9a7f588be71e8a03c96f"><code>6a00fb7</code></a>
+        Add back the Raspberry Pi camera board&#39;s mounting holes</p>
     </div>
-  </article>
-  
+  </div>
 
+  <div class="pcb-boards">
+    
+    <figure class="pcb-board">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-0.webp">
+        <img src="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-0.webp" width="960" height="648"
+             alt="3D render of the rpi-camera-led board" loading="lazy">
+      </a>
+      <figcaption>
+        <span class="nm">rpi-camera-led</span>
+        
+        <span class="nowrap">25 × 23.9 mm</span><br>
+        <span class="nowrap">2 layers · 24 parts</span><br>
+        <span class="nowrap">KiCad 9.0 · <a href="https://github.com/mithro/rpi-camera-led/blob/main/hardware/rpi-camera-led.kicad_pcb">2026-09-05</a></span>
+        
+        <br><a href="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-1.webp" aria-label="rpi-camera-led view 2">view 2</a>
+      </figcaption>
+    </figure>
+    
+  </div>
+</section>
+
+
+<section class="sect">
   <p class="prose meta">Snapshot from 2026-11-19 —
   refresh with scripts/fetch_pcbs.py.</p>
 </section>
