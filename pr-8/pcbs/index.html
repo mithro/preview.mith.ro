@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>PCBs · Tim 'mithro' Ansell</title>
   <meta name="description" content="Printed circuit board projects worked on this year: repository state, board statistics and 3D renders.">
-  <meta name="git-commit" content="df92d4094c276c77ee54d39af69b06274a2da837">
+  <meta name="git-commit" content="3b62730be3df42d26cbb88bf957ac194e2aecfd3">
   <link rel="canonical" href="https://preview.mith.ro/pr-8/pcbs/">
   <meta name="robots" content="noindex">
   <style>:root {
@@ -461,17 +461,70 @@ ul.deg-list { padding-left: 0; list-style: none; }
 .pcb-board figcaption { padding: .5rem .65rem .6rem; font-family: var(--mono); font-size: .72rem; line-height: 1.45; color: var(--muted); }
 .pcb-board .nm { display: block; color: var(--silk); font-size: .8rem; font-weight: 600; overflow-wrap: anywhere; }
 .pcb-board figcaption a { color: var(--gold); }
+/* Overview: one compact card per project, linking to its section. */
+.pcb-overview { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 11.5rem), 1fr)); gap: .7rem; margin: 1.2rem 0 0; padding: 0; list-style: none; }
+.pcb-overview a { display: block; height: 100%; border: 1px solid var(--line); border-radius: 5px; background: var(--panel); color: var(--silk); text-decoration: none; overflow: hidden; }
+.pcb-overview a:hover, .pcb-overview a:focus-visible { border-color: var(--gold); }
+.pcb-overview .thumb { display: block; aspect-ratio: 3 / 2; background: #f4f3ef; padding: .3rem; }
+.pcb-overview img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.pcb-overview .t { display: block; padding: .45rem .6rem 0; font-family: var(--mono); font-size: .78rem; font-weight: 600; overflow-wrap: anywhere; }
+.pcb-overview .s { display: block; padding: .1rem .6rem .5rem; font-family: var(--mono); font-size: .7rem; color: var(--muted); }
+.pcb-repo { scroll-margin-top: 1rem; }
+.pcb-top { font-family: var(--mono); font-size: .72rem; margin: .8rem 0 0; }
+.pcb-top a { color: var(--muted); border-bottom: 0; }
+/* Click-to-enlarge (JS only; without JS the tiles link to the image). */
+.pcb-lb { border: 1px solid var(--line); border-radius: 6px; background: var(--panel); color: var(--silk); padding: 0; max-width: min(96vw, 70rem); max-height: 94vh; }
+.pcb-lb::backdrop { background: rgba(0, 0, 0, .8); }
+.pcb-lb img { display: block; max-width: 100%; max-height: calc(94vh - 3rem); margin: 0 auto; background: #f4f3ef; }
+.pcb-lb .bar { display: flex; align-items: center; gap: .6rem; padding: .5rem .7rem; font-family: var(--mono); font-size: .78rem; }
+.pcb-lb .cap { flex: 1; color: var(--muted); }
+.pcb-lb button { font: inherit; color: var(--silk); background: var(--panel2); border: 1px solid var(--line); border-radius: 3px; padding: .15rem .55rem; cursor: pointer; }
+.pcb-lb button:hover, .pcb-lb button:focus-visible { border-color: var(--gold); }
+.pcb-lb button[hidden] { display: none; }
 @media (max-width: 34rem) { .pcb-boards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; } }
 </style>
 
-<section class="sect">
+<section class="sect" id="top">
   <h2><span aria-hidden="true">🟩</span> PCBs</h2>
   <p class="prose pcb-intro">Circuit board projects with commits in
-  2026, most recently active first:
-  <a href="#minidc-temp-monitor">minidc-temp-monitor</a>, <a href="#budget-poe-adapter">budget-poe-adapter</a>, <a href="#esp32-to-gps">esp32-to-gps</a>, <a href="#esp32-to-433mhz">esp32-to-433mhz</a>, <a href="#rpi-camera-led">rpi-camera-led</a>.
+  2026, most recently active first.
   Renders are the KiCad 3D views each repository keeps alongside its
   design files; board size, layer and footprint counts are read straight from
-  the <code>.kicad_pcb</code> files.</p>
+  the <code>.kicad_pcb</code> files. Click a render to enlarge it.</p>
+
+  <ul class="pcb-overview" role="list">
+    
+    <li><a href="#minidc-temp-monitor">
+      <span class="thumb"><img src="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v003-0.webp" width="960" height="506" alt="" loading="lazy"></span>
+      <span class="t"><span aria-hidden="true">🌡️</span> minidc-temp-monitor</span>
+      <span class="s">2 boards · 2026-11-18</span>
+    </a></li>
+    
+    <li><a href="#budget-poe-adapter">
+      <span class="thumb"><img src="/pr-8/assets/pcbs/budget-poe-adapter--block-diagram-0.webp" width="960" height="476" alt="" loading="lazy"></span>
+      <span class="t"><span aria-hidden="true">🔌</span> budget-poe-adapter</span>
+      <span class="s">no layout yet · 2026-11-17</span>
+    </a></li>
+    
+    <li><a href="#esp32-to-gps">
+      <span class="thumb"><img src="/pr-8/assets/pcbs/esp32-to-gps--pinout-0.webp" width="960" height="415" alt="" loading="lazy"></span>
+      <span class="t"><span aria-hidden="true">🛰️</span> esp32-to-gps</span>
+      <span class="s">no layout yet · 2026-10-17</span>
+    </a></li>
+    
+    <li><a href="#esp32-to-433mhz">
+      <span class="thumb"><img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-0.webp" width="849" height="889" alt="" loading="lazy"></span>
+      <span class="t"><span aria-hidden="true">📡</span> esp32-to-433mhz</span>
+      <span class="s">2 boards · 2026-10-02</span>
+    </a></li>
+    
+    <li><a href="#rpi-camera-led">
+      <span class="thumb"><img src="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-0.webp" width="960" height="648" alt="" loading="lazy"></span>
+      <span class="t"><span aria-hidden="true">💡</span> rpi-camera-led</span>
+      <span class="s">1 board · 2026-09-05</span>
+    </a></li>
+    
+  </ul>
 </section>
 
 
@@ -499,7 +552,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <div class="pcb-boards">
     
     <figure class="pcb-board">
-      <a class="pcb-hero" href="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v003-0.webp">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v003-0.webp" data-lb="minidc-temp-monitor--sensor-ch32v003" data-cap="minidc-temp-monitor · sensor-ch32v003">
         <img src="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v003-0.webp" width="960" height="506"
              alt="3D render of the sensor-ch32v003 board" loading="lazy">
       </a>
@@ -515,7 +568,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     </figure>
     
     <figure class="pcb-board">
-      <a class="pcb-hero" href="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v005-0.webp">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v005-0.webp" data-lb="minidc-temp-monitor--sensor-ch32v005" data-cap="minidc-temp-monitor · sensor-ch32v005">
         <img src="/pr-8/assets/pcbs/minidc-temp-monitor--sensor-ch32v005-0.webp" width="960" height="506"
              alt="3D render of the sensor-ch32v005 board" loading="lazy">
       </a>
@@ -531,6 +584,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     </figure>
     
   </div>
+  <p class="pcb-top"><a href="#top">↑ all projects</a></p>
 </section>
 
 <section class="sect pcb-repo" id="budget-poe-adapter">
@@ -557,7 +611,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <div class="pcb-boards">
     
     <figure class="pcb-board">
-      <a class="pcb-hero" href="/pr-8/assets/pcbs/budget-poe-adapter--block-diagram-0.webp">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/budget-poe-adapter--block-diagram-0.webp" data-lb="budget-poe-adapter--block-diagram" data-cap="budget-poe-adapter · block diagram">
         <img src="/pr-8/assets/pcbs/budget-poe-adapter--block-diagram-0.webp" width="960" height="476"
              alt="budget-poe-adapter block diagram" loading="lazy">
       </a>
@@ -571,6 +625,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     </figure>
     
   </div>
+  <p class="pcb-top"><a href="#top">↑ all projects</a></p>
 </section>
 
 <section class="sect pcb-repo" id="esp32-to-gps">
@@ -597,7 +652,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <div class="pcb-boards">
     
     <figure class="pcb-board">
-      <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-gps--pinout-0.webp">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-gps--pinout-0.webp" data-lb="esp32-to-gps--pinout" data-cap="esp32-to-gps · pinout">
         <img src="/pr-8/assets/pcbs/esp32-to-gps--pinout-0.webp" width="960" height="415"
              alt="esp32-to-gps pinout" loading="lazy">
       </a>
@@ -611,6 +666,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
     </figure>
     
   </div>
+  <p class="pcb-top"><a href="#top">↑ all projects</a></p>
 </section>
 
 <section class="sect pcb-repo" id="esp32-to-433mhz">
@@ -638,7 +694,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <div class="pcb-boards">
     
     <figure class="pcb-board">
-      <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-0.webp">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-0.webp" data-lb="esp32-to-433mhz--esp32c3-radio-adapter" data-cap="esp32-to-433mhz · esp32c3-radio-adapter">
         <img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-0.webp" width="849" height="889"
              alt="3D render of the esp32c3-radio-adapter board" loading="lazy">
       </a>
@@ -649,12 +705,12 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <span class="nowrap">2 layers · 14 parts</span><br>
         <span class="nowrap">KiCad 9.0 · <a href="https://github.com/mithro/esp32-to-433mhz/blob/main/hardware/esp32c3-radio-adapter/esp32c3-radio-adapter.kicad_pcb">2026-09-09</a></span>
         
-        <br><a href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-1.webp" aria-label="esp32c3-radio-adapter view 2">view 2</a>
+        <br><a href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-radio-adapter-1.webp" data-lb="esp32-to-433mhz--esp32c3-radio-adapter" data-cap="esp32-to-433mhz · esp32c3-radio-adapter" aria-label="esp32c3-radio-adapter view 2">view 2</a>
       </figcaption>
     </figure>
     
     <figure class="pcb-board">
-      <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-0.webp">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-0.webp" data-lb="esp32-to-433mhz--esp32c3-sx1278-adapter" data-cap="esp32-to-433mhz · esp32c3-sx1278-adapter">
         <img src="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-0.webp" width="545" height="471"
              alt="3D render of the esp32c3-sx1278-adapter board" loading="lazy">
       </a>
@@ -665,11 +721,12 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <span class="nowrap">2 layers · 5 parts</span><br>
         <span class="nowrap">KiCad 9.0 · <a href="https://github.com/mithro/esp32-to-433mhz/blob/main/hardware/esp32c3-sx1278-adapter/esp32c3-sx1278-adapter.kicad_pcb">2026-09-06</a></span>
         
-        <br><a href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-1.webp" aria-label="esp32c3-sx1278-adapter view 2">view 2</a>
+        <br><a href="/pr-8/assets/pcbs/esp32-to-433mhz--esp32c3-sx1278-adapter-1.webp" data-lb="esp32-to-433mhz--esp32c3-sx1278-adapter" data-cap="esp32-to-433mhz · esp32c3-sx1278-adapter" aria-label="esp32c3-sx1278-adapter view 2">view 2</a>
       </figcaption>
     </figure>
     
   </div>
+  <p class="pcb-top"><a href="#top">↑ all projects</a></p>
 </section>
 
 <section class="sect pcb-repo" id="rpi-camera-led">
@@ -696,7 +753,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <div class="pcb-boards">
     
     <figure class="pcb-board">
-      <a class="pcb-hero" href="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-0.webp">
+      <a class="pcb-hero" href="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-0.webp" data-lb="rpi-camera-led--rpi-camera-led" data-cap="rpi-camera-led · rpi-camera-led">
         <img src="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-0.webp" width="960" height="648"
              alt="3D render of the rpi-camera-led board" loading="lazy">
       </a>
@@ -707,11 +764,12 @@ ul.deg-list { padding-left: 0; list-style: none; }
         <span class="nowrap">2 layers · 24 parts</span><br>
         <span class="nowrap">KiCad 9.0 · <a href="https://github.com/mithro/rpi-camera-led/blob/main/hardware/rpi-camera-led.kicad_pcb">2026-09-05</a></span>
         
-        <br><a href="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-1.webp" aria-label="rpi-camera-led view 2">view 2</a>
+        <br><a href="/pr-8/assets/pcbs/rpi-camera-led--rpi-camera-led-1.webp" data-lb="rpi-camera-led--rpi-camera-led" data-cap="rpi-camera-led · rpi-camera-led" aria-label="rpi-camera-led view 2">view 2</a>
       </figcaption>
     </figure>
     
   </div>
+  <p class="pcb-top"><a href="#top">↑ all projects</a></p>
 </section>
 
 
@@ -719,6 +777,41 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <p class="prose meta">Snapshot from 2026-11-19 —
   refresh with scripts/fetch_pcbs.py.</p>
 </section>
+
+<dialog class="pcb-lb" aria-label="Enlarged image">
+  <img alt="">
+  <div class="bar"><button type="button" data-step="-1" aria-label="Previous image">‹</button><span class="cap"></span><button type="button" data-step="1" aria-label="Next image">›</button><button type="button" data-close>close</button></div>
+</dialog>
+<script>
+(function () {
+  var dlg = document.querySelector('.pcb-lb');
+  if (!dlg || !dlg.showModal) return;  // no <dialog>: links open the image
+  var img = dlg.querySelector('img'), cap = dlg.querySelector('.cap');
+  var prev = dlg.querySelector('[data-step="-1"]'), next = dlg.querySelector('[data-step="1"]');
+  var group = [], at = 0;
+  function show(i) {
+    at = i; var a = group[i];
+    img.src = a.href; img.alt = a.dataset.cap;
+    cap.textContent = a.dataset.cap + (group.length > 1 ? ' (' + (i + 1) + ' of ' + group.length + ')' : '');
+    prev.hidden = next.hidden = group.length < 2;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-lb]');
+    if (!a || e.ctrlKey || e.metaKey || e.shiftKey || e.button) return;
+    e.preventDefault();
+    group = Array.prototype.filter.call(document.querySelectorAll('a[data-lb]'),
+      function (x) { return x.dataset.lb === a.dataset.lb; });
+    show(group.indexOf(a)); dlg.showModal();
+  });
+  function step(d) { if (group.length > 1) show((at + d + group.length) % group.length); }
+  prev.onclick = function () { step(-1); }; next.onclick = function () { step(1); };
+  dlg.querySelector('[data-close]').onclick = function () { dlg.close(); };
+  dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
+  dlg.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowLeft') step(-1); else if (e.key === 'ArrowRight') step(1);
+  });
+})();
+</script>
 
   </main>
   <footer class="footer">
