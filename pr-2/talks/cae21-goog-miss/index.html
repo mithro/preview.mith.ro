@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The missing pieces of open design enablement: a recent history of Google efforts · Tim 'mithro' Ansell</title>
-  <meta name="description" content="Talk by Tim 'mithro' Ansell — Argentine Conference on Electronics (CAE) Summit · 12 Mar 2021.">
-  <meta name="git-commit" content="7c528f324926d04107fa76ec3e9bbc1b463a6417">
+  <title>The missing pieces of open design enablement: a recent history of Google efforts · Tim &#39;mithro&#39; Ansell</title>
+  <meta name="description" content="Talk by Tim &#39;mithro&#39; Ansell — Argentine Conference on Electronics (CAE) Summit · 12 Mar 2021.">
+  <meta name="git-commit" content="6db3a29635bacbce5c22efecf1073217aa27cbf3">
   <link rel="canonical" href="https://preview.mith.ro/pr-2/talks/cae21-goog-miss/">
   <style>:root {
   --bg: #0e0f11;
@@ -313,6 +313,64 @@ ul.deg-list { padding-left: 0; list-style: none; }
 /* The embeds sit in their own full-width row attached to the talk above. */
 .talks-table tr.embrow td { border-top: 0; padding-top: 0; }
 
+/* ---- Contribution calendar (/contributions/) ------------------------
+   One row per year, GitHub-style: 7 squares down (Sun-Sat), one column
+   per week. Levels l1-l8 are a single all-time scale that doubles each
+   step, so a colour means the same amount of activity in every year. */
+.contrib, .contrib-legend {
+  --c0: var(--panel2); --c1: #2f2710; --c2: #4b3d14; --c3: #6c571a; --c4: #8f7220;
+  --c5: #b38d26; --c6: var(--gold); --c7: #f4cd55; --c8: #fff3bf;
+}
+.contrib { padding-bottom: .4rem; }
+.contrib i, .contrib-legend i { display: block; flex: none; width: 10px; height: 10px; border-radius: 2px; background: var(--c0); }
+.contrib i.l1, .contrib-legend i.l1 { background: var(--c1); }
+.contrib i.l2, .contrib-legend i.l2 { background: var(--c2); }
+.contrib i.l3, .contrib-legend i.l3 { background: var(--c3); }
+.contrib i.l4, .contrib-legend i.l4 { background: var(--c4); }
+.contrib i.l5, .contrib-legend i.l5 { background: var(--c5); }
+.contrib i.l6, .contrib-legend i.l6 { background: var(--c6); }
+.contrib i.l7, .contrib-legend i.l7 { background: var(--c7); }
+.contrib i.l8, .contrib-legend i.l8 { background: var(--c8); }
+.contrib i.p { visibility: hidden; }
+.contrib i.f { background: transparent; box-shadow: inset 0 0 0 1px var(--panel2); }
+.contrib-legend { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 0 0 1rem; color: var(--muted); font-size: .72rem; }
+.contrib-legend span { margin-right: .7rem; }
+/* Year rows: total | calendar | organisations. With organisation names
+   kept on one line the three columns need nearly the full 1,040px
+   content width, so below that the organisations move under the
+   calendar (see the media query below) instead of scrolling out of view. */
+.cy { display: grid; grid-template-columns: auto auto auto; column-gap: .6rem; align-items: start; width: max-content; padding: .45rem 0; }
+.cy-meta { width: 4.2rem; padding-top: 14px; text-align: right; }
+.cy-meta a { display: block; color: var(--silk); font-weight: 700; text-decoration: none; }
+.cy-meta a:hover, .cy-meta a:focus-visible { color: var(--gold); }
+.cy-meta span { display: block; color: var(--muted); font-size: .75rem; font-variant-numeric: tabular-nums; }
+.cy-meta b { display: block; height: 3px; margin: 3px 0 0 auto; border-radius: 2px; background: var(--gold); }
+.cy-months { display: grid; grid-template-columns: repeat(54, 10px); gap: 3px; height: 14px; margin-left: 31px; color: var(--muted); font-size: .6rem; line-height: 12px; }
+.cy-months span { grid-row: 1; white-space: nowrap; }
+.cy-body { display: flex; gap: 3px; }
+.cy-wd { display: grid; grid-template-rows: repeat(7, 10px); gap: 3px; width: 28px; color: var(--muted); font-size: .55rem; line-height: 10px; }
+.cy-grid { display: grid; grid-template-rows: repeat(7, 10px); grid-auto-columns: 10px; grid-auto-flow: column; gap: 3px; }
+/* The year's top organisations by contribution count, styled like the
+   organisation buttons on GitHub's profile page. */
+.cy-orgs { list-style: none; margin: 0; padding: 16px 0 0; font-size: .7rem; }
+.cy-orgs li + li { margin-top: 5px; }
+/* Each button stays on one line: logins never break at their hyphens. */
+.cy-orgs a { display: inline-flex; align-items: center; gap: .4rem; padding: 1px .45rem 1px 2px; border: 1px solid var(--line); border-radius: 4px; color: var(--silk); text-decoration: none; line-height: 1.35; white-space: nowrap; }
+.cy-orgs a:hover, .cy-orgs a:focus-visible { color: var(--gold); border-color: var(--gold-dim); }
+.cy-orgs img { display: block; flex: none; border-radius: 3px; background: #fff; }
+.cy-orgs span { color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* 1100px, not 1080px: a vertical scrollbar takes ~15px of the viewport. */
+@media (max-width: 1100px) {
+  .cy { grid-template-columns: auto auto; }
+  .cy-orgs { grid-column: 2; display: flex; flex-wrap: wrap; gap: 5px 6px; padding: 6px 0 0 31px; }
+  .cy-orgs li + li { margin-top: 0; }
+}
+/* Phones: the calendar itself is wider than the screen and scrolls
+   sideways, so keep the organisations within the visible width. */
+@media (max-width: 640px) {
+  .cy-orgs { grid-column: 1 / -1; max-width: calc(100vw - 2.5rem); padding-left: 0; }
+}
+
 /* ---- Print ----------------------------------------------------------
    The resume page prints like the canonical resume Google Doc: black
    Arial on white, plain section headings, name + contact masthead.
@@ -452,7 +510,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
   <link rel="alternate" type="application/rss+xml" title="Tim 'mithro' Ansell — Talks" href="https://preview.mith.ro/pr-2/talks/feed.xml">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><circle cx=%228%22 cy=%228%22 r=%226%22 fill=%22none%22 stroke=%22%23d4a72c%22 stroke-width=%221.5%22/><path d=%22M8 0v5M8 11v5M0 8h5M11 8h5%22 stroke=%22%23d4a72c%22 stroke-width=%221.5%22/></svg>">
   <meta property="og:title" content="The missing pieces of open design enablement: a recent history of Google efforts">
-  <meta property="og:description" content="Talk by Tim 'mithro' Ansell — Argentine Conference on Electronics (CAE) Summit · 12 Mar 2021.">
+  <meta property="og:description" content="Talk by Tim &#39;mithro&#39; Ansell — Argentine Conference on Electronics (CAE) Summit · 12 Mar 2021.">
   <meta property="og:url" content="https://preview.mith.ro/pr-2/talks/cae21-goog-miss/">
   <meta property="og:image" content="https://preview.mith.ro/pr-2/assets/thumbs/slides/cae21-goog-miss-640.webp">
   <script type="application/ld+json">
@@ -510,7 +568,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
 <div class="embed-col">
   <a class="emb-cap" href="https://youtu.be/l5-nj1_VV8Y"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span> youtu.be/l5-nj1_VV8Y</a>
   <button type="button" class="embed-lite lite-video" data-src="https://www.youtube-nocookie.com/embed/l5-nj1_VV8Y?autoplay=1" aria-label="Play video: Argentine Conference on Electronics (CAE) Summit - The Missing Pieces of Open Design Enablement: A Recent History of Google Efforts">
-    <img src="/pr-2/assets/thumbs/video/l5-nj1_VV8Y-320.webp" srcset="/pr-2/assets/thumbs/video/l5-nj1_VV8Y-320.webp 320w, /pr-2/assets/thumbs/video/l5-nj1_VV8Y-640.webp 640w" sizes="(max-width: 640px) 92vw, 420px" width="640" height="360" alt="" fetchpriority="high" decoding="async">
+    <img src="/pr-2/assets/thumbs/video/l5-nj1_VV8Y-320.webp" srcset="/pr-2/assets/thumbs/video/l5-nj1_VV8Y-320.webp 320w, /pr-2/assets/thumbs/video/l5-nj1_VV8Y-640.webp 640w" sizes="(max-width: 640px) 92vw, 420px" width="640" height="360" alt="" loading="lazy" decoding="async">
     <span class="lite-play" aria-hidden="true"><svg role="img" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><title>Play video</title><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#f00"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
 </span>
   </button>
@@ -518,7 +576,7 @@ ul.deg-list { padding-left: 0; list-style: none; }
 <div class="embed-col">
   <a class="emb-cap" href="/pr-2/cae21-goog-miss/"><span class="ci-icon" aria-hidden="true"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Google Slides</title><path d="M16.09 15.273H7.91v-4.637h8.18v4.637zm1.728-8.523h2.91v15.614c0 .904-.733 1.636-1.637 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.068v6.75h3.841zm-.363 2.523H6.545v7.363h10.91V9.273zm-2.728-5.979V6h6.001l-6-6v3.294z"/></svg></span> mith.ro/cae21-goog-miss</a>
   <button type="button" class="embed-lite lite-slides" data-src="https://docs.google.com/presentation/d/1fESYF-PC7fSs8dsbvwE6f6dPFuSAc5EDNaWl_zO-HN4/embed" aria-label="Load slides: Argentine Conference on Electronics (CAE) Summit - The Missing Pieces of Open Design Enablement: A Recent History of Google Efforts">
-    <img src="/pr-2/assets/thumbs/slides/cae21-goog-miss-320.webp" srcset="/pr-2/assets/thumbs/slides/cae21-goog-miss-320.webp 320w, /pr-2/assets/thumbs/slides/cae21-goog-miss-640.webp 640w" sizes="(max-width: 640px) 92vw, 420px" width="640" height="360" alt="" fetchpriority="high" decoding="async">
+    <img src="/pr-2/assets/thumbs/slides/cae21-goog-miss-320.webp" srcset="/pr-2/assets/thumbs/slides/cae21-goog-miss-320.webp 320w, /pr-2/assets/thumbs/slides/cae21-goog-miss-640.webp 640w" sizes="(max-width: 640px) 92vw, 420px" width="640" height="360" alt="" loading="lazy" decoding="async">
     <span class="lite-play" aria-hidden="true"><svg role="img" viewBox="0 0 68 48" xmlns="http://www.w3.org/2000/svg"><title>Present slides</title><rect width="68" height="48" rx="8" fill="#fbbc04"/><rect x="7" y="7" width="54" height="34" rx="2" fill="none" stroke="#fff" stroke-width="2.5" opacity=".55"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>
 </span>
   </button>
