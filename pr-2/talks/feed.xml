@@ -6,7 +6,7 @@
     <atom:link href="https://preview.mith.ro/pr-2/talks/feed.xml" rel="self" type="application/rss+xml" />
     <description>Talks and presentations by Tim 'mithro' Ansell — open source silicon, FPGAs, EDA and more.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 19 Nov 2026 01:47:27 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Nov 2026 01:49:14 +0000</lastBuildDate>
     <item>
       <title>wafer.space at TSRI 2026</title>
       <link>https://preview.mith.ro/pr-2/talks/tsri26/</link>
@@ -277,13 +277,6 @@
       <title>Open down to the transistor: a fully open source, manufacturable PDK for a 130nm process</title>
       <link>https://preview.mith.ro/pr-2/talks/esscirc21-sky130-v2/</link>
       <guid isPermaLink="false">mith.ro-talk-2021-09-21-esscirc-essderc-2021-open-down-to-the-transistor-a-fully-open-source-manufacturable-pdk-for-130nm-process-for-ic-creation-silicon-down-to-the-transistor-tim-ansell-google-</guid>
-      <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
-      <description> · 21 Sep 2021</description>
-    </item>
-    <item>
-      <title>Open down to the transistor (summary)</title>
-      <link>https://preview.mith.ro/pr-2/talks/esscirc21-sky130-summary/</link>
-      <guid isPermaLink="false">mith.ro-talk-2021-09-21-esscirc-essderc-2021-open-down-to-the-transistor-a-fully-open-source-manufacturable-pdk-for-130nm-process-for-ic-creation-silicon-down-to-the-transistor-tim-ansell-google-summary-</guid>
       <pubDate>Tue, 21 Sep 2021 00:00:00 +0000</pubDate>
       <description> · 21 Sep 2021</description>
     </item>
